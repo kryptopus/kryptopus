@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+./src
+./example/src
+
+[libs]
+
+[options]
+all=false
+module.use_strict=true
+module.file_ext=.js
+unsafe.enable_getters_and_setters=true

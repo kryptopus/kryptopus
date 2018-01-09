@@ -1,0 +1,13 @@
+kryptopus:
+    server: https://api.kryptopus.com/v1/
+    api_key: abcd
+    api_secret: abcd
+
+exchanges:
+    bitstamp:
+        type: bitstamp
+        api_key: abcd
+        api_secret: abcd
+
+
+
