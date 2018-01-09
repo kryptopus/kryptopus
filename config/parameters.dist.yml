@@ -6,6 +6,7 @@ kryptopus:
 exchanges:
     bitstamp:
         type: bitstamp
+        customer_id: abcd
         api_key: abcd
         api_secret: abcd
 
