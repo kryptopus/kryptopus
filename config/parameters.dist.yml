@@ -4,9 +4,14 @@ kryptopus:
     api_secret: abcd
 
 exchanges:
-    bitstamp:
+    my_bitstamp:
         type: bitstamp
         customer_id: abcd
+        api_key: abcd
+        api_secret: abcd
+
+    my_binance:
+        type: binance
         api_key: abcd
         api_secret: abcd
 
