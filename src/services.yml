@@ -1,5 +1,8 @@
 services:
-    kryptopus_exchange_finder:
-        class: domain/exchange/service/ExchangeFinder
+    app_command_bot_execute:
+        class: "application/command/ExecuteBot"
         arguments:
-            - "%exchanges%"
+        tags:
+            - { name: "solfege.console.command" }
+
+

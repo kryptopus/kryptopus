@@ -35,7 +35,8 @@
         "build": "babel --out-dir lib src --copy-files",
         "postbuild": "echo \"----- READY -----\"",
         "watch": "watch 'echo \"----------\"; npm run build --silent' ./src",
-        "console": "node lib/console.js"
+        "console": "node lib/console.js",
+        "bot": "npm run console bot:execute"
     },
     "babel": {
         "presets": [

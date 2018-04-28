@@ -1,5 +1,5 @@
 /* @flow */
-import Exchange from "../../entity/Exchange"
+import Exchange from "../entity/Exchange"
 
 /**
  * Find exchanges
