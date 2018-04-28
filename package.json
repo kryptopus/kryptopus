@@ -15,10 +15,6 @@
     },
     "dependencies": {
         "decko": "^1.2.0",
-        "kryptopus-exchange": "^1.0.0",
-        "kryptopus-exchange-bitstamp": "^0.1.0",
-        "kryptopus-terminal-interface": "file:../terminal-interface",
-        "kryptopus-terminal-interface-body-binance-exchange": "file:../terminal-interface-body-binance-exchange",
         "solfegejs": "^3.1.1"
     },
     "devDependencies": {
@@ -35,7 +31,7 @@
         "flow-restart": "flow stop && flow start",
         "lint": "eslint --ext .js src",
         "prepare": "npm run build",
-        "prebuild": "npm run lint && npm run flow-restart && flow",
+        "prebuild": "npm run lint && flow",
         "build": "babel --out-dir lib src --copy-files",
         "postbuild": "echo \"----- READY -----\"",
         "watch": "watch 'echo \"----------\"; npm run build --silent' ./src",

@@ -1,5 +1,5 @@
 services:
     kryptopus_exchange_finder:
-        class: domain/service/exchange/ExchangeFinder
+        class: domain/exchange/service/ExchangeFinder
         arguments:
             - "%exchanges%"
