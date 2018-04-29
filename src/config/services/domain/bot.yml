@@ -1,0 +1,14 @@
+services:
+    kryptopus_bot_registry:
+        class: domain/bot/service/BotRegistry
+
+    kryptopus_bot_builder:
+        class: domain/bot/service/BotBuilder
+        arguments:
+            - "@kryptopus_bot_registry"
+            - "@container"
+
+    kryptopus_bot_hello_world:
+        class: domain/bot/entity/HelloWorld
+        tags: 
+            - {name: kryptopus.bot }

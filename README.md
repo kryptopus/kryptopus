@@ -21,7 +21,7 @@ Execute a bot
 -------------
 
 ```bash
-npm run bot myBot001
+npm run bot kryptopus_bot_hello_world
 ```
 
 

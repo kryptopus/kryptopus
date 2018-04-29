@@ -1,8 +1,5 @@
-services:
-    app_command_bot_execute:
-        class: "application/command/ExecuteBot"
-        arguments:
-        tags:
-            - { name: "solfege.console.command" }
+imports:
+    - { resource: "config/services/application/commands.yml" }
+    - { resource: "config/services/domain/bot.yml" }
 
 

@@ -1,0 +1,9 @@
+services:
+    kryptopus_command_bot_execute:
+        class: "application/command/ExecuteBot"
+        arguments:
+            - "@kryptopus_bot_builder"
+        tags:
+            - { name: "solfege.console.command" }
+
+
