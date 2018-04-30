@@ -1,14 +1,15 @@
 /* @flow */
 import type {BotInterface} from "./BotInterface"
+import type BotContext from "../valueObject/BotContext"
 
 export default class HelloWorld implements BotInterface
 {
     /**
      * Execute the bot
      *
-     * @param   {Array}     parameters  Bot parameters
+     * @param   {BotContext}    context     Bot context
      */
-    async execute(parameters:Array<string>):void | Promise<void>
+    async execute(context:BotContext):void | Promise<void>
     {
         console.info("Hello world!");
     }

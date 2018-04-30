@@ -1,4 +1,5 @@
 /* @flow */
+import type BotContext from "../valueObject/BotContext"
 
 /**
  * Bot interface
@@ -8,8 +9,8 @@ export interface BotInterface
     /**
      * Execute the bot
      *
-     * @param   {Array}     parameters  Bot parameters
+     * @param   {BotContext}    context     Bot context
      */
-    execute(parameters:Array<string>):void | Promise<void>;
+    execute(context:BotContext):void | Promise<void>;
 }
 

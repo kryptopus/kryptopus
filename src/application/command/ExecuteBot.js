@@ -1,17 +1,27 @@
 /* @flow */
 import ContainerAwareCommand from "solfegejs-cli/lib/Command/ContainerAwareCommand"
-import type BotBuilder from "../../domain/bot/service/BotBuilder"
+import type DomainExecuteBot from "../../domain/bot/command/ExecuteBot"
 
 /**
  * Run a bot
  */
 export default class ExecuteBot extends ContainerAwareCommand
 {
-    constructor(builder:BotBuilder)
+    /**
+     * Execute bot command from domain
+     */
+    domainCommand:DomainExecuteBot;
+
+    /**
+     * Constructor
+     *
+     * @param   {DomainExecuteBot}  domainCommand   Execute bot command from domain
+     */
+    constructor(domainCommand:DomainExecuteBot)
     {
         super();
 
-        this.builder = builder;
+        this.domainCommand = domainCommand;
     }
 
     /**
@@ -29,13 +39,11 @@ export default class ExecuteBot extends ContainerAwareCommand
     async execute(parameters:Array<string>)
     {
         if (parameters.length <= 0) {
-            throw new Error("Please provide a bot identifier");
+            throw new Error("Please provide a bot name");
         }
 
-        const botId = parameters.shift();
-        const bot = await this.builder.build(botId);
+        const name = parameters.shift();
 
-        console.info(`Execute ${botId} ...`);
-        await bot.execute();
+        await this.domainCommand.execute(name);
     }
 }
