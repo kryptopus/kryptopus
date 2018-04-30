@@ -38,7 +38,7 @@ export default class ExecuteBot
     async execute(name:string, parameters:?any):Promise<void>
     {
         const bot = await this.builder.build(name);
-        const context = await this.contextBuilder.build();
+        const context = await this.contextBuilder.build(name);
         await bot.execute(context);
     }
 }

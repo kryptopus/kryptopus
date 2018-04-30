@@ -15,7 +15,8 @@
     },
     "dependencies": {
         "decko": "^1.2.0",
-        "solfegejs": "^3.1.1"
+        "solfegejs": "^3.1.1",
+        "winston": "^3.0.0-rc5"
     },
     "devDependencies": {
         "babel-cli": "^6.7",
@@ -33,7 +34,7 @@
         "prepare": "npm run build",
         "prebuild": "npm run lint && flow",
         "build": "babel --out-dir lib src --copy-files",
-        "postbuild":    "echo \"--------- READY ----------\"",
+        "postbuild": "echo \"--------- READY ----------\"",
         "watch": "watch 'echo \"----- START BUILDING -----\"; npm run build --silent' ./src",
         "console": "node lib/console.js",
         "bot": "npm run console bot:execute"
