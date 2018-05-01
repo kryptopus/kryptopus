@@ -28,8 +28,24 @@ export default class BotContext
         this.logger = logger;
     }
 
+    /**
+     * Log information
+     *
+     * @param   {string}    message     Message
+     */
     logInfo(message:string):void
     {
         this.logger.info(message);
+    }
+
+    /**
+     * Get service instance
+     *
+     * @param   {string}    name    Service name
+     * @return  {any}               Service instance
+     */
+    async getService(name:string):Promise<any>
+    {
+        return await this.container.get(name);
     }
 }
