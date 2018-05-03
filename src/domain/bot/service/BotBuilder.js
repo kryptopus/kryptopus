@@ -2,7 +2,7 @@
 import {bind} from "decko"
 import type Container from "solfegejs-dependency-injection/src/ServiceContainer/Container"
 import type BotRegistry from "./BotRegistry"
-import type {BotInterface} from "../entity/BotInterface"
+import type {BotInterface} from "../model/BotInterface"
 
 /**
  * Build bots

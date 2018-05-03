@@ -1,10 +1,17 @@
 services:
     # Command to execute a bot
-    kryptopus_bot_command_execute:
-        class: domain/bot/command/ExecuteBot
+    kryptopus_bot_command_handler_execute:
+        class: domain/bot/commandHandler/ExecuteBot
         arguments:
             - "@kryptopus_bot_builder"
             - "@kryptopus_bot_context_builder"
+
+    # Query to list available bots
+    kryptopus_bot_query_list:
+        class: domain/bot/query/ListBots
+        arguments:
+            - "@kryptopus_bot_registry"
+
 
     # Register bots
     kryptopus_bot_registry:
@@ -27,8 +34,3 @@ services:
         arguments:
             - "@kryptopus_bot_container"
 
-    # Sample bot
-    kryptopus_bot_hello_world:
-        class: domain/bot/entity/HelloWorld
-        tags: 
-            - { name: kryptopus.bot }

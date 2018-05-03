@@ -1,9 +1,29 @@
 services:
-    app_command_bot_execute:
-        class: "application/command/ExecuteBot"
+    # List available bots
+    app_command_bot_list:
+        class: application/command/ListBots
         arguments:
-            - "@kryptopus_bot_command_execute"
+            - "@kryptopus_bot_query_list"
+        tags:
+            - { name: "solfege.console.command" }
+
+    # Execute a bot
+    app_command_bot_execute:
+        class: application/command/ExecuteBot
+        arguments:
+            - "@kryptopus_bot_command_handler_execute"
         tags:
             - { name: "solfege.console.command" }
 
 
+    # Install plugins
+    app_command_plugin_install_all:
+        class: application/command/InstallPlugins
+        arguments:
+            - "@app_configuration"
+        tags:
+            - { name: "solfege.console.command" }
+
+    # Application configuration
+    app_configuration:
+        factory: ["@container", getConfiguration]

@@ -1,5 +1,5 @@
 /* @flow */
-import type BotContext from "../valueObject/BotContext"
+import type BotContext from "./BotContext"
 
 /**
  * Bot interface

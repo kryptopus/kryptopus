@@ -2,7 +2,7 @@
 import {bind} from "decko"
 import winston from "winston"
 import type Container from "solfegejs-dependency-injection/src/ServiceContainer/Container"
-import BotContext from "../valueObject/BotContext"
+import BotContext from "../model/BotContext"
 
 /**
  * Build bot context

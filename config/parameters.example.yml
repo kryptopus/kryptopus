@@ -10,5 +10,6 @@ exchanges:
         api_key: abcd
         api_secret: abcd
 
-
+plugins:
+    hello-world: file:examples/lib/bots/HelloWorld
 

@@ -1,6 +1,7 @@
 /* @flow */
 import ContainerAwareCommand from "solfegejs-cli/lib/Command/ContainerAwareCommand"
-import type DomainExecuteBot from "../../domain/bot/command/ExecuteBot"
+import ExecuteBotCommand from "../../domain/bot/command/ExecuteBot"
+import type ExecuteBotHandler from "../../domain/bot/commandHandler/ExecuteBot"
 
 /**
  * Run a bot
@@ -8,20 +9,20 @@ import type DomainExecuteBot from "../../domain/bot/command/ExecuteBot"
 export default class ExecuteBot extends ContainerAwareCommand
 {
     /**
-     * Execute bot command from domain
+     * Handler of the command
      */
-    domainCommand:DomainExecuteBot;
+    handler:ExecuteBotHandler;
 
     /**
      * Constructor
      *
-     * @param   {DomainExecuteBot}  domainCommand   Execute bot command from domain
+     * @param   {DomainExecuteBot}  handler     Handler of the command
      */
-    constructor(domainCommand:DomainExecuteBot)
+    constructor(handler:ExecuteBotHandler)
     {
         super();
 
-        this.domainCommand = domainCommand;
+        this.handler = handler;
     }
 
     /**
@@ -43,7 +44,8 @@ export default class ExecuteBot extends ContainerAwareCommand
         }
 
         const name = parameters.shift();
+        const command = new ExecuteBotCommand(name);
 
-        await this.domainCommand.execute(name);
+        await this.handler.handle(command);
     }
 }

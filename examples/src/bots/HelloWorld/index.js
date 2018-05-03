@@ -1,6 +1,6 @@
 /* @flow */
-import type {BotInterface} from "./BotInterface"
-import type BotContext from "../valueObject/BotContext"
+import type {BotInterface} from "../../../../src/domain/bot/model/BotInterface"
+import type BotContext from "../../../../src/domain/bot/model/BotContext"
 
 export default class HelloWorld implements BotInterface
 {

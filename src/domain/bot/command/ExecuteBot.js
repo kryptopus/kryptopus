@@ -1,44 +1,22 @@
 /* @flow */
-import type BotBuilder from "../service/BotBuilder"
-import type BotContextBuilder from "../service/BotContextBuilder"
 
 /**
- * Execute a bot
+ * Command to execute a bot
  */
 export default class ExecuteBot
 {
     /**
-     * Bot builder
+     * Bot name
      */
-    builder:BotBuilder;
-
-    /**
-     * Bot context builder
-     */
-    contextBuilder:BotContextBuilder;
+    name:string;
 
     /**
      * Constructor
      *
-     * @param   {BotBuilder}        builder         Bot builder
-     * @param   {BotContextBuilder} contextBuilder  Bot context builder
+     * @param   {string}    name    Bot name
      */
-    constructor(builder:BotBuilder, contextBuilder:BotContextBuilder)
+    constructor(name:string)
     {
-        this.builder = builder;
-        this.contextBuilder = contextBuilder;
-    }
-
-    /**
-     * Execute a bot
-     *
-     * @param   {string}    name        Bot name
-     * @param   {any}       parameters  Bot parameters
-     */
-    async execute(name:string, parameters:?any):Promise<void>
-    {
-        const bot = await this.builder.build(name);
-        const context = await this.contextBuilder.build(name);
-        await bot.execute(context);
+        this.name = name;
     }
 }

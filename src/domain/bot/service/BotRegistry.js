@@ -54,6 +54,17 @@ export default class BotRegistry
     }
 
     /**
+     * Get registered identifiers
+     *
+     * @return  {Array}     Registered identifier
+     */
+    @bind
+    getIds():Array<string>
+    {
+        return Array.from(this.botDefinitions.keys());
+    }
+
+    /**
      * Get bot definition by its identifier
      *
      * @param   {string}                id  Bot identifier

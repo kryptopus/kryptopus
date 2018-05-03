@@ -14,7 +14,9 @@
         "node": ">= 9"
     },
     "dependencies": {
+        "config-yaml": "^1.0.6",
         "decko": "^1.2.0",
+        "npm": "^6.0.0",
         "solfegejs": "^3.1.1",
         "winston": "^3.0.0-rc5"
     },
@@ -36,6 +38,7 @@
         "build": "babel --out-dir lib src --copy-files",
         "postbuild": "echo \"--------- READY ----------\"",
         "watch": "watch 'echo \"----- START BUILDING -----\"; npm run build --silent' ./src",
+        "examples-build": "babel --out-dir examples/lib examples/src --copy-files",
         "console": "node lib/console.js",
         "bot": "npm run console bot:execute"
     },
