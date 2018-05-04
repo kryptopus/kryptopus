@@ -39,7 +39,12 @@ export default class BotRegistry
     @bind
     addBotDefinition(id:string, botDefinition:DefinitionInterface, options?:any)
     {
-        this.botDefinitions.set(id, botDefinition);
+        let botIdentifier = id;
+        if (options && typeof options === "object" && options.alias) {
+            botIdentifier = options.alias;
+        }
+
+        this.botDefinitions.set(botIdentifier, botDefinition);
     }
 
     /**
