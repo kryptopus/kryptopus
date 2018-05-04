@@ -14,6 +14,7 @@
         "node": ">= 9"
     },
     "dependencies": {
+        "colors": "^1.2.3",
         "config-yaml": "^1.0.6",
         "decko": "^1.2.0",
         "npm": "^6.0.0",
@@ -36,11 +37,12 @@
         "prepare": "npm run build",
         "prebuild": "npm run lint && flow",
         "build": "babel --out-dir lib src --copy-files",
-        "postbuild": "echo \"--------- READY ----------\"",
-        "watch": "watch 'echo \"----- START BUILDING -----\"; npm run build --silent' ./src",
+        "postbuild": "echo \"\\033[42;30m          READY           \\033[0m\"",
+        "watch": "watch 'echo \"\\033[41;37m      START BUILDING      \\033[0m\"; npm run build --silent' ./src",
         "examples-build": "babel --out-dir examples/lib examples/src --copy-files",
         "console": "node lib/console.js",
-        "bot": "npm run console bot:execute"
+        "bot": "npm run console bot:execute",
+        "install-plugins": "npm run console plugin:install-all"
     },
     "babel": {
         "presets": [

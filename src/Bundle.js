@@ -1,6 +1,8 @@
 /* @flow */
 import {bind} from "decko"
 import path from "path"
+import fs from "fs"
+import colors from "colors/safe"
 import configYaml from "config-yaml"
 import type {BundleInterface} from "solfegejs-application/src/BundleInterface"
 import type Container from "solfegejs-dependency-injection/src/ServiceContainer/Container"
@@ -13,8 +15,14 @@ import RegisterBotCompilerPass from "./infrastructure/dependencyInjection/Regist
  */
 export default class Bundle implements BundleInterface
 {
+    /**
+     * Bot paths
+     */
     botPaths:Map<string, string>;
 
+    /**
+     * Constructor
+     */
     constructor()
     {
         this.botPaths = new Map;
@@ -33,34 +41,66 @@ export default class Bundle implements BundleInterface
 
     /**
      * Install bundle dependencies
+     *
+     * @param   {Application}   application     Solfege application
      */
     @bind
-    async installDependencies(application:Application)
+    async installDependencies(application:Application):Promise<void>
     {
         await this.addPlugins(application);
     }
 
+    /**
+     * Add plugins from parameters.yml
+     *
+     * @param   {Application}   application     Solfege application
+     */
     @bind
     async addPlugins(application:Application):Promise<void>
     {
+        // Load parameters.yml
+        let config = {};
         const filePath = `${__dirname}/../config/parameters.yml`;
-        const config = configYaml(filePath);
+        if (!fs.existsSync(filePath)) {
+            return;
+        }
+        try {
+            config = configYaml(filePath);
+        } catch (yamlError) {
+            console.error(colors.bgRed.white("Invalid parameters.yml"));
+            console.error(yamlError.message);
+            return;
+        }
 
+        // Add plugins
         if (Array.isArray(config.plugins)) {
-            for (let name of config.plugins) {
+            for (let plugin of config.plugins) {
+                let pluginName = null;
+                if (typeof plugin === "string") {
+                    pluginName = plugin;
+                } else if (plugin && typeof plugin === "object" && plugin.hasOwnProperty("name")) {
+                    pluginName = plugin.name;
+                }
+                if (!pluginName) {
+                    continue;
+                }
                 try {
-                    if (typeof name === "string") {
-                        this.addPluginByName(application, name);
-                    } else if (name && typeof name === "object" && name.hasOwnProperty("name")) {
-                        this.addPluginByName(application, name.name);
-                    }
+                    this.addPluginByName(application, pluginName);
                 } catch (error) {
                     // An error occurred
+                    //console.error(colors.bgRed.white(`Unable to add plugin "${pluginName}"`));
+                    //console.error(error.message);
                 }
             }
         }
     }
 
+    /**
+     * Add a plugin by its name
+     *
+     * @param   {Application}   application     Solfege application
+     * @param   {string}        name            NodeJS package name
+     */
     @bind
     addPluginByName(application:Application, name:string):void
     {
@@ -69,7 +109,7 @@ export default class Bundle implements BundleInterface
         const packagePath = path.dirname(packageConfigPath);
 
         if (!packageConfig.kryptopus || typeof packageConfig.kryptopus !== "object") {
-            console.error(`Unable to add "${name}", it is an invalid plugin`);
+            console.error(colors.bgRed.white(`Unable to add plugin "${name}", "kryptopus" property not found in package.json`));
             return;
         }
         const config = packageConfig.kryptopus;
@@ -87,11 +127,18 @@ export default class Bundle implements BundleInterface
         //application.addBundle(new PluginBundle);
     }
 
+    /**
+     * Initialize the bundle
+     *
+     * @param   {Application}   application     Solfege application
+     */
     @bind
     initialize(application:Application)
     {
         application.on("bundles_booted", () => {
             let container = application.getParameter("serviceContainer");
+
+            // Register bots
             let registryDefinition = container.getDefinition("kryptopus_bot_registry");
             for (let botName of this.botPaths.keys()) {
                 let botClassPath = this.botPaths.get(botName);
