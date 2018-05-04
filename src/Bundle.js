@@ -108,23 +108,30 @@ export default class Bundle implements BundleInterface
         const packageConfig = require(packageConfigPath);
         const packagePath = path.dirname(packageConfigPath);
 
-        if (!packageConfig.kryptopus || typeof packageConfig.kryptopus !== "object") {
-            console.error(colors.bgRed.white(`Unable to add plugin "${name}", "kryptopus" property not found in package.json`));
-            return;
-        }
-        const config = packageConfig.kryptopus;
+        // Check "kryptopus" property in package.json
+        if (packageConfig.kryptopus && typeof packageConfig.kryptopus === "object") {
+            const config = packageConfig.kryptopus;
 
-        // Add bots
-        if (config.hasOwnProperty("bots") && config.bots && typeof config.bots === "object") {
-            for (let botName in config.bots) {
-                let botRelativePath = config.bots[botName];
-                let botAbsolutePath = `${packagePath}/${botRelativePath}`;
-                this.botPaths.set(botName, botAbsolutePath);
+            // Add bots
+            if (config.hasOwnProperty("bots") && config.bots && typeof config.bots === "object") {
+                for (let botName in config.bots) {
+                    let botRelativePath = config.bots[botName];
+                    let botAbsolutePath = `${packagePath}/${botRelativePath}`;
+                    this.botPaths.set(botName, botAbsolutePath);
+                }
             }
         }
 
-        //let PluginBundle = require(name);
-        //application.addBundle(new PluginBundle);
+        // Add Solfege bundle if possible
+        const PluginBundle = require(name);
+        if (typeof PluginBundle === "function") {
+            try {
+                const bundle = new PluginBundle;
+                application.addBundle(bundle);
+            } catch (error) {
+                // Unable to add bundle
+            }
+        }
     }
 
     /**
