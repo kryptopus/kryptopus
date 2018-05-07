@@ -26,7 +26,7 @@ export default class RegisterBotCompilerPass
                 let options = Object.assign({}, tag);
                 delete options.name;
 
-                registryDefinition.addMethodCall("addBotDefinition", [
+                registryDefinition.addMethodCall("addDefinition", [
                     serviceId,
                     botDefinition,
                     options

@@ -16,15 +16,14 @@
     <data key="d0"/>
     <node id="n0" yfiles.foldertype="group">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="613.220703125" width="1180.0000000000005" x="1131.4886514543546" y="97.779296875"/>
+              <y:Geometry height="613.220703125" width="1180.0000000000002" x="1981.5857057045407" y="97.779296875"/>
               <y:Fill color="#CAECFF84" transparent="false"/>
               <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1180.0000000000005" x="0.0" y="0.0">Bot</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1180.0000000000002" x="0.0" y="0.0">Bot</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -46,15 +45,14 @@
       <graph edgedefault="directed" id="n0:">
         <node id="n0::n0" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="1146.4886514543546" y="140.333984375"/>
+                  <y:Geometry height="555.666015625" width="423.3555744393077" x="1996.5857057045407" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Entity</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="423.3555744393077" x="0.0" y="0.0">Model</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -76,10 +74,9 @@
           <graph edgedefault="directed" id="n0::n0:">
             <node id="n0::n0::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="113.20269790767713" width="188.0" x="1161.4886514543546" y="177.0"/>
+                  <y:Geometry height="113.20269790767713" width="188.0" x="2011.5857057045407" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.970703125" x="51.5146484375" y="3.0">BotInterface<y:LabelModel>
@@ -96,16 +93,39 @@
                 </y:UMLClassNode>
               </data>
             </node>
+            <node id="n0::n0::n1">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="113.20269790767713" width="188.0" x="2216.9412801438484" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.6962890625" x="55.15185546875" y="3.0">BotContext<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel>+log()
++dispatch()
++getParameter()
++getService()</y:MethodLabel>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
           </graph>
         </node>
         <node id="n0::n1" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="1612.4886514543546" y="140.333984375"/>
+                  <y:Geometry height="555.666015625" width="218.0" x="2462.5857057045405" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Command</y:NodeLabel>
@@ -130,10 +150,9 @@
           <graph edgedefault="directed" id="n0::n1:">
             <node id="n0::n1::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="1627.4886514543546" y="177.0"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2477.5857057045405" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.20751953125" x="55.396240234375" y="3.0">ExecuteBot<y:LabelModel>
@@ -154,12 +173,11 @@
         </node>
         <node id="n0::n2" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="2078.488651454355" y="140.333984375"/>
+                  <y:Geometry height="555.666015625" width="218.0" x="2928.585705704541" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Service</y:NodeLabel>
@@ -184,10 +202,9 @@
           <graph edgedefault="directed" id="n0::n2:">
             <node id="n0::n2::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="2093.488651454355" y="177.0"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2943.585705704541" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.25732421875" x="53.371337890625" y="3.0">BotRegistry<y:LabelModel>
@@ -206,10 +223,9 @@
             </node>
             <node id="n0::n2::n1">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="2093.488651454355" y="223.4350684677792"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2943.585705704541" y="223.4350684677792"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.08154296875" x="57.459228515625" y="3.0">BotBuilder<y:LabelModel>
@@ -228,10 +244,9 @@
             </node>
             <node id="n0::n2::n2">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="2093.488651454355" y="269.8701369355584"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2943.585705704541" y="269.8701369355584"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="78.10888671875" x="54.945556640625" y="3.0">BotMonitor<y:LabelModel>
@@ -252,15 +267,14 @@
         </node>
         <node id="n0::n3" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.00000000000023" x="1845.4886514543548" y="140.333984375"/>
+                  <y:Geometry height="555.666015625" width="218.0" x="2695.585705704541" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.00000000000023" x="0.0" y="0.0">Event</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Event</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -282,10 +296,9 @@
           <graph edgedefault="directed" id="n0::n3:">
             <node id="n0::n3::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="1860.4886514543548" y="177.0"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2710.585705704541" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.5068359375" x="57.24658203125" y="3.0">BotStarted<y:LabelModel>
@@ -304,10 +317,9 @@
             </node>
             <node id="n0::n3::n1">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="1860.4886514543548" y="223.4350684677792"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="2710.585705704541" y="223.4350684677792"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.21630859375" x="53.891845703125" y="3.0">BotStopped<y:LabelModel>
@@ -326,76 +338,18 @@
             </node>
           </graph>
         </node>
-        <node id="n0::n4" yfiles.foldertype="group">
-          <data key="d4"/>
-          <data key="d5"/>
-          <data key="d6">
-            <y:ProxyAutoBoundsNode>
-              <y:Realizers active="0">
-                <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="1379.4886514543546" y="140.33398437500003"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Value Object</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="391" bottomF="390.79730209232287" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-                <y:GroupNode>
-                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.2431640625" x="-11.62158203125" y="0.0">Folder 11</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-              </y:Realizers>
-            </y:ProxyAutoBoundsNode>
-          </data>
-          <graph edgedefault="directed" id="n0::n4:">
-            <node id="n0::n4::n0">
-              <data key="d4"/>
-              <data key="d5"/>
-              <data key="d6">
-                <y:UMLClassNode>
-                  <y:Geometry height="113.20269790767713" width="188.0" x="1394.4886514543546" y="177.00000000000003"/>
-                  <y:Fill color="#FFCC00" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.6962890625" x="55.15185546875" y="3.0">BotContext<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
-                    <y:MethodLabel>+log()
-+dispatch()
-+getParameter()
-+getService()</y:MethodLabel>
-                  </y:UML>
-                </y:UMLClassNode>
-              </data>
-            </node>
-          </graph>
-        </node>
       </graph>
     </node>
     <node id="n1" yfiles.foldertype="group">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="613.220703125" width="949.5" x="132.0" y="97.779296875"/>
+              <y:Geometry height="845.6766200802065" width="1424.7701335727077" x="143.75128525852102" y="97.779296875"/>
               <y:Fill color="#CAECFF84" transparent="false"/>
               <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="949.5" x="0.0" y="0.0">Exchange</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1424.7701335727077" x="0.0" y="0.0">Exchange</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -417,19 +371,18 @@
       <graph edgedefault="directed" id="n1:">
         <node id="n1::n0" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="220.5" x="147.0" y="140.333984375"/>
+                  <y:Geometry height="788.1219325802065" width="424.248714741479" x="158.75128525852102" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="220.5" x="0.0" y="0.0">Entity</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="424.248714741479" x="0.0" y="0.0">Model</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="57" bottomF="57.20685722100211" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="3" leftF="2.5" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -447,13 +400,12 @@
           <graph edgedefault="directed" id="n1::n0:">
             <node id="n1::n0::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="76.0" width="188.0" x="162.0" y="177.0"/>
+                  <y:Geometry height="101.75" width="188.0" x="176.25128525852102" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="67.31787109375" x="60.341064453125" y="3.0">Exchange<y:LabelModel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="58.056640625" x="64.9716796875" y="3.0">Account<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -461,7 +413,9 @@
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel>+name</y:AttributeLabel>
+                    <y:AttributeLabel>+id
++exchange
++name</y:AttributeLabel>
                     <y:MethodLabel/>
                   </y:UML>
                 </y:UMLClassNode>
@@ -469,10 +423,9 @@
             </node>
             <node id="n1::n0::n1">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="83.0" width="188.0" x="164.5" y="272.16699218750006"/>
+                  <y:Geometry height="290.70641190649485" width="188.0" x="176.25128525852102" y="318.8239693858842"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.75244140625" x="72.623779296875" y="3.0">Order<y:LabelModel>
@@ -483,23 +436,31 @@
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel>+exchange
+                    <y:AttributeLabel>+id
++account
++time
++baseAsset
++quoteAsset
++side
++type
++quantity
++price
 +status
-+exchangeOrderId</y:AttributeLabel>
-                    <y:MethodLabel/>
++fills</y:AttributeLabel>
+                    <y:MethodLabel>+cancel()
++getExecutedQuantity()</y:MethodLabel>
                   </y:UML>
                 </y:UMLClassNode>
               </data>
             </node>
             <node id="n1::n0::n2">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="128.54216621649766" width="188.0" x="164.5" y="374.3339843750001"/>
+                  <y:Geometry height="128.54216621649766" width="188.0" x="176.25128525852102" y="669.2209933020532"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="29.75244140625" x="79.123779296875" y="3.0">Pair<y:LabelModel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="66.91162109375" x="60.544189453125" y="3.0">AssetPair<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -511,7 +472,6 @@
 +baseAssetPrecision
 +quoteAsset
 +quoteAssetPrecision
-+price
 +rules</y:AttributeLabel>
                     <y:MethodLabel/>
                   </y:UML>
@@ -520,10 +480,9 @@
             </node>
             <node id="n1::n0::n3">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="101.75" width="188.0" x="164.5" y="522.0431427789979"/>
+                  <y:Geometry height="101.75" width="188.0" x="379.99999999999994" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="54.77490234375" x="66.612548828125" y="3.0">Balance<y:LabelModel>
@@ -534,10 +493,78 @@
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel>+exchange
+                    <y:AttributeLabel>+account
 +asset
 +freeQuantity
 +lockedQuantity</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n0::n4">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="76.0" width="188.0" x="379.99999999999994" y="669.2209933020532"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="96.26318359375" x="45.868408203125" y="3.0">AssetPairRule<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+type</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n0::n5">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="101.75" width="188.0" x="379.99999999999994" y="318.8239693858842"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="62.89990234375" x="62.550048828125" y="3.0">OrderFill<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+price
++quantity
++commission
++commissionAsset</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n0::n6">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="101.75" width="188.0" x="176.25128525852102" y="811.7059169552065"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.64599609375" x="75.677001953125" y="3.0">Price<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+baseAsset
++quoteAsset
++value</y:AttributeLabel>
                     <y:MethodLabel/>
                   </y:UML>
                 </y:UMLClassNode>
@@ -547,19 +574,18 @@
         </node>
         <node id="n1::n1" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="382.5" y="140.333984375"/>
+                  <y:Geometry height="788.1219325802065" width="218.0" x="606.75" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Value Object</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Query</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="428" bottomF="428.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="493" bottomF="492.8819475693223" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -577,13 +603,12 @@
           <graph edgedefault="directed" id="n1::n1:">
             <node id="n1::n1::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="76.0" width="188.0" x="397.5" y="177.0"/>
+                  <y:Geometry height="67.10384539734468" width="188.0" x="621.75" y="260.7869846929421"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.10400390625" x="64.447998046875" y="3.0">PairRule<y:LabelModel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="108.15234375" x="39.923828125" y="3.0">GetOpenOrders<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -591,7 +616,50 @@
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel>+type</y:AttributeLabel>
+                    <y:AttributeLabel>+account</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n1::n1">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="76.0" width="188.0" x="621.75" y="344.5739693858842"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.0224609375" x="46.98876953125" y="3.0">GetOrderById<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+account
++id</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n1::n2">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="67.10384539734468" width="188.0" x="621.75" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.7041015625" x="51.64794921875" y="3.0">GetBalances<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+account</y:AttributeLabel>
                     <y:MethodLabel/>
                   </y:UML>
                 </y:UMLClassNode>
@@ -601,19 +669,18 @@
         </node>
         <node id="n1::n2" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="615.5" y="140.333984375"/>
+                  <y:Geometry height="788.1219325802065" width="218.0" x="848.5" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Query</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Command</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="428" bottomF="428.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="589" bottomF="588.5282273346432" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -631,29 +698,12 @@
           <graph edgedefault="directed" id="n1::n2:">
             <node id="n1::n2::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="630.5" y="177.0"/>
+                  <y:Geometry height="147.92768962056323" width="188.0" x="863.5" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_height" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="31.79388867452269" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.7041015625" x="51.64794921875" y="3.0">GetBalances</y:NodeLabel>
-                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
-                    <y:MethodLabel/>
-                  </y:UML>
-                </y:UMLClassNode>
-              </data>
-            </node>
-            <node id="n1::n2::n1">
-              <data key="d4"/>
-              <data key="d5"/>
-              <data key="d6">
-                <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="630.5" y="221.2061113254773"/>
-                  <y:Fill color="#FFCC00" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="72.681640625" x="57.6591796875" y="3.0">GetOrders<y:LabelModel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="86.06884765625" x="50.965576171875" y="3.0">CreateOrder<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -661,7 +711,13 @@
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-                    <y:AttributeLabel/>
+                    <y:AttributeLabel>+account
++baseAsset
++quoteAsset
++side
++type
++quantity
++price</y:AttributeLabel>
                     <y:MethodLabel/>
                   </y:UML>
                 </y:UMLClassNode>
@@ -671,19 +727,18 @@
         </node>
         <node id="n1::n3" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="848.5" y="140.333984375"/>
+                  <y:Geometry height="788.1219325802065" width="218.0" x="1090.25" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Command</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Service</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="472" bottomF="472.2061113254773" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="660" bottomF="660.4559169552065" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -701,13 +756,33 @@
           <graph edgedefault="directed" id="n1::n3:">
             <node id="n1::n3::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="31.79388867452269" width="188.0" x="863.5" y="177.0"/>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="1105.25" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="86.06884765625" x="50.965576171875" y="3.0">CreateOrder<y:LabelModel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.8154296875" x="32.59228515625" y="3.0">ExchangeRegistry<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n1::n3::n1">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="31.79388867452269" width="188.0" x="1105.25" y="221.2061113254773"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="113.55419921875" x="37.222900390625" y="3.0">AccountRegistry<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -723,11 +798,70 @@
             </node>
           </graph>
         </node>
+        <node id="n1::n4" yfiles.foldertype="group">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ProxyAutoBoundsNode>
+              <y:Realizers active="0">
+                <y:GroupNode>
+                  <y:Geometry height="788.1219325802065" width="221.52141883122863" x="1332.0" y="140.333984375"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="221.52141883122863" x="0.0" y="0.0">Adapter</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                  <y:BorderInsets bottom="531" bottomF="531.2443542599725" left="4" leftF="3.5214188312286296" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+                <y:GroupNode>
+                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.75830078125" x="-6.879150390625" y="0.0">Folder 7</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+              </y:Realizers>
+            </y:ProxyAutoBoundsNode>
+          </data>
+          <graph edgedefault="directed" id="n1::n4:">
+            <node id="n1::n4::n0">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="205.21156269523394" width="188.0" x="1350.5214188312286" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="67.31787109375" x="60.341064453125" y="3.0">Exchange<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+id
++name</y:AttributeLabel>
+                    <y:MethodLabel>+getAssetPairs()
++getAssetPairPrice()
++getBalances()
++getBalanceByAssetId()
++getOrderById()
++filterOrders()
++createOrder()
++cancelOrder()</y:MethodLabel>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+          </graph>
+        </node>
       </graph>
     </node>
     <node id="n2" yfiles.foldertype="group">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
@@ -739,7 +873,7 @@
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="5" topF="4.9580078125"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="15" rightF="15.0" top="5" topF="4.9580078125"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -757,15 +891,14 @@
       <graph edgedefault="directed" id="n2:">
         <node id="n2::n0" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="550.7080078125" width="218.0" x="-383.9886514543545" y="145.2919921875"/>
+                  <y:Geometry height="550.7080078125" width="436.0" x="-383.9886514543545" y="145.2919921875"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Entity</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="436.0" x="0.0" y="0.0">Model</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
@@ -787,7 +920,6 @@
           <graph edgedefault="directed" id="n2::n0:">
             <node id="n2::n0::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
                   <y:Geometry height="84.0419921875" width="188.0" x="-368.9886514543545" y="181.9580078125"/>
@@ -809,44 +941,11 @@
                 </y:UMLClassNode>
               </data>
             </node>
-          </graph>
-        </node>
-        <node id="n2::n1" yfiles.foldertype="group">
-          <data key="d4"/>
-          <data key="d5"/>
-          <data key="d6">
-            <y:ProxyAutoBoundsNode>
-              <y:Realizers active="0">
-                <y:GroupNode>
-                  <y:Geometry height="549.666015625" width="218.0" x="-150.9886514543545" y="146.333984375"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Value Object</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="415" bottomF="415.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-                <y:GroupNode>
-                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.75830078125" x="-6.879150390625" y="0.0">Folder 5</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-              </y:Realizers>
-            </y:ProxyAutoBoundsNode>
-          </data>
-          <graph edgedefault="directed" id="n2::n1:">
-            <node id="n2::n1::n0">
+            <node id="n2::n0::n1">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="83.0" width="188.0" x="-135.9886514543545" y="183.0"/>
+                  <y:Geometry height="83.0" width="188.0" x="-150.9886514543545" y="182.47900390625"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.64599609375" x="75.677001953125" y="3.0">Price<y:LabelModel>
@@ -871,19 +970,18 @@
     </node>
     <node id="n3" yfiles.foldertype="group">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="639.4792295205783" width="686.3328071518422" x="2646.7243511586976" y="97.779296875"/>
+              <y:Geometry height="643.8882676100548" width="686.3328071518422" x="3210.2306395822006" y="95.57477783026172"/>
               <y:Fill color="#CAECFF84" transparent="false"/>
               <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="686.3328071518422" x="0.0" y="0.0">Chart</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="26" bottomF="26.258526395578315" left="1" leftF="1.4319128863357946" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="26" bottomF="26.258526395578315" left="31" leftF="30.5310186208294" right="0" rightF="0.0" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -901,19 +999,18 @@
       <graph edgedefault="directed" id="n3:">
         <node id="n3::n0" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="421.9008942655064" x="2896.1562640450334" y="140.333984375"/>
+                  <y:Geometry height="560.0750537144764" width="625.8017885310128" x="3255.76165820303" y="138.12946533026172"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="421.9008942655064" x="0.0" y="0.0">Value Object</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="625.8017885310128" x="0.0" y="0.0">Model</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="250" bottomF="249.69427907536482" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="254" bottomF="254.10331716484126" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -931,10 +1028,9 @@
           <graph edgedefault="directed" id="n3::n0:">
             <node id="n3::n0::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="157.5267417633898" width="188.0" x="2911.1562640450334" y="177.0"/>
+                  <y:Geometry height="157.5267417633898" width="188.0" x="3474.6625524685364" y="174.79548095526172"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.89208984375" x="53.053955078125" y="26.1328125">Candlestick<y:LabelModel>
@@ -958,10 +1054,9 @@
             </node>
             <node id="n3::n0::n1">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="76.0" width="188.0" x="2911.1562640450334" y="355.3057209246352"/>
+                  <y:Geometry height="76.0" width="188.0" x="3474.6625524685364" y="353.1012018798969"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="131.36572265625" x="28.317138671875" y="26.1328125">IndicatorAttributes<y:LabelModel>
@@ -980,10 +1075,9 @@
             </node>
             <node id="n3::n0::n2">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="157.5267417633898" width="188.0" x="3115.0571583105398" y="177.00000000000003"/>
+                  <y:Geometry height="157.5267417633898" width="188.0" x="3678.563446734043" y="174.79548095526175"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="79.12451171875" x="54.437744140625" y="26.1328125">RenkoBrick<y:LabelModel>
@@ -1003,44 +1097,11 @@
                 </y:UMLClassNode>
               </data>
             </node>
-          </graph>
-        </node>
-        <node id="n3::n1" yfiles.foldertype="group">
-          <data key="d4"/>
-          <data key="d5"/>
-          <data key="d6">
-            <y:ProxyAutoBoundsNode>
-              <y:Realizers active="0">
-                <y:GroupNode>
-                  <y:Geometry height="555.666015625" width="218.0" x="2663.1562640450334" y="140.333984375"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Entity</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="400" bottomF="399.6831420615175" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-                <y:GroupNode>
-                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
-                  <y:Fill color="#F5F5F5" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
-                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.2431640625" x="-11.62158203125" y="0.0">Folder 15</y:NodeLabel>
-                  <y:Shape type="roundrectangle"/>
-                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
-                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
-                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-                </y:GroupNode>
-              </y:Realizers>
-            </y:ProxyAutoBoundsNode>
-          </data>
-          <graph edgedefault="directed" id="n3::n1:">
-            <node id="n3::n1::n0">
+            <node id="n3::n0::n3">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="104.31685793848249" width="188.0" x="2678.1562640450334" y="177.0"/>
+                  <y:Geometry height="104.31685793848249" width="188.0" x="3270.76165820303" y="174.79548095526172"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="44.396484375" x="71.8017578125" y="3.0">Graph<y:LabelModel>
@@ -1067,19 +1128,18 @@
     </node>
     <node id="n4" yfiles.foldertype="group">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="614.2626953125" width="248.0" x="-711.977302908709" y="96.7373046875"/>
+              <y:Geometry height="689.3323424108189" width="1095.8859246974298" x="-1524.8745761517844" y="97.779296875"/>
               <y:Fill color="#CAECFF84" transparent="false"/>
               <y:BorderStyle color="#666699" type="dotted" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="248.0" x="0.0" y="0.0">Information</y:NodeLabel>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#99CCFF" borderDistance="0.0" fontFamily="Dialog" fontSize="20" fontStyle="plain" hasLineColor="false" height="27.5546875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="1095.8859246974298" x="0.0" y="0.0">Market</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="6" topF="6.0"/>
+              <y:BorderInsets bottom="81" bottomF="81.06964709831891" left="0" leftF="0.0" right="90" rightF="90.49561273758104" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -1097,19 +1157,18 @@
       <graph edgedefault="directed" id="n4:">
         <node id="n4::n0" yfiles.foldertype="group">
           <data key="d4"/>
-          <data key="d5"/>
           <data key="d6">
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GroupNode>
-                  <y:Geometry height="550.7080078125" width="218.0" x="-696.977302908709" y="145.2919921875"/>
+                  <y:Geometry height="550.7080078125" width="436.0" x="-1509.8745761517844" y="140.333984375"/>
                   <y:Fill color="#F5F5F5" transparent="false"/>
                   <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="0.0">Entity</y:NodeLabel>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="436.0" x="0.0" y="0.0">Model</y:NodeLabel>
                   <y:Shape type="roundrectangle"/>
                   <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="415" bottomF="415.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                  <y:BorderInsets bottom="256" bottomF="256.45783378350234" left="0" leftF="0.0" right="9" rightF="8.813463943890838" top="0" topF="0.0"/>
                 </y:GroupNode>
                 <y:GroupNode>
                   <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
@@ -1127,10 +1186,9 @@
           <graph edgedefault="directed" id="n4::n0:">
             <node id="n4::n0::n0">
               <data key="d4"/>
-              <data key="d5"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="84.0419921875" width="188.0" x="-681.977302908709" y="181.9580078125"/>
+                  <y:Geometry height="84.0419921875" width="188.0" x="-1494.8745761517844" y="177.0"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="41.1591796875" x="73.42041015625" y="3.0">Asset<y:LabelModel>
@@ -1146,6 +1204,160 @@
 +description
 </y:AttributeLabel>
                     <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n4::n0::n1">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="84.0419921875" width="188.0" x="-1285.6880400956752" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.177734375" x="46.4111328125" y="3.0">MarketSource<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+id
++name
++description
+</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+            <node id="n4::n0::n2">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="128.54216621649766" width="188.0" x="-1285.6880400956752" y="291.0419921875"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.5576171875" x="44.22119140625" y="3.0">AssetPairPrice<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+source
++baseAsset
++quoteAsset
++value</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+          </graph>
+        </node>
+        <node id="n4::n1" yfiles.foldertype="group">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ProxyAutoBoundsNode>
+              <y:Realizers active="0">
+                <y:GroupNode>
+                  <y:Geometry height="550.7080078125" width="222.0541996389327" x="-1043.8745761517844" y="140.333984375"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="222.0541996389327" x="0.0" y="0.0">Query</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                  <y:BorderInsets bottom="401" bottomF="400.5515185920914" left="4" leftF="4.054199638932687" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+                <y:GroupNode>
+                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.75830078125" x="-6.879150390625" y="0.0">Folder 4</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+              </y:Realizers>
+            </y:ProxyAutoBoundsNode>
+          </data>
+          <graph edgedefault="directed" id="n4::n1:">
+            <node id="n4::n1::n0">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="98.49047359540864" width="188.0" x="-1024.8203765128517" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.13623046875" x="32.931884765625" y="3.0">GetAssetPairPrice<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel>+exchangeId
++baseAsset
++quoteAsset</y:AttributeLabel>
+                    <y:MethodLabel/>
+                  </y:UML>
+                </y:UMLClassNode>
+              </data>
+            </node>
+          </graph>
+        </node>
+        <node id="n4::n2" yfiles.foldertype="group">
+          <data key="d4"/>
+          <data key="d6">
+            <y:ProxyAutoBoundsNode>
+              <y:Realizers active="0">
+                <y:GroupNode>
+                  <y:Geometry height="550.7080078125" width="218.19068018035057" x="-752.6749443722862" y="140.333984375"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#808080" type="dotted" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="218.19068018035057" x="0.0" y="0.0">Repository</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+                  <y:BorderInsets bottom="410" bottomF="410.0419921875" left="0" leftF="0.19068018035056866" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+                <y:GroupNode>
+                  <y:Geometry height="50.0" width="50.0" x="-25.0" y="-25.0"/>
+                  <y:Fill color="#F5F5F5" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+                  <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.666015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.75830078125" x="-6.879150390625" y="0.0">Folder 4</y:NodeLabel>
+                  <y:Shape type="roundrectangle"/>
+                  <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+                  <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+                  <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+                </y:GroupNode>
+              </y:Realizers>
+            </y:ProxyAutoBoundsNode>
+          </data>
+          <graph edgedefault="directed" id="n4::n2:">
+            <node id="n4::n2::n0">
+              <data key="d4"/>
+              <data key="d6">
+                <y:UMLClassNode>
+                  <y:Geometry height="89.0" width="188.0" x="-737.4842641919356" y="177.0"/>
+                  <y:Fill color="#FFCC00" transparent="false"/>
+                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.92822265625" x="23.035888671875" y="3.0">AssetPairPriceFinder<y:LabelModel>
+                      <y:SmartNodeLabelModel distance="4.0"/>
+                    </y:LabelModel>
+                    <y:ModelParameter>
+                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                    </y:ModelParameter>
+                  </y:NodeLabel>
+                  <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+                    <y:AttributeLabel/>
+                    <y:MethodLabel>+findPrice()</y:MethodLabel>
                   </y:UML>
                 </y:UMLClassNode>
               </data>

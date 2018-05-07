@@ -4,7 +4,7 @@ import type Container from "solfegejs-dependency-injection/src/ServiceContainer/
 import type {DefinitionInterface} from "solfegejs-dependency-injection/interface"
 
 /**
- * Register bot definitions
+ * Register exchange definitions
  */
 export default class BotRegistry
 {
@@ -14,7 +14,7 @@ export default class BotRegistry
     container:Container;
 
     /**
-     * Bot definitions
+     * Exchange definitions
      */
     definitions:Map<string, DefinitionInterface>;
 
@@ -30,27 +30,27 @@ export default class BotRegistry
     }
 
     /**
-     * Add a bot definition
+     * Add an exchange definition
      *
-     * @param   {string}        id              Bot identifier
-     * @param   {Definition}    botDefinition   Bot definition
-     * @param   {any}           options         Options
+     * @param   {string}        id                  Exchange identifier
+     * @param   {Definition}    exchangeDefinition  Exchange definition
+     * @param   {any}           options             Options
      */
     @bind
-    addDefinition(id:string, botDefinition:DefinitionInterface, options?:any)
+    addDefinition(id:string, exchangeDefinition:DefinitionInterface, options?:any)
     {
-        let botIdentifier = id;
+        let exchangeIdentifier = id;
         if (options && typeof options === "object" && options.alias) {
-            botIdentifier = options.alias;
+            exchangeIdentifier = options.alias;
         }
 
-        this.definitions.set(botIdentifier, botDefinition);
+        this.definitions.set(exchangeIdentifier, exchangeDefinition);
     }
 
     /**
-     * Get available bot definitions
+     * Get available exchange definitions
      *
-     * @return  {Map}   Available bot definitions
+     * @return  {Map}   Available exchange definitions
      */
     @bind
     getDefinitions():Map<string, DefinitionInterface>
@@ -70,23 +70,24 @@ export default class BotRegistry
     }
 
     /**
-     * Get bot definition by its identifier
+     * Get exchange definition by its identifier
      *
-     * @param   {string}                id  Bot identifier
-     * @return  {DefinitionInterface}       Bot definition
+     * @param   {string}                id  Exchange identifier
+     * @return  {DefinitionInterface}       Exchange definition
      */
     @bind
     getById(id:string):DefinitionInterface
     {
         if (!this.definitions.has(id)) {
-            throw new Error(`Unable to get bot definition, "${id}" not found`);
+            throw new Error(`Unable to get exchange definition, "${id}" not found`);
         }
 
         const definition = this.definitions.get(id);
         if (!definition) {
-            throw new Error(`Unable to get bot definition, "${id}" not found`);
+            throw new Error(`Unable to get exchange definition, "${id}" not found`);
         }
 
         return definition;
     }
+
 }
