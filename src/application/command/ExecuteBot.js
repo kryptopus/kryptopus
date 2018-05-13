@@ -16,7 +16,7 @@ export default class ExecuteBot extends ContainerAwareCommand
     /**
      * Constructor
      *
-     * @param   {DomainExecuteBot}  handler     Handler of the command
+     * @param   {ExecuteBotHanler}  handler     Handler of the command
      */
     constructor(handler:ExecuteBotHandler)
     {

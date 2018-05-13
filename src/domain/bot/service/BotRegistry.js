@@ -1,6 +1,5 @@
 /* @flow */
 import {bind} from "decko"
-import type Container from "solfegejs-dependency-injection/src/ServiceContainer/Container"
 import type {DefinitionInterface} from "solfegejs-dependency-injection/interface"
 
 /**
@@ -9,23 +8,15 @@ import type {DefinitionInterface} from "solfegejs-dependency-injection/interface
 export default class BotRegistry
 {
     /**
-     * Solfege service container
-     */
-    container:Container;
-
-    /**
      * Bot definitions
      */
     definitions:Map<string, DefinitionInterface>;
 
     /**
      * Constructor
-     *
-     * @param   {Container}     container   Solfege service container
      */
-    constructor(container:Container)
+    constructor()
     {
-        this.container = container;
         this.definitions = new Map;
     }
 

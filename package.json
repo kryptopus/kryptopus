@@ -1,7 +1,7 @@
 {
     "name": "kryptopus",
     "description": "Cryptocurrency manager",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "neolao <contact@neolao.com>",
     "repository": "https://github.com/kryptopus/kryptopus.git",
     "license": "MIT",
@@ -39,7 +39,6 @@
         "build": "babel --out-dir lib src --copy-files",
         "postbuild": "echo \"\\033[42;30m          READY           \\033[0m\"",
         "watch": "watch 'echo \"\\033[41;37m      START BUILDING      \\033[0m\"; npm run build --silent' ./src",
-        "examples-build": "babel --out-dir examples/lib examples/src --copy-files",
         "console": "node lib/console.js",
         "bot": "npm run console bot:execute",
         "install-plugins": "npm run console plugin:install-all"

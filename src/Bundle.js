@@ -9,6 +9,7 @@ import type Container from "solfegejs-dependency-injection/src/ServiceContainer/
 import Definition from "solfegejs-dependency-injection/lib/ServiceContainer/Definition"
 import type Application from "solfegejs-application"
 import RegisterBotCompilerPass from "./infrastructure/dependencyInjection/RegisterBotCompilerPass"
+import RegisterChartCollectorCompilerPass from "./infrastructure/dependencyInjection/RegisterChartCollectorCompilerPass"
 
 /**
  * Kryptopus bundle
@@ -173,5 +174,6 @@ export default class Bundle implements BundleInterface
     configureContainer(container:Container)
     {
         container.addCompilerPass(new RegisterBotCompilerPass());
+        container.addCompilerPass(new RegisterChartCollectorCompilerPass());
     }
 }

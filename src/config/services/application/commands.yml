@@ -24,6 +24,14 @@ services:
         tags:
             - { name: "solfege.console.command" }
 
+    # Collect candles
+    app_command_candles_collect:
+        class: application/command/CollectCandles
+        arguments:
+            - "@kryptopus_chart_command_handler_collect_candles"
+        tags:
+            - { name: "solfege.console.command" }
+
     # Application configuration
     app_configuration:
         factory: ["@container", getConfiguration]
