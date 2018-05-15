@@ -1,8 +1,8 @@
 /**
  * Compiler pass for the service container
- * It handles tags to register chart collectors
+ * It handles tags to register candle collectors
  */
-export default class RegisterChartCollectorCompilerPass
+export default class RegisterCandleCollector
 {
     /**
      * Process the tags
@@ -11,15 +11,15 @@ export default class RegisterChartCollectorCompilerPass
      */
     async process(container)
     {
-        let registryDefinition = container.getDefinition("kryptopus_chart_collector_registry");
+        let registryDefinition = container.getDefinition("kryptopus_chart_candle_collector_registry");
 
-        let serviceIds = container.findTaggedServiceIds("kryptopus.chart.collector");
+        let serviceIds = container.findTaggedServiceIds("kryptopus.chart.candle.collector");
         for (let serviceId of serviceIds) {
             let collectorDefinition = container.getDefinition(serviceId);
             let collectorTags = collectorDefinition.getTags();
 
             for (let tag of collectorTags) {
-                if (tag.name !== "kryptopus.chart.collector") {
+                if (tag.name !== "kryptopus.chart.candle.collector") {
                     continue;
                 }
 

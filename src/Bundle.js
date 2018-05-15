@@ -8,8 +8,9 @@ import type {BundleInterface} from "solfegejs-application/src/BundleInterface"
 import type Container from "solfegejs-dependency-injection/src/ServiceContainer/Container"
 import Definition from "solfegejs-dependency-injection/lib/ServiceContainer/Definition"
 import type Application from "solfegejs-application"
-import RegisterBotCompilerPass from "./infrastructure/dependencyInjection/RegisterBotCompilerPass"
-import RegisterChartCollectorCompilerPass from "./infrastructure/dependencyInjection/RegisterChartCollectorCompilerPass"
+import RegisterBot from "./infrastructure/dependencyInjection/compilerPass/RegisterBot"
+import RegisterCandleCollector from "./infrastructure/dependencyInjection/compilerPass/RegisterCandleCollector"
+import RegisterCandleStorage from "./infrastructure/dependencyInjection/compilerPass/RegisterCandleStorage"
 
 /**
  * Kryptopus bundle
@@ -173,7 +174,8 @@ export default class Bundle implements BundleInterface
      */
     configureContainer(container:Container)
     {
-        container.addCompilerPass(new RegisterBotCompilerPass());
-        container.addCompilerPass(new RegisterChartCollectorCompilerPass());
+        container.addCompilerPass(new RegisterBot());
+        container.addCompilerPass(new RegisterCandleCollector());
+        container.addCompilerPass(new RegisterCandleStorage());
     }
 }

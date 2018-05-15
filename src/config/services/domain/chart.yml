@@ -17,3 +17,15 @@ services:
             - "@container"
 
 
+    # Register storage
+    kryptopus_chart_candle_storage_registry:
+        class: domain/chart/service/CandleStorageRegistry
+
+    # Build storage instances
+    kryptopus_chart_candle_storage_builder:
+        class: domain/chart/service/CandleStorageBuilder
+        arguments:
+            - "@kryptopus_chart_candle_storage_registry"
+            - "@container"
+
+
