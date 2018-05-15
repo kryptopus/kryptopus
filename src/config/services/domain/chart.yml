@@ -3,17 +3,17 @@ services:
     kryptopus_chart_command_handler_collect_candles:
         class: domain/chart/commandHandler/CollectCandles
         arguments:
-            - "@kryptopus_chart_collector_builder"
+            - "@kryptopus_chart_candle_collector_builder"
 
     # Register collector
-    kryptopus_chart_collector_registry:
-        class: domain/chart/service/CollectorRegistry
+    kryptopus_chart_candle_collector_registry:
+        class: domain/chart/service/CandleCollectorRegistry
 
     # Build collector instances
-    kryptopus_chart_collector_builder:
-        class: domain/chart/service/CollectorBuilder
+    kryptopus_chart_candle_collector_builder:
+        class: domain/chart/service/CandleCollectorBuilder
         arguments:
-            - "@kryptopus_chart_collector_registry"
+            - "@kryptopus_chart_candle_collector_registry"
             - "@container"
 
 

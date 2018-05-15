@@ -2,9 +2,9 @@
 import type Candle from "./Candle"
 
 /**
- * Collector interface
+ * Collect candles
  */
-export interface CollectorInterface
+export interface CandleCollectorInterface
 {
     collect(exchange:string, baseAsset:string, quoteAsset:string, interval:number, startTime:number, endTime:number):Array<Candle> | Promise<Array<Candle>>;
 }

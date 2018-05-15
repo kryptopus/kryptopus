@@ -3,9 +3,9 @@ import {bind} from "decko"
 import type {DefinitionInterface} from "solfegejs-dependency-injection/interface"
 
 /**
- * Register collector definitions
+ * Register candle collector definitions
  */
-export default class CollectorRegistry
+export default class CandleCollectorRegistry
 {
     /**
      * Collector definitions

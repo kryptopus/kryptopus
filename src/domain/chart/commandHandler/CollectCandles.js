@@ -1,15 +1,15 @@
 /* @flow */
 import type CollectCandlesCommand from "../command/CollectCandles"
-import type CollectorBuilder from "../service/CollectorBuilder"
+import type CandleCollectorBuilder from "../service/CandleCollectorBuilder"
 
 /**
  * Command handler to collect candles
  */
 export default class CollectCandles
 {
-    collectorBuilder:CollectorBuilder;
+    collectorBuilder:CandleCollectorBuilder;
 
-    constructor(collectorBuilder:CollectorBuilder)
+    constructor(collectorBuilder:CandleCollectorBuilder)
     {
         this.collectorBuilder = collectorBuilder;
     }
