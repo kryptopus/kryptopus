@@ -24,6 +24,8 @@
     "devDependencies": {
         "babel-cli": "^6.7",
         "babel-preset-solfege": "^1.1.2",
+        "chai": "^4.1.2",
+        "cucumber": "^4.2.1",
         "eslint": "^3.19",
         "eslint-plugin-solfege": "^1.0",
         "flow-bin": "^0.71.0",
@@ -39,6 +41,7 @@
         "build": "babel --out-dir lib src --copy-files",
         "postbuild": "echo \"\\033[42;30m          READY           \\033[0m\"",
         "watch": "watch 'echo \"\\033[41;37m      START BUILDING      \\033[0m\"; npm run build --silent' ./src",
+        "cucumber": "cucumber-js",
         "console": "node lib/console.js",
         "bot": "npm run console bot:execute",
         "install-plugins": "npm run console plugin:install-all"

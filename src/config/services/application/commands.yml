@@ -1,4 +1,10 @@
 services:
+    # Start the daemon
+    app_command_daemon_start:
+        class: application/command/StartDaemon
+        tags:
+            - { name: "solfege.console.command" }
+
     # List available bots
     app_command_bot_list:
         class: application/command/ListBots
