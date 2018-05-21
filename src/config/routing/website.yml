@@ -1,0 +1,4 @@
+website_homepage:
+    path: /
+    controller: "@app_website_controller_landing"
+    action: homepage

@@ -2,6 +2,9 @@ services:
     # Start the daemon
     app_command_daemon_start:
         class: application/command/StartDaemon
+        arguments:
+            - "@app_website"
+            - "%website.port%"
         tags:
             - { name: "solfege.console.command" }
 

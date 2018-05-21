@@ -1,0 +1,33 @@
+services:
+    # Website instance
+    app_website:
+        factory: ["@solfege_koa_factory", create]
+        calls:
+            - [use, ["@solfege_koa_middleware_bodyparser"]]
+        tags:
+            - {name: solfege.koa.instance, id: website}
+
+    app_website_templating:
+        class: "@solfege_koa_middleware_nunjucks_builder"
+        arguments:
+            - "%__dirname%/../../../application/website/view"
+        calls:
+            - [ addGlobalVariables, [ "@app_website_templating_variables" ]]
+        tags:
+            - {name: solfege.koa.middleware_builder, target: website}
+
+    app_website_templating_variables:
+        class: application/website/Variables.js
+        arguments:
+            - "%website.static_base_url%"
+
+    app_website_router:
+        class: "@solfege_koa_middleware_router_builder"
+        arguments:
+            - "@container"
+            - "%__dirname%/../../routing/website.yml"
+        tags:
+            - {name: solfege.koa.middleware_builder, target: website}
+
+    app_website_controller_landing:
+        class: application/website/controller/Landing

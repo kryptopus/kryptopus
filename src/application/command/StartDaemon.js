@@ -6,12 +6,18 @@ import ContainerAwareCommand from "solfegejs-cli/lib/Command/ContainerAwareComma
  */
 export default class StartDaemon extends ContainerAwareCommand
 {
+    website:any;
+    websitePort:number;
+
     /**
      * Constructor
      */
-    constructor()
+    constructor(website:any, websitePort:number)
     {
         super();
+
+        this.website = website;
+        this.websitePort = websitePort;
     }
 
     /**
@@ -28,5 +34,6 @@ export default class StartDaemon extends ContainerAwareCommand
      */
     async execute(parameters:Array<string>)
     {
+        this.website.listen(this.websitePort);
     }
 }
