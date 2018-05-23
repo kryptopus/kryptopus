@@ -5,12 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <title>{{ documentTitle | default("CombOrder") }}</title>
+        <title>{{ documentTitle | default("Kryptopus") }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,900" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ getAssetUrl("website.css") }}"/>
         <script src="{{ getAssetUrl("website.js") }}" defer></script>
     </head>
     <body>
         {# Header #}
+        {% include "../component/main-header.nunjucks" %}
 
         {% block body %}
         {% endblock %}

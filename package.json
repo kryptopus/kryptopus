@@ -31,6 +31,7 @@
         "bulma": "^0.6.2",
         "chai": "^4.1.2",
         "clean-webpack-plugin": "^0.1.19",
+        "copy-webpack-plugin": "^4.5.1",
         "css-loader": "^0.28.11",
         "cucumber": "^4.2.1",
         "eslint": "^4.19",

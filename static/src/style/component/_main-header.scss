@@ -1,0 +1,12 @@
+$main-header-title-color: $charter-color-5;
+
+.main-header {
+    border-bottom: solid 2px $main-header-title-color;
+
+    &__title {
+        font-weight: 900;
+        font-size: 1.5rem;
+        color: $main-header-title-color;
+        padding: .2rem 1rem;
+    }
+}

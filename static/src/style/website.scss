@@ -1,5 +1,9 @@
 @import "../../../node_modules/bulma/bulma";
+@import "_charter.scss";
+@import "component/_main-header.scss";
 
 html, body {
-    background: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: $charter-color-1;
 }

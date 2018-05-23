@@ -1,0 +1,14 @@
+<nav class="navbar main-header" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item main-header__title" href="#">
+            <img src="{{ getAssetUrl("img/logo/logo.svg") }}" alt="Kryptopus: a cryptocurrency manager" width="30" height="30"/>
+            Kryptopus
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+</nav>
