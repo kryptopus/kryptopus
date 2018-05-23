@@ -1,5 +1,4 @@
-kryptopus
-=========
+![Kryptopus](static/src/img/logo/Kryptopus.png)
 
 Cryptocurrency manager
 
