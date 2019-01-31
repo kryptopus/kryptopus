@@ -1,11 +1,17 @@
 {
-    "name": "kryptopus",
-    "description": "Cryptocurrency manager",
-    "version": "0.2.0",
-    "author": "neolao <contact@neolao.com>",
-    "repository": "https://github.com/kryptopus/kryptopus.git",
-    "license": "MIT",
-    "engines": {
-        "node": ">= 11"
-    }
+  "name": "kryptopus",
+  "description": "Cryptocurrency manager",
+  "version": "0.2.0",
+  "author": "neolao <contact@neolao.com>",
+  "repository": "https://github.com/kryptopus/kryptopus.git",
+  "license": "MIT",
+  "bin": {
+    "kryptopus": "./cli"
+  },
+  "engines": {
+    "node": ">= 11"
+  },
+  "dependencies": {
+    "solfegejs": "^4.0.0"
+  }
 }
