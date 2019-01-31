@@ -1,2 +1,4 @@
-# kryptopus
+Kryptopus
+=========
+
 Cryptocurrency manager
