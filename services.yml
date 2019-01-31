@@ -1,0 +1,5 @@
+services:
+  wallet_balance:
+    class: "command/WalletBalance"
+    tags:
+      - { name: "solfege.console.command" }

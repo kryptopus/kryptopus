@@ -6,4 +6,4 @@ const Kryptopus = require('./Bundle');
 const application = solfege.factory();
 application.addBundle(new Kryptopus());
 
-application.start();
+application.start(process.argv.slice(2));
