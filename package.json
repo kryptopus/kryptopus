@@ -11,7 +11,25 @@
   "engines": {
     "node": ">= 11"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "lintWatch": "esw --watch --cache --clear ."
+  },
   "dependencies": {
     "solfegejs": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-watch": "^4.0.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2019
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended"
+    ]
   }
 }
