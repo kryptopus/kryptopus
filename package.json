@@ -13,18 +13,27 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lintWatch": "esw --watch --cache --clear ."
+    "lintWatch": "esw --watch --cache --clear .",
+    "test": "jest",
+    "testWatch": "jest --watch"
   },
   "dependencies": {
+    "@kryptopus/networks": "0.1.1",
     "axios": "^0.18.0",
+    "bip32": "^1.0.2",
     "bip39": "^2.5.0",
-    "solfegejs": "^4.0.0"
+    "bitcoinjs-lib": "^4.0.3",
+    "chalk": "^2.4.2",
+    "solfegejs": "^4.0.0",
+    "tiny-secp256k1": "^1.0.1",
+    "wif": "^2.0.6"
   },
   "devDependencies": {
     "eslint": "^5.12.1",
     "eslint-plugin-solfegejs": "1.0.5",
     "eslint-watch": "^4.0.2",
     "husky": "^1.3.1",
+    "jest": "^24.0.0",
     "lint-staged": "^8.1.3"
   },
   "eslintConfig": {

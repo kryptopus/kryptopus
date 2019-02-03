@@ -6,10 +6,10 @@ module.exports = class WalletBalance {
   }
 
   async execute(parameters) {
-    const [asset, address] = parameters;
+    const [symbol, address] = parameters;
     let balance = 0;
 
-    switch (asset.toUpperCase()) {
+    switch (symbol.toUpperCase()) {
       case "BTC":
         {
           const response = await axios.get(`https://blockchain.info/q/addressbalance/${address}`);
@@ -17,8 +17,7 @@ module.exports = class WalletBalance {
         }
         break;
       default:
-        console.error(`Unknown asset: ${asset}`);
-        process.exist(1);
+        throw new Error(`Unknown symbol: ${symbol}`);
     }
 
     console.info(balance);

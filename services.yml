@@ -4,7 +4,23 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  wallet_from_mnemonic:
+    class: "command/WalletFromMnemonic"
+    tags:
+      - { name: "solfege.console.command" }
+
   mnemonic_random:
     class: "command/MnemonicRandom"
     tags:
       - { name: "solfege.console.command" }
+
+  mnemonic_validate:
+    class: "command/MnemonicValidate"
+    tags:
+      - { name: "solfege.console.command" }
+
+  mnemonic_seed:
+    class: "command/MnemonicSeed"
+    tags:
+      - { name: "solfege.console.command" }
+
