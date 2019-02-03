@@ -3,3 +3,8 @@ services:
     class: "command/WalletBalance"
     tags:
       - { name: "solfege.console.command" }
+
+  mnemonic_random:
+    class: "command/MnemonicRandom"
+    tags:
+      - { name: "solfege.console.command" }
