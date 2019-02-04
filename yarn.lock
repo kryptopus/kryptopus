@@ -1348,6 +1348,11 @@ eslint-plugin-import@^2.16.0:
     read-pkg-up "^2.0.0"
     resolve "^1.9.0"
 
+eslint-plugin-jest@^22.2.2:
+  version "22.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.2.2.tgz#2a80d70a20c27dfb1503a6f32cdcb647fe5476df"
+  integrity sha512-hnWgh9o39VJfz6lJEyQJdTW7dN2yynlGkmPOlU/oMHh+d7WVMsJP1GeDTB520VCDljEdKExCwD5IBpQIUl4mJg==
+
 eslint-plugin-jsx-a11y@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.2.0.tgz#0db5a0efad21b815849c7783abe8379eb8fa1ca6"
@@ -1394,14 +1399,15 @@ eslint-plugin-react@^7.12.4:
     prop-types "^15.6.2"
     resolve "^1.9.0"
 
-eslint-plugin-solfegejs@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-solfegejs/-/eslint-plugin-solfegejs-1.0.5.tgz#41ff14965790edec6d5a477af5ab14eef8f851f2"
-  integrity sha512-0aT3hk93R26Z8o/Y/poANnPGzkWtYu/MlVwYGBR4tS71bqByvQ8HxdlK765LAil0/Fs8ppwc1boTupMbnyOzoA==
+eslint-plugin-solfegejs@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-solfegejs/-/eslint-plugin-solfegejs-1.0.7.tgz#21f5fa6ce59fa732d82c14c5040325e8e5dcd43a"
+  integrity sha512-k29AdQfv4MFysd6kGOvHzVqk20Yx3kKvQX0G43spGNY+acvLw/p7d6e0pSJbDWgZVUF72S0/0cTYIVq6aeAVJQ==
   dependencies:
     eslint-config-airbnb "^17.1.0"
     eslint-config-prettier "^4.0.0"
     eslint-plugin-import "^2.16.0"
+    eslint-plugin-jest "^22.2.2"
     eslint-plugin-jsx-a11y "^6.2.0"
     eslint-plugin-node "^8.0.1"
     eslint-plugin-prettier "^3.0.1"
