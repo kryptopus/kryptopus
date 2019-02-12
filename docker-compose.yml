@@ -1,0 +1,13 @@
+version: "3.2"
+services:
+  btc:
+    build: ./blockchain/btc
+    volumes:
+      - type: volume
+        source: btc_volume
+        target: /root/.bitcoin
+        volume:
+          nocopy: true
+
+volumes:
+  btc_volume:
