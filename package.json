@@ -54,5 +54,11 @@
     "*.js": [
       "eslint"
     ]
+  },
+  "jest": {
+    "verbose": true,
+    "transformIgnorePatterns": [
+      "<rootDir>"
+    ]
   }
 }
