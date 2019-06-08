@@ -13,9 +13,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lintWatch": "esw --watch --cache --clear .",
+    "lint:watch": "esw --watch --cache --clear .",
     "test": "jest",
-    "testWatch": "jest --watch",
+    "test:watch": "jest --watch",
     "blockchain:list": "pm2 list",
     "blockchain:btc": "pm2 startOrRestart ecosystem.config.js --only BTC",
     "blockchain:btc:logs": "pm2 logs BTC"

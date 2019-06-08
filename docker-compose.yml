@@ -2,6 +2,8 @@ version: "3.2"
 services:
   btc:
     build: ./blockchain/btc
+    ports:
+      - "8332:8332"
     volumes:
       - type: volume
         source: btc_volume
