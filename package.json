@@ -9,7 +9,7 @@
     "kryptopus": "./cli"
   },
   "engines": {
-    "node": ">= 11"
+    "node": ">= 12"
   },
   "scripts": {
     "lint": "eslint .",

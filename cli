@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 const solfege = require("solfegejs");
-const Kryptopus = require("./Bundle");
+const Kryptopus = require("./app/Bundle");
 
-const application = solfege.factory();
-application.addBundle(new Kryptopus());
+const application = solfege.factory(`${__dirname}/config/config.yml`, [new Kryptopus()]);
 
 application.start(process.argv.slice(2));
