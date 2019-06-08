@@ -5,8 +5,7 @@ module.exports = class WalletBalance {
     return "wallet:balance";
   }
 
-  async execute(parameters) {
-    const [symbol, address] = parameters;
+  async execute(symbol, address) {
     let balance = 0;
 
     switch (symbol.toUpperCase()) {

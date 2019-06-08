@@ -11,7 +11,7 @@ module.exports = class WalletFromMnemonic {
     return "wallet:fromMnemonic";
   }
 
-  execute([symbol, ...words]) {
+  execute(symbol, ...words) {
     const mnemonic = words.join(" ").trim();
     const seed = bip39.mnemonicToSeed(mnemonic);
 
