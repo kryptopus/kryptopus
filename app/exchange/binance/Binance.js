@@ -8,8 +8,8 @@ module.exports = class Binance {
   }
 
   async getBalances() {
-    const balances = await this.request("/api/v3/account");
-    return balances;
+    const payload = await this.request("/api/v3/account");
+    return payload.balances;
   }
 
   request(path) {

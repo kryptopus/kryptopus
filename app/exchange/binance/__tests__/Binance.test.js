@@ -25,7 +25,7 @@ describe("Binance", () => {
 
   describe("getBalances", () => {
     it("should get balances", async () => {
-      mockRequest({ foo: "bar" });
+      mockRequest({ balances: { foo: "bar" } });
       const binance = new Binance("api-key", "api-secret");
       const balances = await binance.getBalances();
       expect(balances).toEqual({ foo: "bar" });

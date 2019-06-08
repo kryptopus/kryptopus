@@ -24,3 +24,10 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  exchange_binance_get_balances:
+    class: "command/exchange/binance/GetBalances"
+    arguments:
+      - "%exchanges%"
+    tags:
+      - { name: "solfege.console.command" }
+
