@@ -1,20 +1,15 @@
+const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 const Binance = require("../../../exchange/binance/Binance");
 
-module.exports = class GetBalances {
+module.exports = class GetBalances extends AbstractCommand {
   constructor(accounts) {
+    super();
+
     this.accounts = accounts;
-  }
 
-  getName() {
-    return "exchange:binance:balances";
-  }
-
-  getDescription() {
-    return "Get Binance balances";
-  }
-
-  setContainer(container) {
-    this.container = container;
+    this.setName("exchange:binance:balances");
+    this.setDescription("Get Binance balances");
+    this.addArgument("accountName", "Account name");
   }
 
   async execute(accountName) {
