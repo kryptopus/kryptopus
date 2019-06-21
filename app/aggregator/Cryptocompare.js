@@ -5,10 +5,10 @@ module.exports = class Cryptocompare {
     this.apiKey = apiKey;
   }
 
-  async getSingleSymbolPrice(baseSymbol, quoteSymbols) {
+  async getSingleAssetPrice(baseAsset, quoteAssets) {
     const result = await this.request("/data/price", {
-      fsym: baseSymbol,
-      tsyms: quoteSymbols.join(",")
+      fsym: baseAsset,
+      tsyms: quoteAssets.join(",")
     });
 
     return result;

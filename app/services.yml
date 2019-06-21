@@ -31,8 +31,15 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
-  aggregator_cryptocompare_get_symbol_price:
-    class: "cli/aggregator/cryptocompare/GetSymbolPrice"
+  exchange_binance_get_open_orders:
+    class: "cli/exchange/binance/GetOpenOrders"
+    arguments:
+      - "%exchanges%"
+    tags:
+      - { name: "solfege.console.command" }
+
+  aggregator_cryptocompare_get_asset_price:
+    class: "cli/aggregator/cryptocompare/GetAssetPrice"
     arguments:
       - "%aggregators.cryptocompare.apiKey%"
     tags:
