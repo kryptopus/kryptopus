@@ -1,3 +1,5 @@
+const asTable = require("as-table");
+const { cyan, dim } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 const Binance = require("../../../exchange/binance/Binance");
 
@@ -17,8 +19,11 @@ module.exports = class GetOpenOrders extends AbstractCommand {
     const binance = new Binance(apiKey, apiSecret);
     const orders = await binance.getOpenOrders();
 
-    orders.forEach(order => {
-      console.info(order);
-    });
+    const output = asTable.configure({
+      title: x => cyan(x),
+      dash: dim("─")
+    })(orders);
+    process.stdout.write(output);
+    process.stdout.write("\n");
   }
 };
