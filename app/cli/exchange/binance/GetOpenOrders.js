@@ -1,4 +1,5 @@
 const asTable = require("as-table");
+const { format } = require("date-fns");
 const { cyan, dim } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 const Binance = require("../../../exchange/binance/Binance");
@@ -21,7 +22,14 @@ module.exports = class GetOpenOrders extends AbstractCommand {
 
     const output = asTable.configure({
       title: x => cyan(x),
-      dash: dim("─")
+      dash: dim("─"),
+      print: (value, title) => {
+        if (title === "time") {
+          return format(new Date(value), "MM/DD/YYYY HH:mm:ss");
+        }
+
+        return String(value);
+      }
     })(orders);
     process.stdout.write(output);
     process.stdout.write("\n");
