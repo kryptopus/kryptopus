@@ -2,7 +2,7 @@ jest.mock("bip39");
 jest.spyOn(global.console, "info").mockReturnValue();
 
 const bip39 = require("bip39");
-const MnemonicRandom = require("../MnemonicRandom");
+const MnemonicRandom = require("../MnemonicRandom.command");
 
 describe("MnemonicRandom command", () => {
   it("should call BIP39 generateMnemonic", () => {
