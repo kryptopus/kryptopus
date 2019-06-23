@@ -1,4 +1,5 @@
 const Kucoin = require("../../../exchange/kucoin/Kucoin");
+const displayBalances = require("../displayBalances");
 
 module.exports = class GetBalances {
   constructor(accounts) {
@@ -22,6 +23,6 @@ module.exports = class GetBalances {
     const kucoin = new Kucoin(apiKey, apiSecret, apiPassphrase);
     const balances = await kucoin.getBalances();
 
-    console.log(balances);
+    displayBalances(balances);
   }
 };

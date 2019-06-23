@@ -1,6 +1,7 @@
 const https = require("https");
 const { createHmac } = require("crypto");
 const Order = require("../Order");
+const Balance = require("../Balance");
 
 module.exports = class Binance {
   constructor(apiKey, apiSecret) {
@@ -27,7 +28,19 @@ module.exports = class Binance {
 
   async getBalances() {
     const payload = await this.request("/api/v3/account");
-    return payload.balances;
+    return this.denormalizeBalances(payload.balances.filter(this.isNonEmptyBalance));
+  }
+
+  isNonEmptyBalance(normalizedBalance) {
+    return Number(normalizedBalance.free) + Number(normalizedBalance.locked) > 0;
+  }
+
+  denormalizeBalances(normalizedBalances) {
+    return normalizedBalances.map(this.denormalizeBalance);
+  }
+
+  denormalizeBalance(normalized) {
+    return new Balance(normalized.asset, Number(normalized.free) + Number(normalized.locked), normalized.locked);
   }
 
   async getOpenOrders() {
@@ -42,14 +55,6 @@ module.exports = class Binance {
 
   denormalizeOrder(normalized) {
     const symbol = this.symbols.get(normalized.symbol);
-    // normalized.orderId
-    // normalized.status
-    // normalized.type
-    // normalized.side
-    // normalized.price
-    // normalized.origQty
-    // normalized.executedQty
-    // normalized.time
     return new Order(
       normalized.orderId,
       normalized.time,

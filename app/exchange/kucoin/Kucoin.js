@@ -1,5 +1,6 @@
 const https = require("https");
 const { createHmac } = require("crypto");
+const Balance = require("../Balance");
 
 module.exports = class Kucoin {
   constructor(apiKey, apiSecret, apiPassphrase) {
@@ -9,8 +10,20 @@ module.exports = class Kucoin {
   }
 
   async getBalances() {
-    const payload = await this.request("/api/v1/accounts");
-    return payload;
+    const normalizedBalances = await this.request("/api/v1/accounts");
+    return this.denormalizeBalances(normalizedBalances.filter(this.isTradeBalance));
+  }
+
+  isTradeBalance(normalizedBalance) {
+    return normalizedBalance.type === "trade";
+  }
+
+  denormalizeBalances(normalizedBalances) {
+    return normalizedBalances.map(this.denormalizeBalance);
+  }
+
+  denormalizeBalance(normalized) {
+    return new Balance(normalized.currency, normalized.balance, normalized.holds);
   }
 
   request(path) {

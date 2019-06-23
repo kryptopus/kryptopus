@@ -1,5 +1,6 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 const Binance = require("../../../exchange/binance/Binance");
+const displayBalances = require("../displayBalances");
 
 module.exports = class GetBalances extends AbstractCommand {
   constructor(accounts) {
@@ -17,12 +18,6 @@ module.exports = class GetBalances extends AbstractCommand {
     const binance = new Binance(apiKey, apiSecret);
     const balances = await binance.getBalances();
 
-    balances.forEach(balance => {
-      const quantity = Number(balance.free) + Number(balance.locked);
-      if (quantity <= 0) {
-        return;
-      }
-      console.info(balance.asset, quantity);
-    });
+    displayBalances(balances);
   }
 };
