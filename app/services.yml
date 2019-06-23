@@ -45,6 +45,13 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  portfolio_get_balances:
+    class: "cli/portfolio/GetBalances.command"
+    arguments:
+      - "%exchanges%"
+    tags:
+      - { name: "solfege.console.command" }
+
   aggregator_cryptocompare_get_asset_price:
     class: "cli/aggregator/cryptocompare/GetAssetPrice.command"
     arguments:

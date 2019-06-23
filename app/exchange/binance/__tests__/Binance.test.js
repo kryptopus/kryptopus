@@ -26,10 +26,22 @@ describe("Binance", () => {
 
   describe("getBalances", () => {
     it("should get balances", async () => {
-      mockRequest({ balances: [{ asset: "BTC", free: 41, locked: 1 }, { asset: "ETH", free: 24, locked: 13 }] });
+      mockRequest({
+        balances: [
+          { asset: "BTC", free: 41, locked: 1 },
+          { asset: "ETH", free: 24, locked: 13 },
+          { asset: "LTC", free: 1, locked: 1 },
+          { asset: "NEO", free: 33, locked: 11 }
+        ]
+      });
       const binance = new Binance("api-key", "api-secret");
       const balances = await binance.getBalances();
-      expect(balances).toEqual([new Balance("BTC", 42, 1), new Balance("ETH", 37, 13)]);
+      expect(balances).toEqual([
+        new Balance("BTC", 42, 1),
+        new Balance("ETH", 37, 13),
+        new Balance("LTC", 2, 1),
+        new Balance("NEO", 44, 11)
+      ]);
     });
   });
 });

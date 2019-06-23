@@ -1,5 +1,5 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
-const Binance = require("../../../exchange/binance/Binance");
+const buildExchange = require("../../../exchange/buildExchange");
 const displayBalances = require("../displayBalances");
 
 module.exports = class GetBalances extends AbstractCommand {
@@ -14,8 +14,7 @@ module.exports = class GetBalances extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const { apiKey, apiSecret } = this.accounts[accountName];
-    const binance = new Binance(apiKey, apiSecret);
+    const binance = buildExchange(this.accounts[accountName]);
     const balances = await binance.getBalances();
 
     displayBalances(balances);

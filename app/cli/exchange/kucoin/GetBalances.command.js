@@ -1,4 +1,4 @@
-const Kucoin = require("../../../exchange/kucoin/Kucoin");
+const buildExchange = require("../../../exchange/buildExchange");
 const displayBalances = require("../displayBalances");
 
 module.exports = class GetBalances {
@@ -19,8 +19,7 @@ module.exports = class GetBalances {
   }
 
   async execute(accountName) {
-    const { apiKey, apiSecret, apiPassphrase } = this.accounts[accountName];
-    const kucoin = new Kucoin(apiKey, apiSecret, apiPassphrase);
+    const kucoin = buildExchange(this.accounts[accountName]);
     const balances = await kucoin.getBalances();
 
     displayBalances(balances);
