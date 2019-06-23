@@ -1,6 +1,7 @@
 const asTable = require("as-table");
 const { cyan, dim } = require("colors/safe");
-const formatPrice = require("../formatPrice");
+const formatPrice = require("../../util/formatPrice");
+const colorizePrice = require("../util/colorizePrice");
 
 module.exports = function displayBalances(balances) {
   const priceTitles = ["total", "inOrder", "available"];
@@ -9,7 +10,7 @@ module.exports = function displayBalances(balances) {
     dash: dim("─"),
     print: (value, title) => {
       if (priceTitles.includes(title)) {
-        return formatPrice(value);
+        return colorizePrice(formatPrice(value));
       }
       return String(value);
     }
