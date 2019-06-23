@@ -38,6 +38,13 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  exchange_kucoin_get_balances:
+    class: "cli/exchange/kucoin/GetBalances"
+    arguments:
+      - "%exchanges%"
+    tags:
+      - { name: "solfege.console.command" }
+
   aggregator_cryptocompare_get_asset_price:
     class: "cli/aggregator/cryptocompare/GetAssetPrice"
     arguments:
