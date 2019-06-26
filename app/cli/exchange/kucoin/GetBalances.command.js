@@ -1,9 +1,8 @@
-const buildExchange = require("../../../exchange/buildExchange");
 const displayBalances = require("../../util/displayBalances");
 
 module.exports = class GetBalances {
-  constructor(accounts) {
-    this.accounts = accounts;
+  constructor(exchangeBuilder) {
+    this.exchangeBuilder = exchangeBuilder;
   }
 
   getName() {
@@ -19,7 +18,7 @@ module.exports = class GetBalances {
   }
 
   async execute(accountName) {
-    const kucoin = buildExchange(this.accounts[accountName]);
+    const kucoin = this.exchangeBuilder.build(accountName);
     const balances = await kucoin.getBalances();
 
     displayBalances(balances);

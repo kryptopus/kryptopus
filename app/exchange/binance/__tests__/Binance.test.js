@@ -34,7 +34,7 @@ describe("Binance", () => {
           { asset: "NEO", free: 33, locked: 11 }
         ]
       });
-      const binance = new Binance("api-key", "api-secret");
+      const binance = new Binance("test", null, "api-key", "api-secret");
       const balances = await binance.getBalances();
       expect(balances).toEqual([
         new Balance("BTC", 42, 1),

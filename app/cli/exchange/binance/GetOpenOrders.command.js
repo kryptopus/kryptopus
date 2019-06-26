@@ -2,13 +2,12 @@ const asTable = require("as-table");
 const { format } = require("date-fns");
 const { cyan, dim } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
-const Binance = require("../../../exchange/binance/Binance");
 
 module.exports = class GetOpenOrders extends AbstractCommand {
-  constructor(accounts) {
+  constructor(exchangeBuilder) {
     super();
 
-    this.accounts = accounts;
+    this.exchangeBuilder = exchangeBuilder;
 
     this.setName("exchange:binance:open_orders");
     this.setDescription("Get Binance open orders");
@@ -16,8 +15,7 @@ module.exports = class GetOpenOrders extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const { apiKey, apiSecret } = this.accounts[accountName];
-    const binance = new Binance(apiKey, apiSecret);
+    const binance = this.exchangeBuilder.build(accountName);
     const orders = await binance.getOpenOrders();
 
     const output = asTable.configure({

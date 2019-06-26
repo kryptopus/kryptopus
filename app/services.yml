@@ -27,28 +27,28 @@ services:
   exchange_binance_get_balances:
     class: "cli/exchange/binance/GetBalances.command"
     arguments:
-      - "%exchanges%"
+      - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_binance_get_open_orders:
     class: "cli/exchange/binance/GetOpenOrders.command"
     arguments:
-      - "%exchanges%"
+      - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_kucoin_get_balances:
     class: "cli/exchange/kucoin/GetBalances.command"
     arguments:
-      - "%exchanges%"
+      - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   portfolio_get_balances:
     class: "cli/portfolio/GetBalances.command"
     arguments:
-      - "%exchanges%"
+      - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
@@ -56,7 +56,7 @@ services:
     class: "cli/portfolio/EstimateTotalAmount.command"
     arguments:
       - "@cryptocompare"
-      - "%exchanges%"
+      - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
@@ -67,7 +67,19 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  exchange_builder:
+    class: "exchange/ExchangeBuilder"
+    arguments:
+      - "%exchanges%"
+    calls:
+      - [ addSymbolTranslator, [ binance, "@binance_symbol_translator" ] ]
+
   cryptocompare:
     class: "aggregator/Cryptocompare"
     arguments:
       - "%aggregators.cryptocompare.apiKey%"
+
+  binance_symbol_translator:
+    class: "exchange/SymbolTranslator"
+    calls:
+      - [ addTranslation, [ HOT, HOLO ] ]

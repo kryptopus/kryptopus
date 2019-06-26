@@ -1,12 +1,11 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
-const buildExchange = require("../../../exchange/buildExchange");
 const displayBalances = require("../../util/displayBalances");
 
 module.exports = class GetBalances extends AbstractCommand {
-  constructor(accounts) {
+  constructor(exchangeBuilder) {
     super();
 
-    this.accounts = accounts;
+    this.exchangeBuilder = exchangeBuilder;
 
     this.setName("exchange:binance:balances");
     this.setDescription("Get Binance balances");
@@ -14,7 +13,7 @@ module.exports = class GetBalances extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const binance = buildExchange(this.accounts[accountName]);
+    const binance = this.exchangeBuilder.build(accountName);
     const balances = await binance.getBalances();
 
     displayBalances(balances);

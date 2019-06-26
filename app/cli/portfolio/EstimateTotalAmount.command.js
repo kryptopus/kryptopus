@@ -1,11 +1,10 @@
-const buildExchange = require("../../exchange/buildExchange");
 const formatPrice = require("../../util/formatPrice");
 const colorizePrice = require("../util/colorizePrice");
 
 module.exports = class GetBalances {
-  constructor(cryptocompare, exchangeAccounts) {
+  constructor(cryptocompare, exchangeBuilder) {
     this.cryptocompare = cryptocompare;
-    this.exchangeAccounts = exchangeAccounts;
+    this.exchangeBuilder = exchangeBuilder;
   }
 
   getName() {
@@ -16,11 +15,22 @@ module.exports = class GetBalances {
     return "Estimate total amount";
   }
 
-  async execute() {
+  getOptions() {
+    return [
+      {
+        flags: "--quote <string>",
+        description: "Quote asset",
+        defaultValue: "USD"
+      }
+    ];
+  }
+
+  async execute(options) {
+    const quoteAsset = options.quote;
+    const exchanges = this.exchangeBuilder.buildAll();
+
     const balances = {};
-    for (const accountName in this.exchangeAccounts) {
-      const account = this.exchangeAccounts[accountName];
-      const exchange = buildExchange(account);
+    for (const exchange of exchanges) {
       const exchangeBalances = await exchange.getBalances();
       for (const exchangeBalance of exchangeBalances) {
         let { asset } = exchangeBalance;
@@ -35,7 +45,7 @@ module.exports = class GetBalances {
     }
 
     const assets = Object.keys(balances);
-    const prices = await this.cryptocompare.getMultipleAssetPrice(assets, "USD");
+    const prices = await this.cryptocompare.getMultipleAssetPrice(assets, quoteAsset);
 
     const noPriceFound = [];
     let total = 0;
@@ -44,10 +54,10 @@ module.exports = class GetBalances {
         noPriceFound.push(asset);
         continue;
       }
-      total += balances[asset] * prices[asset].USD;
+      total += balances[asset] * prices[asset][quoteAsset];
     }
 
-    process.stdout.write(`${colorizePrice(formatPrice(total, 2))} USD\n`);
+    process.stdout.write(`${colorizePrice(formatPrice(total, 2))} ${quoteAsset}\n`);
     if (noPriceFound.length > 0) {
       process.stdout.write(`No price found for: ${noPriceFound.join(", ")}\n`);
     }

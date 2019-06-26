@@ -1,10 +1,9 @@
-const buildExchange = require("../../exchange/buildExchange");
 const displayBalances = require("../util/displayBalances");
 const Balance = require("../../portfolio/Balance");
 
 module.exports = class GetBalances {
-  constructor(exchangeAccounts) {
-    this.exchangeAccounts = exchangeAccounts;
+  constructor(exchangeBuilder) {
+    this.exchangeBuilder = exchangeBuilder;
   }
 
   getName() {
@@ -16,13 +15,13 @@ module.exports = class GetBalances {
   }
 
   async execute() {
+    const exchanges = this.exchangeBuilder.buildAll();
+
     const balances = [];
-    for (const accountName in this.exchangeAccounts) {
-      const account = this.exchangeAccounts[accountName];
-      const exchange = buildExchange(account);
+    for (const exchange of exchanges) {
       const exchangeBalances = await exchange.getBalances();
       for (const exchangeBalance of exchangeBalances) {
-        balances.push(new Balance(accountName, exchangeBalance.asset, exchangeBalance.total));
+        balances.push(new Balance(exchange.getName(), exchangeBalance.asset, exchangeBalance.total));
       }
     }
 

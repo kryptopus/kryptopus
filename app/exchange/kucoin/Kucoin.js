@@ -3,10 +3,16 @@ const { createHmac } = require("crypto");
 const Balance = require("../Balance");
 
 module.exports = class Kucoin {
-  constructor(apiKey, apiSecret, apiPassphrase) {
+  constructor(name, translator, apiKey, apiSecret, apiPassphrase) {
+    this.name = name;
+    this.translator = translator;
     this.apiKey = apiKey;
     this.apiSecret = apiSecret;
     this.apiPassphrase = apiPassphrase;
+  }
+
+  getName() {
+    return this.name;
   }
 
   async getBalances() {

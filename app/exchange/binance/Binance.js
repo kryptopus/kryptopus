@@ -4,12 +4,18 @@ const Order = require("../Order");
 const Balance = require("../Balance");
 
 module.exports = class Binance {
-  constructor(apiKey, apiSecret) {
+  constructor(name, translator, apiKey, apiSecret) {
+    this.name = name;
+    this.translator = translator;
     this.apiKey = apiKey;
     this.apiSecret = apiSecret;
     this.symbols = null;
 
     this.denormalizeOrder = this.denormalizeOrder.bind(this);
+  }
+
+  getName() {
+    return this.name;
   }
 
   async fetchInfo() {
