@@ -9,6 +9,8 @@ module.exports = class Kucoin {
     this.apiKey = apiKey;
     this.apiSecret = apiSecret;
     this.apiPassphrase = apiPassphrase;
+
+    this.denormalizeBalance = this.denormalizeBalance.bind(this);
   }
 
   getName() {
@@ -29,7 +31,7 @@ module.exports = class Kucoin {
   }
 
   denormalizeBalance(normalized) {
-    return new Balance(normalized.currency, normalized.balance, normalized.holds);
+    return new Balance(this.translator.fromExchange(normalized.currency), normalized.balance, normalized.holds);
   }
 
   request(path) {

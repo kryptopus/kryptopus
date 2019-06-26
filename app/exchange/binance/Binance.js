@@ -12,6 +12,7 @@ module.exports = class Binance {
     this.symbols = null;
 
     this.denormalizeOrder = this.denormalizeOrder.bind(this);
+    this.denormalizeBalance = this.denormalizeBalance.bind(this);
   }
 
   getName() {
@@ -47,7 +48,7 @@ module.exports = class Binance {
 
   denormalizeBalance(normalized) {
     return new Balance(
-      normalized.asset,
+      this.translator.fromExchange(normalized.asset),
       Number(normalized.free) + Number(normalized.locked),
       Number(normalized.locked)
     );

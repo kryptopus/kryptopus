@@ -3,6 +3,7 @@ jest.mock("https");
 const https = require("https");
 const Binance = require("../Binance");
 const Balance = require("../../Balance");
+const SymbolTranslator = require("../../SymbolTranslator");
 
 describe("Binance", () => {
   const mockRequest = content => {
@@ -34,7 +35,7 @@ describe("Binance", () => {
           { asset: "NEO", free: 33, locked: 11 }
         ]
       });
-      const binance = new Binance("test", null, "api-key", "api-secret");
+      const binance = new Binance("test", new SymbolTranslator(), "api-key", "api-secret");
       const balances = await binance.getBalances();
       expect(balances).toEqual([
         new Balance("BTC", 42, 1),

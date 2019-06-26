@@ -33,10 +33,7 @@ module.exports = class GetBalances {
     for (const exchange of exchanges) {
       const exchangeBalances = await exchange.getBalances();
       for (const exchangeBalance of exchangeBalances) {
-        let { asset } = exchangeBalance;
-        if (asset === "HOT") {
-          asset = "HOLO";
-        }
+        const { asset } = exchangeBalance;
         if (!balances[asset]) {
           balances[asset] = 0;
         }

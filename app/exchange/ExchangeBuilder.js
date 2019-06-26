@@ -1,5 +1,6 @@
 const Binance = require("./binance/Binance");
 const Kucoin = require("./kucoin/Kucoin");
+const SymbolTranslator = require("./SymbolTranslator");
 
 module.exports = class ExchangeBuilder {
   constructor(accounts) {
@@ -22,7 +23,7 @@ module.exports = class ExchangeBuilder {
 
   build(accountName) {
     const config = this.accounts[accountName];
-    const translator = this.translators.get(config.type);
+    const translator = this.translators.get(config.type) || new SymbolTranslator();
 
     switch (config.type) {
       case "binance": {
