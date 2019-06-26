@@ -16,7 +16,7 @@ module.exports = class GetAssetPrice extends AbstractCommand {
 
   async execute(base, quote) {
     const cryptocompare = new Cryptocompare(this.apiKey);
-    const prices = await cryptocompare.getSingleAssetPrice(base, [quote]);
+    const prices = await cryptocompare.getSingleAssetPrice(base, quote);
 
     Object.entries(prices).forEach(entry => {
       const price = new BigNumber(entry[1]);

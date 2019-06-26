@@ -5,10 +5,19 @@ module.exports = class Cryptocompare {
     this.apiKey = apiKey;
   }
 
-  async getSingleAssetPrice(baseAsset, quoteAssets) {
+  async getSingleAssetPrice(baseAsset, quoteAsset) {
     const result = await this.request("/data/price", {
       fsym: baseAsset,
-      tsyms: quoteAssets.join(",")
+      tsyms: quoteAsset
+    });
+
+    return result;
+  }
+
+  async getMultipleAssetPrice(baseAssets, quoteAsset) {
+    const result = await this.request("/data/pricemulti", {
+      fsyms: baseAssets.join(","),
+      tsyms: quoteAsset
     });
 
     return result;
@@ -33,8 +42,13 @@ module.exports = class Cryptocompare {
     return new Promise((resolve, reject) => {
       https
         .request(options, response => {
+          const chunks = [];
           response.on("data", data => {
-            resolve(JSON.parse(data.toString()));
+            chunks.push(data.toString());
+          });
+          response.on("end", () => {
+            const json = chunks.join("");
+            resolve(JSON.parse(json.toString()));
           });
         })
         .on("error", error => {

@@ -52,6 +52,14 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  portfolio_estimate_total_amount:
+    class: "cli/portfolio/EstimateTotalAmount.command"
+    arguments:
+      - "@cryptocompare"
+      - "%exchanges%"
+    tags:
+      - { name: "solfege.console.command" }
+
   aggregator_cryptocompare_get_asset_price:
     class: "cli/aggregator/cryptocompare/GetAssetPrice.command"
     arguments:
@@ -59,3 +67,7 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  cryptocompare:
+    class: "aggregator/Cryptocompare"
+    arguments:
+      - "%aggregators.cryptocompare.apiKey%"

@@ -40,7 +40,11 @@ module.exports = class Binance {
   }
 
   denormalizeBalance(normalized) {
-    return new Balance(normalized.asset, Number(normalized.free) + Number(normalized.locked), normalized.locked);
+    return new Balance(
+      normalized.asset,
+      Number(normalized.free) + Number(normalized.locked),
+      Number(normalized.locked)
+    );
   }
 
   async getOpenOrders() {
