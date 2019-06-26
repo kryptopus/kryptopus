@@ -1,5 +1,6 @@
 const buildExchange = require("../../exchange/buildExchange");
-const displayBalances = require("../exchange/displayBalances");
+const displayBalances = require("../util/displayBalances");
+const Balance = require("../../portfolio/Balance");
 
 module.exports = class GetBalances {
   constructor(exchangeAccounts) {
@@ -20,7 +21,9 @@ module.exports = class GetBalances {
       const account = this.exchangeAccounts[accountName];
       const exchange = buildExchange(account);
       const exchangeBalances = await exchange.getBalances();
-      balances.push(...exchangeBalances);
+      for (const exchangeBalance of exchangeBalances) {
+        balances.push(new Balance(accountName, exchangeBalance.asset, exchangeBalance.total));
+      }
     }
 
     displayBalances(balances);
