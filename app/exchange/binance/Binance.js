@@ -1,5 +1,5 @@
-const https = require("https");
 const { createHmac } = require("crypto");
+const requestRemoteJson = require("../../util/requestRemoteJson");
 const Order = require("../Order");
 const Balance = require("../Balance");
 
@@ -81,62 +81,32 @@ module.exports = class Binance {
   }
 
   anonymousRequest(path) {
-    return new Promise((resolve, reject) => {
-      const options = {
-        hostname: "api.binance.com",
-        port: 443,
-        path,
-        method: "GET"
-      };
-      https
-        .request(options, response => {
-          const chunks = [];
-          response.on("data", data => {
-            chunks.push(data.toString());
-          });
-          response.on("end", () => {
-            const json = chunks.join("");
-            resolve(JSON.parse(json.toString()));
-          });
-        })
-        .on("error", error => {
-          reject(error);
-        })
-        .end();
-    });
+    const options = {
+      hostname: "api.binance.com",
+      port: 443,
+      path,
+      method: "GET"
+    };
+
+    return requestRemoteJson(options);
   }
 
-  request(path) {
-    return new Promise((resolve, reject) => {
-      const timestamp = Date.now();
-      const queryString = `timestamp=${timestamp}`;
-      const signature = createHmac("sha256", this.apiSecret)
-        .update(queryString)
-        .digest("hex");
-      const options = {
-        hostname: "api.binance.com",
-        port: 443,
-        path: `${path}?${queryString}&signature=${signature}`,
-        method: "GET",
-        headers: {
-          "X-MBX-APIKEY": this.apiKey
-        }
-      };
-      https
-        .request(options, response => {
-          const chunks = [];
-          response.on("data", chunk => {
-            chunks.push(chunk);
-          });
-          response.on("end", () => {
-            const data = chunks.join();
-            resolve(JSON.parse(data.toString()));
-          });
-        })
-        .on("error", error => {
-          reject(error);
-        })
-        .end();
-    });
+  async request(path) {
+    const timestamp = Date.now();
+    const queryString = `timestamp=${timestamp}`;
+    const signature = createHmac("sha256", this.apiSecret)
+      .update(queryString)
+      .digest("hex");
+    const options = {
+      hostname: "api.binance.com",
+      port: 443,
+      path: `${path}?${queryString}&signature=${signature}`,
+      method: "GET",
+      headers: {
+        "X-MBX-APIKEY": this.apiKey
+      }
+    };
+
+    return requestRemoteJson(options);
   }
 };

@@ -1,4 +1,4 @@
-const https = require("https");
+const requestRemoteJson = require("../util/requestRemoteJson");
 
 module.exports = class Cryptocompare {
   constructor(apiKey) {
@@ -39,22 +39,6 @@ module.exports = class Cryptocompare {
       }
     };
 
-    return new Promise((resolve, reject) => {
-      https
-        .request(options, response => {
-          const chunks = [];
-          response.on("data", data => {
-            chunks.push(data.toString());
-          });
-          response.on("end", () => {
-            const json = chunks.join("");
-            resolve(JSON.parse(json.toString()));
-          });
-        })
-        .on("error", error => {
-          reject(error);
-        })
-        .end();
-    });
+    return requestRemoteJson(options);
   }
 };

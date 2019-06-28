@@ -1,5 +1,5 @@
-const https = require("https");
 const { createHmac } = require("crypto");
+const requestRemoteJson = require("../../util/requestRemoteJson");
 const Balance = require("../Balance");
 
 module.exports = class Kucoin {
@@ -34,51 +34,34 @@ module.exports = class Kucoin {
     return new Balance(this.translator.fromExchange(normalized.currency), normalized.balance, normalized.holds);
   }
 
-  request(path) {
-    return new Promise((resolve, reject) => {
-      const method = "GET";
-      const timestamp = Date.now();
-      const body = "";
-      const stringToSign = timestamp + method + path + body;
-      const signature = createHmac("sha256", this.apiSecret)
-        .update(stringToSign)
-        .digest();
-      const signatureBase64 = Buffer.from(signature).toString("base64");
-      const options = {
-        hostname: "openapi-v2.kucoin.com",
-        port: 443,
-        path,
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          "KC-API-KEY": this.apiKey,
-          "KC-API-TIMESTAMP": timestamp,
-          "KC-API-SIGN": signatureBase64,
-          "KC-API-PASSPHRASE": this.apiPassphrase
-        }
-      };
-      https
-        .request(options, response => {
-          const chunks = [];
-          response.on("data", chunk => {
-            chunks.push(chunk);
-          });
-          response.on("end", () => {
-            const data = chunks.join();
-            const payload = JSON.parse(data.toString());
+  async request(path) {
+    const method = "GET";
+    const timestamp = Date.now();
+    const body = "";
+    const stringToSign = timestamp + method + path + body;
+    const signature = createHmac("sha256", this.apiSecret)
+      .update(stringToSign)
+      .digest();
+    const signatureBase64 = Buffer.from(signature).toString("base64");
+    const options = {
+      hostname: "openapi-v2.kucoin.com",
+      port: 443,
+      path,
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        "KC-API-KEY": this.apiKey,
+        "KC-API-TIMESTAMP": timestamp,
+        "KC-API-SIGN": signatureBase64,
+        "KC-API-PASSPHRASE": this.apiPassphrase
+      }
+    };
 
-            if (payload.code !== "200000") {
-              reject(new Error(`Unable to fetch ${path}, error code ${payload.code}: ${payload.msg}`));
-              return;
-            }
+    const payload = await requestRemoteJson(options);
+    if (payload.code !== "200000") {
+      throw new Error(`Unable to fetch ${path}, error code ${payload.code}: ${payload.msg}`);
+    }
 
-            resolve(payload.data);
-          });
-        })
-        .on("error", error => {
-          reject(error);
-        })
-        .end();
-    });
+    return payload.data;
   }
 };

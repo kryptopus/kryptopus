@@ -56,7 +56,7 @@ module.exports = class GetBalances {
 
     process.stdout.write(`${colorizePrice(formatPrice(total, 2))} ${quoteAsset}\n`);
     if (noPriceFound.length > 0) {
-      process.stdout.write(`No price found for: ${noPriceFound.join(", ")}\n`);
+      // process.stdout.write(`No price found for: ${noPriceFound.join(", ")}\n`);
     }
   }
 };
