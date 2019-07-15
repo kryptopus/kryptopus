@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@kryptopus/networks": "0.1.1",
-    "as-table": "^1.0.51",
+    "as-table": "^1.0.52",
     "axios": "^0.18.1",
     "bignumber.js": "^9.0.0",
     "bip32": "^1.0.4",
