@@ -91,7 +91,7 @@ module.exports = class Binance {
     return requestRemoteJson(options);
   }
 
-  async request(path) {
+  request(path) {
     const timestamp = Date.now();
     const queryString = `timestamp=${timestamp}`;
     const signature = createHmac("sha256", this.apiSecret)

@@ -4,12 +4,11 @@ module.exports = function requestRemoteJson(options) {
   return new Promise((resolve, reject) => {
     https
       .request(options, response => {
-        const chunks = [];
+        let data = "";
         response.on("data", chunk => {
-          chunks.push(chunk);
+          data += chunk;
         });
         response.on("end", () => {
-          const data = chunks.join();
           resolve(JSON.parse(data.toString()));
         });
       })

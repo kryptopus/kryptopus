@@ -83,3 +83,8 @@ services:
     class: "exchange/SymbolTranslator"
     calls:
       - [ addTranslation, [ HOT, HOLO ] ]
+
+  wallet_registry:
+    class: "wallet/Registry"
+    arguments:
+      - "%wallets%"
