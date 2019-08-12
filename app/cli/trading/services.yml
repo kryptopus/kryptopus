@@ -4,6 +4,11 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  stop_trading_automation:
+    class: "cli/trading/StopTradingAutomation.command"
+    tags:
+      - { name: "solfege.console.command" }
+
   trading_automation_daemon:
     class: "cli/trading/Daemon.command"
     tags:
