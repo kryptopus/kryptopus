@@ -1,3 +1,6 @@
+imports:
+  - { resource: "cli/trading/services.yml" }
+
 services:
   wallet_balance:
     class: "cli/wallet/GetBalance.command"

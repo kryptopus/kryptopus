@@ -1,0 +1,12 @@
+services:
+  start_trading_automation:
+    class: "cli/trading/StartTradingAutomation.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  trading_automation_daemon:
+    class: "cli/trading/Daemon.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+
