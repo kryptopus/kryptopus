@@ -1,4 +1,4 @@
-const formatPrice = require("../../util/formatPrice");
+const formatPrice = require("../../../util/formatPrice");
 const colorizePrice = require("../util/colorizePrice");
 
 module.exports = class GetBalances {

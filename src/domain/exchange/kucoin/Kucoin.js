@@ -1,5 +1,5 @@
 const { createHmac } = require("crypto");
-const requestRemoteJson = require("../../util/requestRemoteJson");
+const requestRemoteJson = require("../../../util/requestRemoteJson");
 const Balance = require("../Balance");
 
 module.exports = class Kucoin {

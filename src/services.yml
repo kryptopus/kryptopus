@@ -1,62 +1,62 @@
 imports:
-  - { resource: "cli/trading/services.yml" }
+  - { resource: "application/cli/trading/services.yml" }
 
 services:
   wallet_balance:
-    class: "cli/wallet/GetBalance.command"
+    class: "application/cli/wallet/GetBalance.command"
     tags:
       - { name: "solfege.console.command" }
 
   wallet_from_mnemonic:
-    class: "cli/wallet/GetInfoFromMnemonic.command"
+    class: "application/cli/wallet/GetInfoFromMnemonic.command"
     tags:
       - { name: "solfege.console.command" }
 
   mnemonic_random:
-    class: "cli/wallet/MnemonicRandom.command"
+    class: "application/cli/wallet/MnemonicRandom.command"
     tags:
       - { name: "solfege.console.command" }
 
   mnemonic_validate:
-    class: "cli/wallet/MnemonicValidate.command"
+    class: "application/cli/wallet/MnemonicValidate.command"
     tags:
       - { name: "solfege.console.command" }
 
   mnemonic_seed:
-    class: "cli/wallet/MnemonicSeed.command"
+    class: "application/cli/wallet/MnemonicSeed.command"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_binance_get_balances:
-    class: "cli/exchange/binance/GetBalances.command"
+    class: "application/cli/exchange/binance/GetBalances.command"
     arguments:
       - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_binance_get_open_orders:
-    class: "cli/exchange/binance/GetOpenOrders.command"
+    class: "application/cli/exchange/binance/GetOpenOrders.command"
     arguments:
       - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_kucoin_get_balances:
-    class: "cli/exchange/kucoin/GetBalances.command"
+    class: "application/cli/exchange/kucoin/GetBalances.command"
     arguments:
       - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   portfolio_get_balances:
-    class: "cli/portfolio/GetBalances.command"
+    class: "application/cli/portfolio/GetBalances.command"
     arguments:
       - "@exchange_builder"
     tags:
       - { name: "solfege.console.command" }
 
   portfolio_estimate_total_amount:
-    class: "cli/portfolio/EstimateTotalAmount.command"
+    class: "application/cli/portfolio/EstimateTotalAmount.command"
     arguments:
       - "@cryptocompare"
       - "@exchange_builder"
@@ -64,30 +64,30 @@ services:
       - { name: "solfege.console.command" }
 
   aggregator_cryptocompare_get_asset_price:
-    class: "cli/aggregator/cryptocompare/GetAssetPrice.command"
+    class: "application/cli/aggregator/cryptocompare/GetAssetPrice.command"
     arguments:
       - "%aggregators.cryptocompare.apiKey%"
     tags:
       - { name: "solfege.console.command" }
 
   exchange_builder:
-    class: "exchange/ExchangeBuilder"
+    class: "domain/exchange/ExchangeBuilder"
     arguments:
       - "%exchanges%"
     calls:
       - [ addSymbolTranslator, [ binance, "@binance_symbol_translator" ] ]
 
   cryptocompare:
-    class: "aggregator/Cryptocompare"
+    class: "domain/aggregator/Cryptocompare"
     arguments:
       - "%aggregators.cryptocompare.apiKey%"
 
   binance_symbol_translator:
-    class: "exchange/SymbolTranslator"
+    class: "domain/exchange/SymbolTranslator"
     calls:
       - [ addTranslation, [ HOT, HOLO ] ]
 
   wallet_registry:
-    class: "wallet/Registry"
+    class: "domain/wallet/Registry"
     arguments:
       - "%wallets%"

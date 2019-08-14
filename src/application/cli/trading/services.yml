@@ -1,0 +1,27 @@
+services:
+  start_trading_automation:
+    class: "application/cli/trading/StartTradingAutomation.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  stop_trading_automation:
+    class: "application/cli/trading/StopTradingAutomation.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  display_trading_automation_status:
+    class: "application/cli/trading/DisplayTradingAutomationStatus.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  trading_automation_daemon:
+    class: "application/cli/trading/Daemon.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  create_trade_entry:
+    class: "application/cli/trading/CreateTradeEntry.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+

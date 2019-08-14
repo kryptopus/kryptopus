@@ -1,5 +1,5 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
-const pm2 = require("../../util/pm2");
+const pm2 = require("../../../util/pm2");
 
 module.exports = class DisplayTradingAutomationStatus extends AbstractCommand {
   constructor() {

@@ -1,4 +1,4 @@
-const requestRemoteJson = require("../util/requestRemoteJson");
+const requestRemoteJson = require("../../util/requestRemoteJson");
 
 module.exports = class Dragonchain {
   getBalance(address) {

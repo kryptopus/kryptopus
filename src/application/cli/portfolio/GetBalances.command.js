@@ -1,5 +1,5 @@
 const displayBalances = require("../util/displayBalances");
-const Balance = require("../../portfolio/Balance");
+const Balance = require("../../../domain/portfolio/Balance");
 
 module.exports = class GetBalances {
   constructor(exchangeBuilder) {

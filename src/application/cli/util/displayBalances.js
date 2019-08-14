@@ -1,6 +1,6 @@
 const asTable = require("as-table");
 const { cyan, dim } = require("colors/safe");
-const formatPrice = require("../../util/formatPrice");
+const formatPrice = require("../../../util/formatPrice");
 const colorizePrice = require("../util/colorizePrice");
 
 module.exports = function displayBalances(balances) {

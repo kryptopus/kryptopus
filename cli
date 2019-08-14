@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const solfege = require("solfegejs");
-const Kryptopus = require("./app/Bundle");
+const Kryptopus = require("./src/Bundle");
 
 const application = solfege.factory(`${__dirname}/config/config.yml`, [new Kryptopus()]);
 
