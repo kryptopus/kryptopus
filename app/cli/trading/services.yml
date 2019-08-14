@@ -9,6 +9,11 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  display_trading_automation_status:
+    class: "cli/trading/DisplayTradingAutomationStatus.command"
+    tags:
+      - { name: "solfege.console.command" }
+
   trading_automation_daemon:
     class: "cli/trading/Daemon.command"
     tags:

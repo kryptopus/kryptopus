@@ -28,6 +28,22 @@ module.exports = {
       });
     });
   },
+  getAppByName: name => {
+    return new Promise((resolve, reject) => {
+      pm2.list((error, apps) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        const appFound = apps.find(app => app.name === name);
+        if (!appFound) {
+          reject(new Error(`App not found: ${name}`));
+        }
+        resolve(appFound);
+      });
+    });
+  },
   start: options => {
     return new Promise((resolve, reject) => {
       pm2.start(options, (error, app) => {
