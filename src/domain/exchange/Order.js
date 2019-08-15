@@ -17,7 +17,7 @@ const OPEN_STATUSES = [STATUS_NEW, STATUS_PARTIALLY_FILLED];
 const CLOSED_STATUSES = [STATUS_FILLED, STATUS_CANCELED, STATUS_REJECTED, STATUS_EXPIRED];
 
 class Order {
-  constructor(id, time, side, type, baseAsset, quoteAsset, status, price, quantity, executed) {
+  constructor(id, time, side, type, baseSymbol, quoteSymbol, status, price, quantity, executed) {
     assert(SIDES.includes(side), `Unable to create Order, unknown side: ${side}`);
     assert(TYPES.includes(type), `Unable to create Order, unknown type: ${type}`);
     assert(STATUSES.includes(status), `Unable to create Order, unknown status: ${status}`);
@@ -27,8 +27,8 @@ class Order {
     this.side = side;
     this.type = type;
     this.status = status;
-    this.baseAsset = baseAsset;
-    this.quoteAsset = quoteAsset;
+    this.baseSymbol = baseSymbol;
+    this.quoteSymbol = quoteSymbol;
     this.price = price;
     this.quantity = quantity;
     this.executed = executed;

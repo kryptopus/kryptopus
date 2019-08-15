@@ -13,7 +13,7 @@ module.exports = class GetBalances extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const binance = this.exchangeBuilder.build(accountName);
+    const binance = this.exchangeBuilder.buildAccount(accountName);
     const balances = await binance.getBalances();
 
     displayBalances(balances);

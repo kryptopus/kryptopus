@@ -3,8 +3,8 @@ const Kucoin = require("./kucoin/Kucoin");
 const SymbolTranslator = require("./SymbolTranslator");
 
 module.exports = class ExchangeBuilder {
-  constructor(accounts) {
-    this.accounts = accounts;
+  constructor(accountConfigs) {
+    this.accountConfigs = accountConfigs;
     this.translators = new Map();
   }
 
@@ -12,17 +12,35 @@ module.exports = class ExchangeBuilder {
     this.translators.set(exchangeType, translator);
   }
 
-  buildAll() {
-    const exchanges = [];
-    for (const accountName in this.accounts) {
-      exchanges.push(this.build(accountName));
+  build(type) {
+    const translator = this.translators.get(type) || new SymbolTranslator();
+
+    switch (type) {
+      case "binance": {
+        return new Binance("binance", translator);
+      }
+
+      case "kucoin": {
+        return new Kucoin("kucoin", translator);
+      }
+
+      default:
     }
 
-    return exchanges;
+    throw new Error(`Unable to build exchange instance, unknown type: ${type}`);
   }
 
-  build(accountName) {
-    const config = this.accounts[accountName];
+  buildAccounts() {
+    const accounts = [];
+    for (const accountName in this.accountConfigs) {
+      accounts.push(this.buildAccount(accountName));
+    }
+
+    return accounts;
+  }
+
+  buildAccount(accountName) {
+    const config = this.accountConfigs[accountName];
     const translator = this.translators.get(config.type) || new SymbolTranslator();
 
     switch (config.type) {

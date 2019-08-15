@@ -15,7 +15,7 @@ module.exports = class GetOpenOrders extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const binance = this.exchangeBuilder.build(accountName);
+    const binance = this.exchangeBuilder.buildAccount(accountName);
     const orders = await binance.getOpenOrders();
 
     const output = asTable.configure({

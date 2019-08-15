@@ -1,5 +1,7 @@
 imports:
   - { resource: "application/cli/trading/services.yml" }
+  - { resource: "application/cli/exchange/services.yml" }
+  - { resource: "domain/exchange/services.yml" }
 
 services:
   wallet_balance:
@@ -70,22 +72,10 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
-  exchange_builder:
-    class: "domain/exchange/ExchangeBuilder"
-    arguments:
-      - "%exchanges%"
-    calls:
-      - [ addSymbolTranslator, [ binance, "@binance_symbol_translator" ] ]
-
   cryptocompare:
     class: "domain/aggregator/Cryptocompare"
     arguments:
       - "%aggregators.cryptocompare.apiKey%"
-
-  binance_symbol_translator:
-    class: "domain/exchange/SymbolTranslator"
-    calls:
-      - [ addTranslation, [ HOT, HOLO ] ]
 
   wallet_registry:
     class: "domain/wallet/Registry"

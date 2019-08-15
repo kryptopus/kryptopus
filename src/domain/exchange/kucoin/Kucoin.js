@@ -1,9 +1,12 @@
 const { createHmac } = require("crypto");
 const requestRemoteJson = require("../../../util/requestRemoteJson");
 const Balance = require("../Balance");
+const Exchange = require("../Exchange");
 
-module.exports = class Kucoin {
+module.exports = class Kucoin extends Exchange {
   constructor(name, translator, apiKey, apiSecret, apiPassphrase) {
+    super();
+
     this.name = name;
     this.translator = translator;
     this.apiKey = apiKey;

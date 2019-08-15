@@ -1,0 +1,17 @@
+services:
+  exchange_builder:
+    class: "domain/exchange/ExchangeBuilder"
+    arguments:
+      - "%exchanges%"
+    calls:
+      - [ addSymbolTranslator, [ binance, "@binance_symbol_translator" ] ]
+
+  binance_symbol_translator:
+    class: "domain/exchange/SymbolTranslator"
+    calls:
+      - [ addTranslation, [ HOT, HOLO ] ]
+
+  candlestick_collector:
+    class: "domain/exchange/CandlestickCollector"
+    arguments:
+      - "@exchange_builder"

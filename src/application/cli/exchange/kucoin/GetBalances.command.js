@@ -18,7 +18,7 @@ module.exports = class GetBalances {
   }
 
   async execute(accountName) {
-    const kucoin = this.exchangeBuilder.build(accountName);
+    const kucoin = this.exchangeBuilder.buildAccount(accountName);
     const balances = await kucoin.getBalances();
 
     displayBalances(balances);

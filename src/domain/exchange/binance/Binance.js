@@ -1,10 +1,14 @@
+const assert = require("assert");
 const { createHmac } = require("crypto");
 const requestRemoteJson = require("../../../util/requestRemoteJson");
 const Order = require("../Order");
 const Balance = require("../Balance");
+const Exchange = require("../Exchange");
 
-module.exports = class Binance {
+module.exports = class Binance extends Exchange {
   constructor(name, translator, apiKey, apiSecret) {
+    super();
+
     this.name = name;
     this.translator = translator;
     this.apiKey = apiKey;
@@ -36,6 +40,15 @@ module.exports = class Binance {
   async getBalances() {
     const payload = await this.request("/api/v3/account");
     return this.denormalizeBalances(payload.balances.filter(this.isNonEmptyBalance));
+  }
+
+  async getCandlesticks(baseAsset, quoteAsset, interval) {
+    const symbol = baseAsset + quoteAsset;
+    const payload = await this.anonymousRequest("/api/v1/klines", {
+      symbol,
+      interval
+    });
+    return payload;
   }
 
   isNonEmptyBalance(normalizedBalance) {
@@ -80,18 +93,32 @@ module.exports = class Binance {
     );
   }
 
-  anonymousRequest(path) {
+  async anonymousRequest(path, query) {
+    const queryArray = [];
+    if (query) {
+      for (const queryName in query) {
+        queryArray.push(`${queryName}=${query[queryName]}`);
+      }
+    }
+    const queryString = queryArray.join("&");
+
     const options = {
       hostname: "api.binance.com",
       port: 443,
-      path,
+      path: `${path}?${queryString}`,
       method: "GET"
     };
 
-    return requestRemoteJson(options);
+    const payload = await requestRemoteJson(options);
+    this.assertPayload(payload);
+
+    return payload;
   }
 
-  request(path) {
+  async request(path) {
+    assert(this.apiKey, "API key is missing");
+    assert(this.apiSecret, "API secret is missing");
+
     const timestamp = Date.now();
     const queryString = `timestamp=${timestamp}`;
     const signature = createHmac("sha256", this.apiSecret)
@@ -107,6 +134,15 @@ module.exports = class Binance {
       }
     };
 
-    return requestRemoteJson(options);
+    const payload = await requestRemoteJson(options);
+    this.assertPayload(payload);
+
+    return payload;
+  }
+
+  assertPayload(payload) {
+    if (payload.code && payload.msg) {
+      throw new Error(`[Code ${payload.code}] ${payload.msg}`);
+    }
   }
 };

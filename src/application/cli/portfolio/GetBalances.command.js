@@ -15,13 +15,13 @@ module.exports = class GetBalances {
   }
 
   async execute() {
-    const exchanges = this.exchangeBuilder.buildAll();
+    const accounts = this.exchangeBuilder.buildAccounts();
 
     const balances = [];
-    for (const exchange of exchanges) {
-      const exchangeBalances = await exchange.getBalances();
-      for (const exchangeBalance of exchangeBalances) {
-        balances.push(new Balance(exchange.getName(), exchangeBalance.asset, exchangeBalance.total));
+    for (const account of accounts) {
+      const accountBalances = await account.getBalances();
+      for (const accountBalance of accountBalances) {
+        balances.push(new Balance(account.getName(), accountBalance.asset, accountBalance.total));
       }
     }
 

@@ -10,8 +10,8 @@ module.exports = class GetAssetPrice extends AbstractCommand {
 
     this.setName("aggregator:cryptocompare:asset_price");
     this.setDescription("Get asset price");
-    this.addArgument("base", "Base asset");
-    this.addArgument("quote", "Quote asset");
+    this.addArgument("base", "Base symbol");
+    this.addArgument("quote", "Quote symbol");
   }
 
   async execute(base, quote) {

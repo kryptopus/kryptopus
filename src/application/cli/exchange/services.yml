@@ -1,0 +1,9 @@
+services:
+  collect_candlesticks:
+    class: "application/cli/exchange/CollectCandlesticks.command"
+    arguments:
+      - "@candlestick_collector"
+    tags:
+      - { name: "solfege.console.command" }
+
+
