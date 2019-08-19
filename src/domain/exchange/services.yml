@@ -15,3 +15,4 @@ services:
     class: "domain/exchange/CandlestickCollector"
     arguments:
       - "@exchange_builder"
+      - "@candlestick_repository"

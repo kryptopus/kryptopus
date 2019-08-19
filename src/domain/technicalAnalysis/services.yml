@@ -1,0 +1,3 @@
+services:
+  candlestick_repository:
+    class: "domain/technicalAnalysis/CandlestickRepository"

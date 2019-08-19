@@ -4,6 +4,7 @@ const requestRemoteJson = require("../../../util/requestRemoteJson");
 const Order = require("../Order");
 const Balance = require("../Balance");
 const Exchange = require("../Exchange");
+const Candlestick = require("../../technicalAnalysis/Candlestick");
 
 module.exports = class Binance extends Exchange {
   constructor(name, translator, apiKey, apiSecret) {
@@ -48,7 +49,7 @@ module.exports = class Binance extends Exchange {
       symbol,
       interval
     });
-    return payload;
+    return this.denormalizeCandlesticks(payload);
   }
 
   isNonEmptyBalance(normalizedBalance) {
@@ -65,6 +66,16 @@ module.exports = class Binance extends Exchange {
       Number(normalized.free) + Number(normalized.locked),
       Number(normalized.locked)
     );
+  }
+
+  denormalizeCandlesticks(normalized) {
+    return normalized.map(this.denormalizeCandlestick);
+  }
+
+  denormalizeCandlestick(normalized) {
+    const [openTimestamp, openPrice, highestPrice, lowestPrice, closePrice, volume, closeTimestamp] = normalized;
+
+    return new Candlestick(openTimestamp, closeTimestamp, openPrice, closePrice, lowestPrice, highestPrice, volume);
   }
 
   async getOpenOrders() {
