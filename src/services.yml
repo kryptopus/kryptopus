@@ -1,6 +1,7 @@
 imports:
   - { resource: "application/cli/trading/services.yml" }
   - { resource: "application/cli/exchange/services.yml" }
+  - { resource: "application/cli/technicalAnalysis/services.yml" }
   - { resource: "domain/exchange/services.yml" }
   - { resource: "domain/technicalAnalysis/services.yml" }
 

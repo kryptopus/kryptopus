@@ -6,7 +6,7 @@ module.exports = class CollectCandlesticks extends AbstractCommand {
 
     this.candlestickCollector = candlestickCollector;
 
-    this.setName("exchange:candlestick:collect");
+    this.setName("technicalAnalysis:candlestick:collect");
     this.setDescription("Collect candlesticks");
     this.addArgument("exchange", "Exchange");
     this.addArgument("baseSymbol", "Base symbol");

@@ -1,0 +1,16 @@
+services:
+  collect_candlesticks_command:
+    class: "application/cli/technicalAnalysis/CollectCandlesticks.command"
+    arguments:
+      - "@candlestick_collector"
+    tags:
+      - { name: "solfege.console.command" }
+
+  display_candlestick_command:
+    class: "application/cli/technicalAnalysis/DisplayCandlesticks.command"
+    arguments:
+      - "@candlestick_repository"
+    tags:
+      - { name: "solfege.console.command" }
+
+
