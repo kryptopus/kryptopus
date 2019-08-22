@@ -33,7 +33,10 @@ module.exports = class CandlestickRepository {
 
   async getCollection(exchangeName, baseSymbol, quoteSymbol, interval, startTimestamp, endTimestamp) {
     const database = await this.getDatabase(exchangeName, baseSymbol, quoteSymbol, interval);
-    const normalizedCandlesticks = database.createReadStream();
+    const normalizedCandlesticks = database.createReadStream({
+      gte: startTimestamp,
+      lt: endTimestamp
+    });
 
     const candlesticks = [];
     for await (const normalizedCandlestick of normalizedCandlesticks) {
