@@ -26,6 +26,6 @@ module.exports = class CollectCandlesticks extends AbstractCommand {
       convertDateStringToTimestamp(periodStartAt),
       convertDateStringToTimestamp(periodEndAt)
     );
-    console.log("Collected candlesticks", candlesticks.length);
+    console.log("Collected candlesticks:", candlesticks.length);
   }
 };

@@ -49,7 +49,8 @@ module.exports = class Binance extends Exchange {
       symbol,
       interval,
       startTime,
-      endTime
+      endTime,
+      limit: 1000
     });
     return this.denormalizeCandlesticks(payload);
   }
