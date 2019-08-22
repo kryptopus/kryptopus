@@ -1,5 +1,4 @@
-#!/bin/sh
-":" //# comment; exec /usr/bin/env node --no-warnings "$0" "$@"
+#!/usr/bin/env node
 
 const solfege = require("solfegejs");
 const Kryptopus = require("./src/Bundle");

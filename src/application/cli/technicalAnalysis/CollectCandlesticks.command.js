@@ -1,4 +1,5 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const convertDateStringToTimestamp = require("../../../util/date/convertDateStringToTimestamp");
 
 module.exports = class CollectCandlesticks extends AbstractCommand {
   constructor(candlestickCollector) {
@@ -17,13 +18,14 @@ module.exports = class CollectCandlesticks extends AbstractCommand {
   }
 
   async execute(exchangeName, baseSymbol, quoteSymbol, interval, periodStartAt, periodEndAt) {
-    await this.candlestickCollector.collect(
+    const candlesticks = await this.candlestickCollector.collect(
       exchangeName,
       baseSymbol,
       quoteSymbol,
       interval,
-      periodStartAt,
-      periodEndAt
+      convertDateStringToTimestamp(periodStartAt),
+      convertDateStringToTimestamp(periodEndAt)
     );
+    console.log("Collected candlesticks", candlesticks.length);
   }
 };

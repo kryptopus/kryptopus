@@ -11,8 +11,3 @@ services:
     calls:
       - [ addTranslation, [ HOT, HOLO ] ]
 
-  candlestick_collector:
-    class: "domain/exchange/CandlestickCollector"
-    arguments:
-      - "@exchange_builder"
-      - "@candlestick_repository"

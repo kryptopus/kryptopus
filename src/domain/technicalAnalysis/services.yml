@@ -1,3 +1,9 @@
 services:
   candlestick_repository:
     class: "domain/technicalAnalysis/CandlestickRepository"
+
+  candlestick_collector:
+    class: "domain/technicalAnalysis/CandlestickCollector"
+    arguments:
+      - "@exchange_builder"
+      - "@candlestick_repository"

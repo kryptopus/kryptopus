@@ -43,11 +43,13 @@ module.exports = class Binance extends Exchange {
     return this.denormalizeBalances(payload.balances.filter(this.isNonEmptyBalance));
   }
 
-  async getCandlesticks(baseAsset, quoteAsset, interval) {
+  async getCandlesticks(baseAsset, quoteAsset, interval, startTime, endTime) {
     const symbol = baseAsset + quoteAsset;
     const payload = await this.anonymousRequest("/api/v1/klines", {
       symbol,
-      interval
+      interval,
+      startTime,
+      endTime
     });
     return this.denormalizeCandlesticks(payload);
   }
