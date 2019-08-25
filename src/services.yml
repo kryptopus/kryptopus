@@ -31,27 +31,6 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
-  exchange_binance_get_balances:
-    class: "application/cli/exchange/binance/GetBalances.command"
-    arguments:
-      - "@exchange_builder"
-    tags:
-      - { name: "solfege.console.command" }
-
-  exchange_binance_get_open_orders:
-    class: "application/cli/exchange/binance/GetOpenOrders.command"
-    arguments:
-      - "@exchange_builder"
-    tags:
-      - { name: "solfege.console.command" }
-
-  exchange_kucoin_get_balances:
-    class: "application/cli/exchange/kucoin/GetBalances.command"
-    arguments:
-      - "@exchange_builder"
-    tags:
-      - { name: "solfege.console.command" }
-
   portfolio_get_balances:
     class: "application/cli/portfolio/GetBalances.command"
     arguments:

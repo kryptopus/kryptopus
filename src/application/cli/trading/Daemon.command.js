@@ -1,6 +1,6 @@
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 
-module.exports = class StartTradingAutomation extends AbstractCommand {
+module.exports = class Daemon extends AbstractCommand {
   constructor() {
     super();
 

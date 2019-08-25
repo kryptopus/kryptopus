@@ -13,4 +13,27 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  start_collector_daemon:
+    class: "application/cli/technicalAnalysis/StartCollectorDaemon.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  display_collector_daemon_status:
+    class: "application/cli/technicalAnalysis/DisplayCollectorDaemonStatus.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  stop_collector_daemon:
+    class: "application/cli/technicalAnalysis/StopCollectorDaemon.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  collector_daemon:
+    class: "application/cli/technicalAnalysis/CollectorDaemon.command"
+    arguments:
+      - "%technicalAnalysis.candlestickCollector%"
+      - "@candlestick_collector"
+    tags:
+      - { name: "solfege.console.command" }
+
 
