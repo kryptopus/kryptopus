@@ -2,6 +2,7 @@ const fs = require("fs").promises;
 const level = require("level");
 const msgpack = require("msgpack5");
 const Candlestick = require("./Candlestick");
+const convertIntervalToMilliseconds = require("../../util/convertIntervalToMilliseconds");
 
 const pack = msgpack();
 
@@ -58,22 +59,12 @@ module.exports = class CandlestickRepository {
   denormalizeCandlestick(normalized, interval) {
     return new Candlestick(
       Number(normalized.key),
-      Number(normalized.key) + this.convertIntervalToMilliseconds(interval) - 1,
+      Number(normalized.key) + convertIntervalToMilliseconds(interval) - 1,
       normalized.value.o,
       normalized.value.c,
       normalized.value.l,
       normalized.value.h,
       normalized.value.v
     );
-  }
-
-  convertIntervalToMilliseconds(interval) {
-    switch (interval) {
-      case "1h":
-        return 1000 * 60 * 60;
-      default:
-    }
-
-    throw new Error(`Unknown interval: ${interval}`);
   }
 };

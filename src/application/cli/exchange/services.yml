@@ -13,6 +13,13 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  exchange_binance_display_informations:
+    class: "application/cli/exchange/binance/DisplayInformations.command"
+    arguments:
+      - "@exchange_builder"
+    tags:
+      - { name: "solfege.console.command" }
+
   exchange_kucoin_get_balances:
     class: "application/cli/exchange/kucoin/GetBalances.command"
     arguments:

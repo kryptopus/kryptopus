@@ -38,13 +38,19 @@ module.exports = class Binance extends Exchange {
     }
   }
 
+  async getInformations() {
+    const payload = await this.anonymousRequest("/api/v1/exchangeInfo");
+    delete payload.symbols;
+    return payload;
+  }
+
   async getBalances() {
     const payload = await this.request("/api/v3/account");
     return this.denormalizeBalances(payload.balances.filter(this.isNonEmptyBalance));
   }
 
-  async getCandlesticks(baseAsset, quoteAsset, interval, startTime, endTime) {
-    const symbol = baseAsset + quoteAsset;
+  async getCandlesticks(baseSymbol, quoteSymbol, interval, startTime, endTime) {
+    const symbol = this.translator.toExchange(baseSymbol) + this.translator.toExchange(quoteSymbol);
     const payload = await this.anonymousRequest("/api/v1/klines", {
       symbol,
       interval,

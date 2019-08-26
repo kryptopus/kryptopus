@@ -12,8 +12,17 @@ module.exports = class CollectorDaemon extends AbstractCommand {
   }
 
   async execute() {
-    await this.collect();
-    setInterval(this.collect, 1000 * 60 * 5);
+    const delay = 1000 * 60 * 5;
+    const now = Date.now();
+    const millesecondsToNextExecution = delay - (now % delay);
+    console.info(`Next execution at ${new Date(now + millesecondsToNextExecution)}`);
+
+    setTimeout(async () => {
+      await this.collect();
+      setInterval(async () => {
+        await this.collect();
+      }, delay);
+    }, millesecondsToNextExecution);
   }
 
   async collect() {
