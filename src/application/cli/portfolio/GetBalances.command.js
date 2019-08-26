@@ -21,7 +21,7 @@ module.exports = class GetBalances {
     for (const account of accounts) {
       const accountBalances = await account.getBalances();
       for (const accountBalance of accountBalances) {
-        balances.push(new Balance(account.getName(), accountBalance.asset, accountBalance.total));
+        balances.push(new Balance(account.getName(), accountBalance.symbol, accountBalance.total));
       }
     }
 

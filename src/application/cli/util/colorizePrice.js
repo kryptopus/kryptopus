@@ -1,7 +1,7 @@
 const { yellow, dim } = require("colors/safe");
 
-module.exports = function colorizePrice(price) {
-  const array = String(price).split("");
+function grayLastZero(characters) {
+  const array = String(characters).split("");
   let findNonZero = false;
   for (let index = array.length - 1; index >= 0; index--) {
     if (findNonZero) {
@@ -19,4 +19,15 @@ module.exports = function colorizePrice(price) {
   }
 
   return array.join("");
+}
+
+module.exports = function colorizePrice(price) {
+  const [integer, decimal] = String(price).split(".");
+  let result = yellow(integer);
+  if (decimal) {
+    result += yellow(".");
+    result += grayLastZero(decimal);
+  }
+
+  return result;
 };

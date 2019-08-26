@@ -1,7 +1,7 @@
 module.exports = class Balance {
-  constructor(accountName, asset, total) {
+  constructor(accountName, symbol, total) {
     this.accountName = accountName;
-    this.asset = asset;
+    this.symbol = symbol;
     this.total = total;
   }
 };

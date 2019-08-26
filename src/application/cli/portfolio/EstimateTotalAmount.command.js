@@ -19,7 +19,7 @@ module.exports = class GetBalances {
     return [
       {
         flags: "--quote <string>",
-        description: "Quote asset",
+        description: "Quote symbol",
         defaultValue: "USD"
       }
     ];
@@ -33,25 +33,25 @@ module.exports = class GetBalances {
     for (const account of accounts) {
       const accountBalances = await account.getBalances();
       for (const accountBalance of accountBalances) {
-        const { asset } = accountBalance;
-        if (!balances[asset]) {
-          balances[asset] = 0;
+        const { symbol } = accountBalance;
+        if (!balances[symbol]) {
+          balances[symbol] = 0;
         }
-        balances[asset] += accountBalance.total;
+        balances[symbol] += accountBalance.total;
       }
     }
 
-    const assets = Object.keys(balances);
-    const prices = await this.cryptocompare.getMultipleAssetPrice(assets, quoteAsset);
+    const symbols = Object.keys(balances);
+    const prices = await this.cryptocompare.getMultipleAssetPrice(symbols, quoteAsset);
 
     const noPriceFound = [];
     let total = 0;
-    for (const asset of assets) {
-      if (!prices[asset]) {
-        noPriceFound.push(asset);
+    for (const symbol of symbols) {
+      if (!prices[symbol]) {
+        noPriceFound.push(symbol);
         continue;
       }
-      total += balances[asset] * prices[asset][quoteAsset];
+      total += balances[symbol] * prices[symbol][quoteAsset];
     }
 
     process.stdout.write(`${colorizePrice(formatPrice(total, 2))} ${quoteAsset}\n`);
