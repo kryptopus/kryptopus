@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 const level = require("level");
 const msgpack = require("msgpack5");
 const Candlestick = require("./Candlestick");
-const convertIntervalToMilliseconds = require("../../util/convertIntervalToMilliseconds");
+const convertIntervalToMilliseconds = require("../util/convertIntervalToMilliseconds");
 
 const pack = msgpack();
 
