@@ -7,3 +7,9 @@ services:
     arguments:
       - "@exchange_builder"
       - "@candlestick_repository"
+
+  candlestick_resolver:
+    class: "domain/technicalAnalysis/CandlestickResolver"
+    arguments:
+      - "@candlestick_repository"
+      - "@candlestick_collector"

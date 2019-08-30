@@ -39,7 +39,7 @@ services:
   display_graph_candlestick_command:
     class: "application/cli/technicalAnalysis/DisplayGraphCandlesticks.command"
     arguments:
-      - "@candlestick_repository"
+      - "@candlestick_resolver"
     tags:
       - { name: "solfege.console.command" }
 

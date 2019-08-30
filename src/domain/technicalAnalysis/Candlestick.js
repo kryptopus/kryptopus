@@ -8,6 +8,18 @@ module.exports = class Candlestick {
       openTimestamp < closeTimestamp,
       `Open timestamp (${openTimestamp}) should be lower than close timestamp (${closeTimestamp})`
     );
+    assert(
+      Number(lowestPrice) <= Number(openPrice) &&
+        Number(lowestPrice) <= Number(closePrice) &&
+        Number(lowestPrice) <= Number(highestPrice),
+      `Lowest price (${lowestPrice}) should be lower than the other prices (Open: ${openPrice}, Close: ${closePrice}, High: ${highestPrice})`
+    );
+    assert(
+      Number(highestPrice) >= Number(openPrice) &&
+        Number(highestPrice) >= Number(closePrice) &&
+        Number(highestPrice) >= Number(lowestPrice),
+      `Lowest price (${lowestPrice}) should be higher than the other prices (Open: ${openPrice}, Close: ${closePrice}, Low: ${lowestPrice})`
+    );
 
     this.openTimestamp = openTimestamp;
     this.closeTimestamp = closeTimestamp;

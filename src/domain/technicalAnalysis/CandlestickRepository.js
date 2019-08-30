@@ -9,6 +9,7 @@ const pack = msgpack();
 module.exports = class CandlestickRepository {
   constructor() {
     this.directoryPath = `${__dirname}/../../../data/technicalAnalysis/exchanges`;
+    this.databaseAccesses = new Map();
   }
 
   async saveCollection(exchangeName, baseSymbol, quoteSymbol, interval, candlesticks) {
@@ -29,7 +30,6 @@ module.exports = class CandlestickRepository {
 
     const database = await this.getDatabase(exchangeName, baseSymbol, quoteSymbol, interval);
     await database.batch(operations);
-    await database.close();
   }
 
   async getCollection(exchangeName, baseSymbol, quoteSymbol, interval, startTimestamp, endTimestamp) {
@@ -48,12 +48,27 @@ module.exports = class CandlestickRepository {
   }
 
   async getDatabase(exchangeName, baseSymbol, quoteSymbol, interval) {
-    await fs.mkdir(this.directoryPath, { recursive: true });
+    const id = `${exchangeName}-${baseSymbol}-${quoteSymbol}-${interval}`;
+    let databaseAccess;
 
-    const databasePath = `${this.directoryPath}/${exchangeName}-${baseSymbol}-${quoteSymbol}-${interval}`;
-    const database = level(databasePath, { valueEncoding: pack });
+    if (this.databaseAccesses.has(id)) {
+      databaseAccess = this.databaseAccesses.get(id);
+      clearTimeout(databaseAccess.timeoutId);
+    } else {
+      await fs.mkdir(this.directoryPath, { recursive: true });
+      const databasePath = `${this.directoryPath}/${id}`;
+      const database = level(databasePath, { valueEncoding: pack });
 
-    return database;
+      databaseAccess = { database };
+      this.databaseAccesses.set(id, databaseAccess);
+    }
+
+    databaseAccess.timeoutId = setTimeout(() => {
+      databaseAccess.database.close();
+      this.databaseAccesses.delete(id);
+    }, 1000 * 1);
+
+    return databaseAccess.database;
   }
 
   denormalizeCandlestick(normalized, interval) {

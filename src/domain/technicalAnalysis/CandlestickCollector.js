@@ -1,3 +1,6 @@
+const convertIntervalToMilliseconds = require("../util/convertIntervalToMilliseconds");
+const Candlestick = require("./Candlestick");
+
 module.exports = class CandlestickCollector {
   constructor(exchangeBuilder, candlestickRepository) {
     this.exchangeBuilder = exchangeBuilder;
@@ -14,8 +17,69 @@ module.exports = class CandlestickCollector {
       endTimestamp
     );
 
-    await this.candlestickRepository.saveCollection(exchangeName, baseSymbol, quoteSymbol, interval, candlesticks);
+    const completedCandlesticks = this.completeMissingCandlesticks(
+      candlesticks,
+      interval,
+      startTimestamp,
+      endTimestamp
+    );
 
-    return candlesticks;
+    await this.candlestickRepository.saveCollection(
+      exchangeName,
+      baseSymbol,
+      quoteSymbol,
+      interval,
+      completedCandlesticks
+    );
+
+    return completedCandlesticks;
+  }
+
+  completeMissingCandlesticks(candlesticks, interval, startTimestamp, endTimestamp) {
+    const intervalMilliseconds = convertIntervalToMilliseconds(interval);
+    const expectedCandlestickCount = Math.ceil((endTimestamp - startTimestamp) / intervalMilliseconds);
+
+    if (!candlesticks.length || expectedCandlestickCount === candlesticks.length) {
+      return candlesticks;
+    }
+
+    const firstCandlestick = candlesticks[0];
+    if (firstCandlestick.openTimestamp !== startTimestamp) {
+      const date = new Date(startTimestamp);
+      throw new Error(`The first candlestick is required to complete a collection: ${date}`);
+    }
+
+    const completedCandlesticks = [firstCandlestick];
+    let lastCandlestickIndex = 1;
+    for (let index = 1; index < expectedCandlestickCount; index++) {
+      const expectedOpenTimestamp = startTimestamp + intervalMilliseconds * index;
+
+      if (lastCandlestickIndex > candlesticks.length - 1) {
+        // Do not complete after the last collected candlestick
+        break;
+      }
+
+      const candlestick = candlesticks[lastCandlestickIndex];
+      if (candlestick.openTimestamp === expectedOpenTimestamp) {
+        completedCandlesticks.push(candlestick);
+        lastCandlestickIndex++;
+        continue;
+      }
+
+      const lastClosePrice = candlesticks[lastCandlestickIndex].closePrice;
+      completedCandlesticks.push(
+        new Candlestick(
+          expectedOpenTimestamp,
+          expectedOpenTimestamp + intervalMilliseconds - 1,
+          lastClosePrice,
+          lastClosePrice,
+          lastClosePrice,
+          lastClosePrice,
+          0
+        )
+      );
+    }
+
+    return completedCandlesticks;
   }
 };

@@ -1,7 +1,12 @@
 const assert = require("assert");
 
 module.exports = function convertDateStringToTimestamp(dateString) {
-  const timestamp = Date.parse(dateString);
+  let timestamp;
+  if (dateString === "now") {
+    timestamp = Date.now();
+  } else {
+    timestamp = Date.parse(dateString);
+  }
 
   assert(!Number.isNaN(timestamp), `Invalid date string: ${dateString}`);
 
