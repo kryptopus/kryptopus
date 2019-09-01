@@ -32,5 +32,6 @@ module.exports = class GenerateGraph extends AbstractCommand {
       startTimestamp,
       endTimestamp
     );
+    console.log(candlesticks);
   }
 };
