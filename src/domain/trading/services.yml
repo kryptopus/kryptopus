@@ -1,0 +1,3 @@
+services:
+  trading_strategy_registry:
+    class: "domain/trading/StrategyRegistry"

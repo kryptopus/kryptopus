@@ -84,7 +84,15 @@ module.exports = class Binance extends Exchange {
   denormalizeCandlestick(normalized) {
     const [openTimestamp, openPrice, highestPrice, lowestPrice, closePrice, volume, closeTimestamp] = normalized;
 
-    return new Candlestick(openTimestamp, closeTimestamp, openPrice, closePrice, lowestPrice, highestPrice, volume);
+    return new Candlestick(
+      Number(openTimestamp),
+      Number(closeTimestamp),
+      Number(openPrice),
+      Number(closePrice),
+      Number(lowestPrice),
+      Number(highestPrice),
+      Number(volume)
+    );
   }
 
   async getOpenOrders() {

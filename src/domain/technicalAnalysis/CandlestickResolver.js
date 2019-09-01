@@ -95,15 +95,15 @@ module.exports = class CandlestickResolver {
     let volume = 0;
     for (const candlestick of candlesticks) {
       const { lowestPrice: candlestickLowestPrice, highestPrice: candlestickHighestPrice } = candlestick;
-      if (Number(candlestickLowestPrice) < Number(lowestPrice)) {
+      if (candlestickLowestPrice < lowestPrice) {
         lowestPrice = candlestickLowestPrice;
       }
 
-      if (Number(candlestickHighestPrice) > Number(highestPrice)) {
+      if (candlestickHighestPrice > highestPrice) {
         highestPrice = candlestickHighestPrice;
       }
 
-      volume += Number(candlestick.volume);
+      volume += candlestick.volume;
     }
 
     return new Candlestick(openTimestamp, closeTimestamp, openPrice, closePrice, lowestPrice, highestPrice, volume);

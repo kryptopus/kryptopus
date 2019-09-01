@@ -4,6 +4,7 @@ imports:
   - { resource: "application/cli/technicalAnalysis/services.yml" }
   - { resource: "domain/exchange/services.yml" }
   - { resource: "domain/technicalAnalysis/services.yml" }
+  - { resource: "domain/trading/services.yml" }
 
 services:
   wallet_balance:

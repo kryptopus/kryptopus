@@ -16,6 +16,8 @@ services:
 
   trading_automation_daemon:
     class: "application/cli/trading/Daemon.command"
+    arguments:
+      - "%trading.strategies%"
     tags:
       - { name: "solfege.console.command" }
 

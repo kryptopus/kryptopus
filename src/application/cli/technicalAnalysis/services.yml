@@ -6,6 +6,11 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  check_candlesticks_command:
+    class: "application/cli/technicalAnalysis/CheckCandlesticks.command"
+    tags:
+      - { name: "solfege.console.command" }
+
   display_candlestick_command:
     class: "application/cli/technicalAnalysis/DisplayCandlesticks.command"
     arguments:
@@ -38,6 +43,13 @@ services:
 
   display_graph_candlestick_command:
     class: "application/cli/technicalAnalysis/DisplayGraphCandlesticks.command"
+    arguments:
+      - "@candlestick_resolver"
+    tags:
+      - { name: "solfege.console.command" }
+
+  generate_graph_command:
+    class: "application/cli/technicalAnalysis/GenerateGraph.command"
     arguments:
       - "@candlestick_resolver"
     tags:

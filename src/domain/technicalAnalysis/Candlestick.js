@@ -1,24 +1,31 @@
 const assert = require("assert");
+const assertPositiveInteger = require("../../util/number/assertPositiveInteger");
+const assertPositiveNumber = require("../../util/number/assertPositiveNumber");
 
 module.exports = class Candlestick {
   constructor(openTimestamp, closeTimestamp, openPrice, closePrice, lowestPrice, highestPrice, volume) {
-    assert(typeof openTimestamp === "number", "Open timestamp is not a number");
-    assert(typeof closeTimestamp === "number", "Open timestamp is not a number");
+    assertPositiveInteger(openTimestamp, new RangeError("Open timestamp must be a positive integer"));
+    assertPositiveInteger(closeTimestamp, new RangeError("Close timestamp must be a positive integer"));
+    assertPositiveNumber(openPrice, new RangeError("Open price must be a positive number"));
+    assertPositiveNumber(closePrice, new RangeError("Close price must be a positive number"));
+    assertPositiveNumber(lowestPrice, new RangeError("Lowest price must be a positive number"));
+    assertPositiveNumber(highestPrice, new RangeError("Highest price must be a positive number"));
+    assertPositiveNumber(volume, new RangeError(`Volume must be a positive number: ${volume}`));
     assert(
       openTimestamp < closeTimestamp,
-      `Open timestamp (${openTimestamp}) should be lower than close timestamp (${closeTimestamp})`
+      new RangeError(`Open timestamp (${openTimestamp}) should be lower than close timestamp (${closeTimestamp})`)
     );
     assert(
-      Number(lowestPrice) <= Number(openPrice) &&
-        Number(lowestPrice) <= Number(closePrice) &&
-        Number(lowestPrice) <= Number(highestPrice),
-      `Lowest price (${lowestPrice}) should be lower than the other prices (Open: ${openPrice}, Close: ${closePrice}, High: ${highestPrice})`
+      lowestPrice <= openPrice && lowestPrice <= closePrice && lowestPrice <= highestPrice,
+      new RangeError(
+        `Lowest price (${lowestPrice}) should be lower than the other prices (Open: ${openPrice}, Close: ${closePrice}, High: ${highestPrice})`
+      )
     );
     assert(
-      Number(highestPrice) >= Number(openPrice) &&
-        Number(highestPrice) >= Number(closePrice) &&
-        Number(highestPrice) >= Number(lowestPrice),
-      `Lowest price (${lowestPrice}) should be higher than the other prices (Open: ${openPrice}, Close: ${closePrice}, Low: ${lowestPrice})`
+      highestPrice >= openPrice && highestPrice >= closePrice && highestPrice >= lowestPrice,
+      new RangeError(
+        `Lowest price (${lowestPrice}) should be higher than the other prices (Open: ${openPrice}, Close: ${closePrice}, Low: ${lowestPrice})`
+      )
     );
 
     this.openTimestamp = openTimestamp;
