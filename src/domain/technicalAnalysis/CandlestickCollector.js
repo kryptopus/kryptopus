@@ -17,11 +17,13 @@ module.exports = class CandlestickCollector {
       endTimestamp
     );
 
+    const firstCandlestick = candlesticks[0];
+    const lastCandlestick = candlesticks[candlesticks.length - 1];
     const completedCandlesticks = this.completeMissingCandlesticks(
       candlesticks,
       interval,
-      startTimestamp,
-      endTimestamp
+      firstCandlestick.openTimestamp,
+      lastCandlestick.closeTimestamp
     );
 
     await this.candlestickRepository.saveCollection(

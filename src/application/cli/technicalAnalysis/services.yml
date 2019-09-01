@@ -8,6 +8,8 @@ services:
 
   check_candlesticks_command:
     class: "application/cli/technicalAnalysis/CheckCandlesticks.command"
+    arguments:
+      - "@candlestick_repository"
     tags:
       - { name: "solfege.console.command" }
 
