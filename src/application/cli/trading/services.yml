@@ -26,4 +26,9 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  backtest_strategy_command:
+    class: "application/cli/trading/BacktestStrategy.command"
+    tags:
+      - { name: "solfege.console.command" }
+
 

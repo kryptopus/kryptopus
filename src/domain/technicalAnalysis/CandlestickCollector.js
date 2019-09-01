@@ -16,6 +16,9 @@ module.exports = class CandlestickCollector {
       startTimestamp,
       endTimestamp
     );
+    if (!candlesticks.length) {
+      return [];
+    }
 
     const firstCandlestick = candlesticks[0];
     const lastCandlestick = candlesticks[candlesticks.length - 1];
