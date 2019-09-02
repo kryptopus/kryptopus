@@ -1,4 +1,4 @@
-const { green, red, cyan, yellow } = require("colors/safe");
+const { green, red } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
 const convertDateStringToTimestamp = require("../../../util/date/convertDateStringToTimestamp");
 const convertIntervalToMilliseconds = require("../../../domain/util/convertIntervalToMilliseconds");
@@ -56,20 +56,67 @@ module.exports = class CheckCandlesticks extends AbstractCommand {
         (requestedEndTimestamp - requestedStartTimestamp) / intervalMilliseconds
       );
 
-      if (candlesticks.length === expectedCandlestickCount) {
+      const { unknownCandlesticks, missingCandlesticks, checkedCandlesticks } = this.splitCandlesticksByExpectation(
+        candlesticks,
+        requestedStartTimestamp,
+        requestedEndTimestamp,
+        interval
+      );
+      if (unknownCandlesticks.length === 0 && missingCandlesticks.length === 0) {
         console.info(monthLabel, ":", green("OK"));
       } else {
-        console.error(
-          monthLabel,
-          ":",
-          red("INCOMPLETE"),
-          "",
-          cyan(String(candlesticks.length).padStart(5, " ")),
-          "instead of",
-          yellow(expectedCandlestickCount)
-        );
+        let status = "ERROR";
+        if (unknownCandlesticks.length > 0) {
+          status = "TOO MUCH CANDLESTICKS";
+        } else if (missingCandlesticks.length > 0) {
+          status = "INCOMPLETE";
+        }
+        console.error(monthLabel, ":", red(status));
+        console.error("         ", "Checked candlesticks:", checkedCandlesticks.length, "/", expectedCandlestickCount);
+        console.error("         ", "Unknown candlesticks:", unknownCandlesticks.length);
+        console.error("         ", "Missing candlesticks:", missingCandlesticks.length);
+        if (unknownCandlesticks.length > 0) {
+          const firstUnknownCandlestick = unknownCandlesticks[0];
+          console.error("         ", "Sample unknown candlestick:", firstUnknownCandlestick);
+        }
       }
+
       currentDate.setUTCMonth(currentDate.getUTCMonth() + 1);
     } while (currentDate < endDate);
+  }
+
+  splitCandlesticksByExpectation(candlesticks, startTimestamp, endTimestamp, interval) {
+    const intervalMilliseconds = convertIntervalToMilliseconds(interval);
+
+    const candlestickStatuses = {};
+    for (let timestamp = startTimestamp; timestamp <= endTimestamp; timestamp += intervalMilliseconds) {
+      candlestickStatuses[timestamp] = false;
+    }
+
+    const checkedCandlesticks = [];
+    const unknownCandlesticks = [];
+    const missingCandlesticks = [];
+    for (const candlestick of candlesticks) {
+      if (candlestickStatuses[candlestick.openTimestamp] === undefined) {
+        unknownCandlesticks.push(candlestick);
+        continue;
+      }
+
+      if (candlestick.closeTimestamp !== candlestick.openTimestamp + intervalMilliseconds - 1) {
+        unknownCandlesticks.push(candlestick);
+        continue;
+      }
+
+      candlestickStatuses[candlestick.openTimestamp] = true;
+      checkedCandlesticks.push(candlesticks);
+    }
+
+    for (const timestamp in candlestickStatuses) {
+      if (!candlestickStatuses[timestamp]) {
+        missingCandlesticks.push(timestamp);
+      }
+    }
+
+    return { unknownCandlesticks, checkedCandlesticks, missingCandlesticks };
   }
 };
