@@ -6,10 +6,14 @@ const convertIntervalToMilliseconds = require("../../../domain/util/convertInter
 const roundTimestampToInterval = require("../../../domain/util/roundTimestampToInterval");
 const assertKnownInterval = require("../../../domain/util/assertKnownInterval");
 const StrategyEnvironment = require("../../../domain/trading/StrategyEnvironment");
+const ServiceRegistry = require("../../../domain/trading/ServiceRegistry");
 
 module.exports = class BacktestStrategy extends AbstractCommand {
-  constructor() {
+  constructor(serviceRegistry, backtestEntryService) {
     super();
+
+    this.serviceRegistry = serviceRegistry;
+    this.backtestEntryService = backtestEntryService;
 
     this.setName("trading:strategy:backtest");
     this.setDescription("Backtest trading strategy");
@@ -36,9 +40,12 @@ module.exports = class BacktestStrategy extends AbstractCommand {
 
       executionIndex++;
       process.stdout.write(
-        `[${String(executionIndex).padStart(String(executionCount).length, " ")}/${executionCount}] `
+        `[${String(executionIndex).padStart(String(executionCount).length, " ")}/${executionCount}] ${format(
+          environment.currentTimestamp,
+          "YYYY-MM-DD HH:mm"
+        )}\n`
       );
-      strategy.execute(environment);
+      await strategy.execute(environment);
     }
   }
 
@@ -60,6 +67,14 @@ module.exports = class BacktestStrategy extends AbstractCommand {
 
   async buildStrategyEnvironment(timestamp, interval) {
     const parameters = {};
-    return new StrategyEnvironment("backtest", timestamp, interval, parameters);
+    const backtestServiceRegistry = new ServiceRegistry();
+    for (const [id, service] of this.serviceRegistry) {
+      if (id === "entry") {
+        backtestServiceRegistry.set(id, this.backtestEntryService);
+        continue;
+      }
+      backtestServiceRegistry.set(id, service);
+    }
+    return new StrategyEnvironment("backtest", timestamp, interval, parameters, backtestServiceRegistry);
   }
 };

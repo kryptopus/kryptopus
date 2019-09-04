@@ -13,3 +13,5 @@ services:
     arguments:
       - "@candlestick_repository"
       - "@candlestick_collector"
+    tags:
+      - { name: "kryptopus.trading.service", id: "candlestick" }

@@ -8,6 +8,7 @@ const _executionCount = Symbol("executionCount");
 const _firstExecution = Symbol("firstExecution");
 const _lastExecution = Symbol("lastExecution");
 const _executionTimestamps = Symbol("executionTimestamps");
+const _serviceRegistry = Symbol("serviceRegistry");
 const notEnumerable = [
   _id,
   _currentTimestamp,
@@ -16,11 +17,12 @@ const notEnumerable = [
   _executionCount,
   _firstExecution,
   _lastExecution,
-  _executionTimestamps
+  _executionTimestamps,
+  _serviceRegistry
 ];
 
 module.exports = class StrategyEnvironment {
-  constructor(id, currentTimestamp, interval, parameters) {
+  constructor(id, currentTimestamp, interval, parameters, serviceRegistry) {
     assertKnownInterval(interval);
 
     this[_id] = id;
@@ -31,6 +33,7 @@ module.exports = class StrategyEnvironment {
     this[_firstExecution] = undefined;
     this[_lastExecution] = undefined;
     this[_executionTimestamps] = [];
+    this[_serviceRegistry] = serviceRegistry;
 
     for (const field of notEnumerable) {
       Object.defineProperty(this, field, {
@@ -75,5 +78,9 @@ module.exports = class StrategyEnvironment {
 
   get executionCount() {
     return this[_executionCount];
+  }
+
+  get services() {
+    return this[_serviceRegistry];
   }
 };

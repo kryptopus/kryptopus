@@ -1,3 +1,14 @@
 services:
   trading_strategy_registry:
     class: "domain/trading/StrategyRegistry"
+
+  trading_service_registry:
+    class: "domain/trading/ServiceRegistry"
+
+  trading_entry_service:
+    class: "domain/trading/service/EntryService"
+    tags:
+      - { name: "kryptopus.trading.service", id: "entry" }
+
+  trading_backtest_entry_service:
+    class: "domain/trading/backtest/service/EntryService"
