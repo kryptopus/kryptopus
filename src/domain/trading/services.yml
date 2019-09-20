@@ -5,10 +5,40 @@ services:
   trading_service_registry:
     class: "domain/trading/ServiceRegistry"
 
-  trading_entry_service:
-    class: "domain/trading/service/EntryService"
+  trading_position_service:
+    class: "domain/trading/service/PositionService"
     tags:
-      - { name: "kryptopus.trading.service", id: "entry" }
+      - { name: "kryptopus.trading.service", id: "position" }
 
-  trading_backtest_entry_service:
-    class: "domain/trading/backtest/service/EntryService"
+  trading_order_service:
+    class: "domain/trading/service/OrderService"
+    tags:
+      - { name: "kryptopus.trading.service", id: "order" }
+
+  trading_backtest_order_service:
+    class: "domain/trading/backtest/service/OrderService"
+    arguments:
+      - "@candlestick_resolver"
+
+  trading_backtest_position_service:
+    class: "domain/trading/backtest/service/PositionService"
+    arguments:
+      - "@trading_backtest_position_repository"
+      - "@trading_backtest_order_service"
+
+  trading_backtest_position_repository:
+    class: "domain/trading/backtest/PositionRepository"
+
+  trading_backtest_position_checker:
+    class: "domain/trading/backtest/PositionChecker"
+
+  trading_entry_tactic_buy_market_price_factory:
+    class: "domain/trading/entryTactic/BuyAtMarketPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "entry.buyAtMarketPrice" }
+
+  trading_exit_tactic_sell_limit_price_factory:
+    class: "domain/trading/exitTactic/SellAtLimitPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "exit.sellAtLimitPrice" }
+

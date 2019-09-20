@@ -1,6 +1,7 @@
 const assert = require("assert");
+const assertNumber = require("./assertNumber");
 
 module.exports = function assertPositiveNumber(value, message) {
-  assert(typeof value === "number", message);
+  assertNumber(value, message);
   assert(value >= 0, message);
 };

@@ -1,4 +1,5 @@
 const assert = require("assert").strict;
+const assertNumber = require("../../util/number/assertNumber");
 
 const SIDE_BUY = "BUY";
 const SIDE_SELL = "SELL";
@@ -17,7 +18,8 @@ const OPEN_STATUSES = [STATUS_NEW, STATUS_PARTIALLY_FILLED];
 const CLOSED_STATUSES = [STATUS_FILLED, STATUS_CANCELED, STATUS_REJECTED, STATUS_EXPIRED];
 
 class Order {
-  constructor(id, time, side, type, baseSymbol, quoteSymbol, status, price, quantity, executed) {
+  constructor(id, time, side, type, baseSymbol, quoteSymbol, status, price, baseQuantity, quoteQuantity, executed) {
+    assertNumber(time, new TypeError(`Unable to create Order, the provided time is not a number: ${time}`));
     assert(SIDES.includes(side), `Unable to create Order, unknown side: ${side}`);
     assert(TYPES.includes(type), `Unable to create Order, unknown type: ${type}`);
     assert(STATUSES.includes(status), `Unable to create Order, unknown status: ${status}`);
@@ -30,7 +32,8 @@ class Order {
     this.baseSymbol = baseSymbol;
     this.quoteSymbol = quoteSymbol;
     this.price = price;
-    this.quantity = quantity;
+    this.baseQuantity = baseQuantity;
+    this.quoteQuantity = quoteQuantity;
     this.executed = executed;
   }
 
@@ -40,6 +43,18 @@ class Order {
 
   isOpen() {
     return OPEN_STATUSES.includes(this.status);
+  }
+
+  get commission() {
+    if (this.status !== STATUS_FILLED) {
+      return 0;
+    }
+
+    if (this.side === SIDE_BUY) {
+      return this.baseQuantity * this.price - this.quoteQuantity;
+    }
+
+    return this.quoteQuantity / this.price - this.baseQuantity;
   }
 }
 
@@ -51,10 +66,17 @@ Object.defineProperties(Order, {
   SIDE_SELL: {
     value: SIDE_SELL,
     writable: false
-  }
-});
+  },
 
-Object.defineProperties(Order, {
+  TYPE_LIMIT: {
+    value: TYPE_LIMIT,
+    writable: false
+  },
+  TYPE_MARKET: {
+    value: TYPE_MARKET,
+    writable: false
+  },
+
   STATUS_NEW: {
     value: STATUS_NEW,
     writable: false

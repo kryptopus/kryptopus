@@ -36,4 +36,12 @@ module.exports = class Candlestick {
     this.highestPrice = highestPrice;
     this.volume = volume;
   }
+
+  isUp() {
+    return this.closePrice > this.openPrice;
+  }
+
+  isDown() {
+    return this.closePrice < this.openPrice;
+  }
 };

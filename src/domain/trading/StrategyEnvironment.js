@@ -40,6 +40,9 @@ module.exports = class StrategyEnvironment {
         enumerable: false
       });
     }
+
+    this.buyAtMarketPrice = this.buyAtMarketPrice.bind(this);
+    this.sellAtLimitPrice = this.sellAtLimitPrice.bind(this);
   }
 
   get id() {
@@ -82,5 +85,22 @@ module.exports = class StrategyEnvironment {
 
   get services() {
     return this[_serviceRegistry];
+  }
+
+  async buyAtMarketPrice(exchangeName, baseSymbol, quoteSymbol, baseQuantity) {
+    const orderService = this.services.get("order");
+    return orderService.buyAtMarketPrice(this.currentTimestamp, exchangeName, baseSymbol, quoteSymbol, baseQuantity);
+  }
+
+  async sellAtLimitPrice(exchangeName, baseSymbol, quoteSymbol, quoteQuantity, price) {
+    const orderService = this.services.get("order");
+    return orderService.sellAtLimitPrice(
+      this.currentTimestamp,
+      exchangeName,
+      baseSymbol,
+      quoteSymbol,
+      quoteQuantity,
+      price
+    );
   }
 };

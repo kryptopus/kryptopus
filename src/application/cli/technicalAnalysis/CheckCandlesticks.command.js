@@ -79,6 +79,10 @@ module.exports = class CheckCandlesticks extends AbstractCommand {
           const firstUnknownCandlestick = unknownCandlesticks[0];
           console.error("         ", "Sample unknown candlestick:", firstUnknownCandlestick);
         }
+        if (missingCandlesticks.length > 0) {
+          const firstMissingCandlestick = missingCandlesticks[0];
+          console.error("         ", "First missing candlestick:", new Date(firstMissingCandlestick));
+        }
       }
 
       currentDate.setUTCMonth(currentDate.getUTCMonth() + 1);
@@ -89,7 +93,7 @@ module.exports = class CheckCandlesticks extends AbstractCommand {
     const intervalMilliseconds = convertIntervalToMilliseconds(interval);
 
     const candlestickStatuses = {};
-    for (let timestamp = startTimestamp; timestamp <= endTimestamp; timestamp += intervalMilliseconds) {
+    for (let timestamp = startTimestamp; timestamp < endTimestamp; timestamp += intervalMilliseconds) {
       candlestickStatuses[timestamp] = false;
     }
 
@@ -113,7 +117,7 @@ module.exports = class CheckCandlesticks extends AbstractCommand {
 
     for (const timestamp in candlestickStatuses) {
       if (!candlestickStatuses[timestamp]) {
-        missingCandlesticks.push(timestamp);
+        missingCandlesticks.push(Number(timestamp));
       }
     }
 

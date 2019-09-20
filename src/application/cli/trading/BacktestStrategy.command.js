@@ -9,11 +9,12 @@ const StrategyEnvironment = require("../../../domain/trading/StrategyEnvironment
 const ServiceRegistry = require("../../../domain/trading/ServiceRegistry");
 
 module.exports = class BacktestStrategy extends AbstractCommand {
-  constructor(serviceRegistry, backtestEntryService) {
+  constructor(serviceRegistry, orderService, positionService) {
     super();
 
     this.serviceRegistry = serviceRegistry;
-    this.backtestEntryService = backtestEntryService;
+    this.orderService = orderService;
+    this.positionService = positionService;
 
     this.setName("trading:strategy:backtest");
     this.setDescription("Backtest trading strategy");
@@ -69,8 +70,12 @@ module.exports = class BacktestStrategy extends AbstractCommand {
     const parameters = {};
     const backtestServiceRegistry = new ServiceRegistry();
     for (const [id, service] of this.serviceRegistry) {
-      if (id === "entry") {
-        backtestServiceRegistry.set(id, this.backtestEntryService);
+      if (id === "order") {
+        backtestServiceRegistry.set(id, this.orderService);
+        continue;
+      }
+      if (id === "position") {
+        backtestServiceRegistry.set(id, this.positionService);
         continue;
       }
       backtestServiceRegistry.set(id, service);
