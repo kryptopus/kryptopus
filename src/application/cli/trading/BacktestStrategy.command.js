@@ -25,10 +25,11 @@ module.exports = class BacktestStrategy extends AbstractCommand {
   async execute(interval, strategyFilePath) {
     assertKnownInterval(interval);
 
-    const strategy = await this.newStrategy(strategyFilePath);
+    const strategy = await this.buildStrategy(strategyFilePath);
 
     const intervalMilliseconds = convertIntervalToMilliseconds(interval);
     const startTimestamp = roundTimestampToInterval(Date.now() - 1000 * 60 * 60 * 24 * 365, interval);
+    // const startTimestamp = roundTimestampToInterval(Date.now() - 1000 * 60 * 60 * 24 * 30, interval);
     const endTimestamp = roundTimestampToInterval(Date.now(), interval);
     const executionCount = Math.floor((endTimestamp - startTimestamp) / intervalMilliseconds);
 
@@ -44,9 +45,13 @@ module.exports = class BacktestStrategy extends AbstractCommand {
         `[${String(executionIndex).padStart(String(executionCount).length, " ")}/${executionCount}] ${format(
           environment.currentTimestamp,
           "YYYY-MM-DD HH:mm"
-        )}\n`
+        )} | `
       );
       await strategy.execute(environment);
+      await this.saveStrategyEnvironment(environment);
+
+      process.stdout.write(`${environment.orderIds.length} orders`);
+      process.stdout.write(`\n`);
     }
   }
 
@@ -58,7 +63,7 @@ module.exports = class BacktestStrategy extends AbstractCommand {
     return path.resolve(process.cwd(), filePath);
   }
 
-  async newStrategy(filePath) {
+  async buildStrategy(filePath) {
     const absoluteStrategyFilePath = this.getAbsolutePath(filePath);
     await fs.promises.access(absoluteStrategyFilePath, fs.constants.R_OK);
     // eslint-disable-next-line
@@ -66,8 +71,7 @@ module.exports = class BacktestStrategy extends AbstractCommand {
     return new Strategy();
   }
 
-  async buildStrategyEnvironment(timestamp, interval) {
-    const parameters = {};
+  buildBacktestServiceRegistry() {
     const backtestServiceRegistry = new ServiceRegistry();
     for (const [id, service] of this.serviceRegistry) {
       if (id === "order") {
@@ -80,6 +84,22 @@ module.exports = class BacktestStrategy extends AbstractCommand {
       }
       backtestServiceRegistry.set(id, service);
     }
-    return new StrategyEnvironment("backtest", timestamp, interval, parameters, backtestServiceRegistry);
+    return backtestServiceRegistry;
+  }
+
+  async buildStrategyEnvironment(timestamp, interval) {
+    const parameters = {};
+    const serviceRegistry = this.buildBacktestServiceRegistry();
+    const environment = new StrategyEnvironment("backtest", timestamp, interval, parameters, serviceRegistry);
+
+    if (this.savedEnvironment) {
+      environment.orderIds = this.savedEnvironment.orderIds;
+    }
+
+    return environment;
+  }
+
+  async saveStrategyEnvironment(environment) {
+    this.savedEnvironment = environment;
   }
 };

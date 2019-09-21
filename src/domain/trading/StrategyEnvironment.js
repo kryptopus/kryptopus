@@ -9,6 +9,7 @@ const _firstExecution = Symbol("firstExecution");
 const _lastExecution = Symbol("lastExecution");
 const _executionTimestamps = Symbol("executionTimestamps");
 const _serviceRegistry = Symbol("serviceRegistry");
+const _orderIds = Symbol("orderIds");
 const notEnumerable = [
   _id,
   _currentTimestamp,
@@ -18,7 +19,8 @@ const notEnumerable = [
   _firstExecution,
   _lastExecution,
   _executionTimestamps,
-  _serviceRegistry
+  _serviceRegistry,
+  _orderIds
 ];
 
 module.exports = class StrategyEnvironment {
@@ -33,6 +35,7 @@ module.exports = class StrategyEnvironment {
     this[_firstExecution] = undefined;
     this[_lastExecution] = undefined;
     this[_executionTimestamps] = [];
+    this[_orderIds] = [];
     this[_serviceRegistry] = serviceRegistry;
 
     for (const field of notEnumerable) {
@@ -41,6 +44,7 @@ module.exports = class StrategyEnvironment {
       });
     }
 
+    this.getOpenOrders = this.getOpenOrders.bind(this);
     this.buyAtMarketPrice = this.buyAtMarketPrice.bind(this);
     this.sellAtLimitPrice = this.sellAtLimitPrice.bind(this);
   }
@@ -87,14 +91,36 @@ module.exports = class StrategyEnvironment {
     return this[_serviceRegistry];
   }
 
+  get orderIds() {
+    return this[_orderIds].copyWithin(0);
+  }
+
+  set orderIds(ids) {
+    this[_orderIds] = ids;
+  }
+
+  async getOpenOrders() {
+    const orderService = this.services.get("order");
+    return orderService.getOpenOrdersFromIds(this.orderIds);
+  }
+
   async buyAtMarketPrice(exchangeName, baseSymbol, quoteSymbol, baseQuantity) {
     const orderService = this.services.get("order");
-    return orderService.buyAtMarketPrice(this.currentTimestamp, exchangeName, baseSymbol, quoteSymbol, baseQuantity);
+    const order = await orderService.buyAtMarketPrice(
+      this.currentTimestamp,
+      exchangeName,
+      baseSymbol,
+      quoteSymbol,
+      baseQuantity
+    );
+
+    this[_orderIds].push(order.id);
+    return order;
   }
 
   async sellAtLimitPrice(exchangeName, baseSymbol, quoteSymbol, quoteQuantity, price) {
     const orderService = this.services.get("order");
-    return orderService.sellAtLimitPrice(
+    const order = await orderService.sellAtLimitPrice(
       this.currentTimestamp,
       exchangeName,
       baseSymbol,
@@ -102,5 +128,9 @@ module.exports = class StrategyEnvironment {
       quoteQuantity,
       price
     );
+
+    this[_orderIds].push(order.id);
+
+    return order;
   }
 };

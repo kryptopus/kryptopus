@@ -2,8 +2,13 @@ const { v4: generateUuid } = require("uuid");
 const Order = require("../../../exchange/Order");
 
 module.exports = class OrderService {
-  constructor(candlestickResolver) {
+  constructor(candlestickResolver, orderRegistry) {
     this.candlestickResolver = candlestickResolver;
+    this.orderRegistry = orderRegistry;
+  }
+
+  async getOpenOrdersFromIds(ids) {
+    return this.orderRegistry.getOpenOrdersFromIds(ids);
   }
 
   async buyAtMarketPrice(timestamp, exchangeName, baseSymbol, quoteSymbol, baseQuantity) {
@@ -13,7 +18,7 @@ module.exports = class OrderService {
     const quoteQuantity = baseQuantity * price;
     const commission = quoteQuantity * 0.0001;
 
-    return new Order(
+    const order = new Order(
       id,
       timestamp,
       Order.SIDE_BUY,
@@ -26,12 +31,16 @@ module.exports = class OrderService {
       quoteQuantity - commission,
       true
     );
+
+    this.orderRegistry.register(order);
+
+    return order;
   }
 
   async sellAtLimitPrice(timestamp, exchangeName, baseSymbol, quoteSymbol, quoteQuantity, price) {
     const id = generateUuid();
 
-    return new Order(
+    const order = new Order(
       id,
       timestamp,
       Order.SIDE_SELL,
@@ -44,6 +53,10 @@ module.exports = class OrderService {
       quoteQuantity,
       false
     );
+
+    this.orderRegistry.register(order);
+
+    return order;
   }
 
   async getLastCandlestick(timestamp) {
