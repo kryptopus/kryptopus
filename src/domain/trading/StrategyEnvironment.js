@@ -47,6 +47,7 @@ module.exports = class StrategyEnvironment {
     this.getOpenOrders = this.getOpenOrders.bind(this);
     this.buyAtMarketPrice = this.buyAtMarketPrice.bind(this);
     this.sellAtLimitPrice = this.sellAtLimitPrice.bind(this);
+    this.sellAtMarketPrice = this.sellAtMarketPrice.bind(this);
   }
 
   get id() {
@@ -99,6 +100,11 @@ module.exports = class StrategyEnvironment {
     this[_orderIds] = ids;
   }
 
+  async getOrders() {
+    const orderService = this.services.get("order");
+    return orderService.getOrdersFromIds(this.orderIds);
+  }
+
   async getOpenOrders() {
     const orderService = this.services.get("order");
     return orderService.getOpenOrdersFromIds(this.orderIds);
@@ -131,6 +137,20 @@ module.exports = class StrategyEnvironment {
 
     this[_orderIds].push(order.id);
 
+    return order;
+  }
+
+  async sellAtMarketPrice(exchangeName, baseSymbol, quoteSymbol, quoteQuantity) {
+    const orderService = this.services.get("order");
+    const order = await orderService.sellAtMarketPrice(
+      this.currentTimestamp,
+      exchangeName,
+      baseSymbol,
+      quoteSymbol,
+      quoteQuantity
+    );
+
+    this[_orderIds].push(order.id);
     return order;
   }
 };

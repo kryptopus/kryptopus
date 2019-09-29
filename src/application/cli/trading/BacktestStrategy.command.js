@@ -9,10 +9,11 @@ const StrategyEnvironment = require("../../../domain/trading/StrategyEnvironment
 const ServiceRegistry = require("../../../domain/trading/ServiceRegistry");
 
 module.exports = class BacktestStrategy extends AbstractCommand {
-  constructor(serviceRegistry, orderService, positionService) {
+  constructor(serviceRegistry, orderResolver, orderService, positionService) {
     super();
 
     this.serviceRegistry = serviceRegistry;
+    this.orderResolver = orderResolver;
     this.orderService = orderService;
     this.positionService = positionService;
 
@@ -38,6 +39,8 @@ module.exports = class BacktestStrategy extends AbstractCommand {
 
     let executionIndex = 0;
     for (let timestamp = startTimestamp; timestamp < endTimestamp; timestamp += intervalMilliseconds) {
+      await this.orderResolver.resolveAtTimestamp(timestamp);
+
       const environment = await this.buildStrategyEnvironment(timestamp, interval);
 
       executionIndex++;
@@ -50,7 +53,7 @@ module.exports = class BacktestStrategy extends AbstractCommand {
       await strategy.execute(environment);
       await this.saveStrategyEnvironment(environment);
 
-      process.stdout.write(`${environment.orderIds.length} orders`);
+      process.stdout.write(await this.getBalanceOutput(environment));
       process.stdout.write(`\n`);
     }
   }
@@ -101,5 +104,38 @@ module.exports = class BacktestStrategy extends AbstractCommand {
 
   async saveStrategyEnvironment(environment) {
     this.savedEnvironment = environment;
+  }
+
+  async getBalanceOutput(environment) {
+    const orders = await environment.getOrders();
+    const balances = {};
+    for (const order of orders) {
+      if (!order.isFilled()) {
+        continue;
+      }
+
+      const { baseSymbol, quoteSymbol, baseQuantity, quoteQuantity } = order;
+      if (!Object.prototype.hasOwnProperty.call(balances, baseSymbol)) {
+        balances[baseSymbol] = 0;
+      }
+
+      if (!Object.prototype.hasOwnProperty.call(balances, quoteSymbol)) {
+        balances[quoteSymbol] = 0;
+      }
+
+      if (order.isBuying()) {
+        balances[baseSymbol] -= baseQuantity;
+        balances[quoteSymbol] += quoteQuantity;
+      } else {
+        balances[baseSymbol] += baseQuantity;
+        balances[quoteSymbol] -= quoteQuantity;
+      }
+    }
+
+    const outputArray = [];
+    for (const symbol in balances) {
+      outputArray.push(`${balances[symbol]} ${symbol}`);
+    }
+    return outputArray.join(", ");
   }
 };

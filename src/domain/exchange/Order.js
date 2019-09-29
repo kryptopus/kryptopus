@@ -13,28 +13,61 @@ const STATUS_FILLED = "FILLED";
 const STATUS_CANCELED = "CANCELED";
 const STATUS_REJECTED = "REJECTED";
 const STATUS_EXPIRED = "EXPIRED";
-const STATUSES = [STATUS_NEW, STATUS_PARTIALLY_FILLED, STATUS_FILLED, STATUS_CANCELED, STATUS_REJECTED, STATUS_EXPIRED];
 const OPEN_STATUSES = [STATUS_NEW, STATUS_PARTIALLY_FILLED];
 const CLOSED_STATUSES = [STATUS_FILLED, STATUS_CANCELED, STATUS_REJECTED, STATUS_EXPIRED];
 
 class Order {
-  constructor(id, time, side, type, baseSymbol, quoteSymbol, status, price, baseQuantity, quoteQuantity, executed) {
+  constructor(id, time, side, type, exchangeName, baseSymbol, quoteSymbol, price, quantity) {
     assertNumber(time, new TypeError(`Unable to create Order, the provided time is not a number: ${time}`));
     assert(SIDES.includes(side), `Unable to create Order, unknown side: ${side}`);
     assert(TYPES.includes(type), `Unable to create Order, unknown type: ${type}`);
-    assert(STATUSES.includes(status), `Unable to create Order, unknown status: ${status}`);
 
     this.id = id;
     this.time = time;
     this.side = side;
     this.type = type;
-    this.status = status;
+    this.status = STATUS_NEW;
+    this.exchangeName = exchangeName;
     this.baseSymbol = baseSymbol;
     this.quoteSymbol = quoteSymbol;
     this.price = price;
-    this.baseQuantity = baseQuantity;
-    this.quoteQuantity = quoteQuantity;
-    this.executed = executed;
+    if (side === SIDE_BUY) {
+      this.baseQuantity = quantity;
+      this.quoteQuantity = 0;
+    } else {
+      this.baseQuantity = 0;
+      this.quoteQuantity = quantity;
+    }
+    this.executed = false;
+  }
+
+  execute(time, receivedQuantity) {
+    this.executed = true;
+    this.executedAt = time;
+    this.status = STATUS_FILLED;
+    if (this.side === SIDE_BUY) {
+      this.quoteQuantity = receivedQuantity;
+    } else {
+      this.baseQuantity = receivedQuantity;
+    }
+  }
+
+  close(time) {
+    this.executed = true;
+    this.executedAt = time;
+    this.status = STATUS_CANCELED;
+  }
+
+  isBuying() {
+    return this.side === SIDE_BUY;
+  }
+
+  isSelling() {
+    return this.side === SIDE_SELL;
+  }
+
+  isLimitType() {
+    return this.type === TYPE_LIMIT;
   }
 
   isClosed() {
@@ -43,6 +76,10 @@ class Order {
 
   isOpen() {
     return OPEN_STATUSES.includes(this.status);
+  }
+
+  isFilled() {
+    return this.status === STATUS_FILLED;
   }
 
   get commission() {

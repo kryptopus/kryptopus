@@ -30,6 +30,7 @@ services:
     class: "application/cli/trading/BacktestStrategy.command"
     arguments:
       - "@trading_service_registry"
+      - "@trading_backtest_order_resolver"
       - "@trading_backtest_order_service"
       - "@trading_backtest_position_service"
     tags:
