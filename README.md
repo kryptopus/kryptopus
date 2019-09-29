@@ -46,4 +46,5 @@ Commands:
 ```bash
 ./cli technicalAnalysis:graph:candlestick:display binance BTC USDT 1d
 ```
+![](doc/screenshots/technicalAnalysis-graph-candlestick-display.png)
 
