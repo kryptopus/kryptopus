@@ -17,7 +17,7 @@ Commands:
   trading:automation:stop                                                                                               Stop trading automation
   trading:automation:status                                                                                             Display trading automation status
   trading:automation:daemon                                                                                             Trading automation daemon
-  trading:entry:create                                                                                                  Create trade entry
+  trading:position:create                                                                                               Create trade position
   trading:strategy:backtest <interval> <strategy>                                                                       Backtest trading strategy
   exchange:binance:balances <accountName>                                                                               Get Binance balances
   exchange:binance:open_orders <accountName>                                                                            Get Binance open orders

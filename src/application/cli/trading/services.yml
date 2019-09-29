@@ -21,8 +21,8 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
-  create_trade_entry:
-    class: "application/cli/trading/CreateTradeEntry.command"
+  create_trade_position:
+    class: "application/cli/trading/CreatePosition.command"
     tags:
       - { name: "solfege.console.command" }
 
