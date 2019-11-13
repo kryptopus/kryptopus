@@ -12,7 +12,7 @@ module.exports = class CreateOrder extends AbstractCommand {
   }
 
   async execute(accountName) {
-    const account = this.exchangeBuilder.build(accountName);
+    const account = this.exchangeBuilder.buildAccount(accountName);
     console.log(account);
   }
 };

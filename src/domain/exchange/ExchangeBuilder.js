@@ -41,6 +41,10 @@ module.exports = class ExchangeBuilder {
 
   buildAccount(accountName) {
     const config = this.accountConfigs[accountName];
+    if (!config) {
+      throw new RangeError(`Unable to build exchange instance, unknown account name: ${accountName}`);
+    }
+
     const translator = this.translators.get(config.type) || new SymbolTranslator();
 
     switch (config.type) {

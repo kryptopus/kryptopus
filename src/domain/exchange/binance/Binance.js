@@ -61,6 +61,10 @@ module.exports = class Binance extends Exchange {
     return this.denormalizeCandlesticks(payload);
   }
 
+  async createOrder() {
+    // hop
+  }
+
   isNonEmptyBalance(normalizedBalance) {
     return Number(normalizedBalance.free) + Number(normalizedBalance.locked) > 0;
   }

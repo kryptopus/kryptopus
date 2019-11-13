@@ -3,6 +3,6 @@
 const solfege = require("solfegejs");
 const Kryptopus = require("./src/Bundle");
 
-const application = solfege.factory(`${__dirname}/config/config.yml`, [new Kryptopus()]);
+const application = solfege.factory(`${process.cwd()}/config/config.yml`, [new Kryptopus()]);
 
 application.start(process.argv.slice(2));
