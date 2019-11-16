@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const pm2 = require("../../../util/pm2");
 
 module.exports = class StopCollectorDaemon extends AbstractCommand {

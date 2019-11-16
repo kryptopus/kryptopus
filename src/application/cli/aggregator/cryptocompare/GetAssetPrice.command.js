@@ -1,5 +1,5 @@
 const BigNumber = require("bignumber.js");
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const Cryptocompare = require("../../../../domain/aggregator/Cryptocompare");
 
 module.exports = class GetAssetPrice extends AbstractCommand {

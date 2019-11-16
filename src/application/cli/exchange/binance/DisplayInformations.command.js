@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 
 module.exports = class DisplayInformations extends AbstractCommand {
   constructor(exchangeBuilder) {

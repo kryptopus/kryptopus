@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const displayBalances = require("../../util/displayBalances");
 
 module.exports = class GetBalances extends AbstractCommand {

@@ -1,5 +1,5 @@
 const { green, red } = require("colors/safe");
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertDateStringToTimestamp = require("../../../util/date/convertDateStringToTimestamp");
 const convertIntervalToMilliseconds = require("../../../domain/util/convertIntervalToMilliseconds");
 

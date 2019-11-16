@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertDateStringToTimestamp = require("../../../util/date/convertDateStringToTimestamp");
 const sleep = require("../../../util/sleep");
 

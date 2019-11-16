@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { format } = require("date-fns");
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertIntervalToMilliseconds = require("../../../domain/util/convertIntervalToMilliseconds");
 const roundTimestampToInterval = require("../../../domain/util/roundTimestampToInterval");
 const assertKnownInterval = require("../../../domain/util/assertKnownInterval");

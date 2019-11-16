@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertDateStringToTimestamp = require("../../../util/date/convertDateStringToTimestamp");
 
 module.exports = class DisplayCandlesticks extends AbstractCommand {

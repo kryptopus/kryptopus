@@ -1,4 +1,4 @@
-const AbstractCommand = require("@solfege/cli/lib/Command/AbstractCommand");
+const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertIntervalToMilliseconds = require("../../../domain/util/convertIntervalToMilliseconds");
 const roundTimestampToInterval = require("../../../domain/util/roundTimestampToInterval");
 
