@@ -45,7 +45,7 @@ module.exports = class Binance extends Exchange {
   }
 
   async getBalances() {
-    const payload = await this.request("/api/v3/account");
+    const payload = await this.authenticatedRequest("/api/v3/account");
     return this.denormalizeBalances(payload.balances.filter(this.isNonEmptyBalance));
   }
 
@@ -61,8 +61,46 @@ module.exports = class Binance extends Exchange {
     return this.denormalizeCandlesticks(payload);
   }
 
-  async createOrder() {
-    // hop
+  async createOrder(side, type, baseSymbol, quoteSymbol, price, quantity) {
+    const payload = await this.authenticatedPost("/api/v3/order", {
+      symbol: `${baseSymbol}${quoteSymbol}`,
+      side,
+      type,
+      timeInForce: "GTC",
+      price,
+      quantity
+    });
+    /*
+    payload = {
+      symbol: 'BTCUSDT',
+      orderId: 841342394,
+      orderListId: -1,
+      clientOrderId: 'IOKuBxAwrlIksX2IrQ0nD9',
+      transactTime: 1574880668756,
+      price: '6500.00000000',
+      origQty: '0.00200000',
+      executedQty: '0.00000000',
+      cummulativeQuoteQty: '0.00000000',
+      status: 'NEW',
+      timeInForce: 'GTC',
+      type: 'LIMIT',
+      side: 'BUY',
+      fills: []
+    }
+    */
+
+    const order = new Order(
+      payload.orderId,
+      payload.transactTime,
+      payload.side,
+      payload.type,
+      this.name,
+      baseSymbol,
+      quoteSymbol,
+      Number(payload.price),
+      Number(payload.origQty)
+    );
+    return order;
   }
 
   isNonEmptyBalance(normalizedBalance) {
@@ -101,7 +139,7 @@ module.exports = class Binance extends Exchange {
 
   async getOpenOrders() {
     await this.ensureInfoFetched();
-    const normalizedOrders = await this.request("/api/v3/openOrders");
+    const normalizedOrders = await this.authenticatedRequest("/api/v3/openOrders");
     return this.denormalizeOrders(normalizedOrders);
   }
 
@@ -116,12 +154,11 @@ module.exports = class Binance extends Exchange {
       normalized.time,
       normalized.side,
       normalized.type,
+      this.name,
       symbol.baseAsset,
       symbol.quoteAsset,
-      normalized.status,
-      normalized.price,
-      normalized.origQty,
-      normalized.executedQty
+      Number(normalized.price),
+      Number(normalized.origQty)
     );
   }
 
@@ -147,7 +184,37 @@ module.exports = class Binance extends Exchange {
     return payload;
   }
 
-  async request(path) {
+  async authenticatedPost(path, data) {
+    assert(this.apiKey, "API key is missing");
+    assert(this.apiSecret, "API secret is missing");
+
+    const timestamp = Date.now();
+    const queryArray = [];
+    for (const property in data) {
+      queryArray.push(`${property}=${data[property]}`);
+    }
+    queryArray.push(`timestamp=${timestamp}`);
+    const queryString = queryArray.join("&");
+    const signature = createHmac("sha256", this.apiSecret)
+      .update(queryString)
+      .digest("hex");
+    const options = {
+      hostname: "api.binance.com",
+      port: 443,
+      path: `${path}?${queryString}&signature=${signature}`,
+      method: "POST",
+      headers: {
+        "X-MBX-APIKEY": this.apiKey
+      }
+    };
+
+    const payload = await requestRemoteJson(options);
+    this.assertPayload(payload);
+
+    return payload;
+  }
+
+  async authenticatedRequest(path) {
     assert(this.apiKey, "API key is missing");
     assert(this.apiSecret, "API secret is missing");
 

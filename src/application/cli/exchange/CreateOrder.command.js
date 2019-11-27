@@ -1,3 +1,6 @@
+const asTable = require("as-table");
+const { format } = require("date-fns");
+const { cyan, dim } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/AbstractCommand");
 
 module.exports = class CreateOrder extends AbstractCommand {
@@ -17,8 +20,22 @@ module.exports = class CreateOrder extends AbstractCommand {
     this.addOption("--price <price>", "Target price");
   }
 
-  async execute(accountName) {
+  async execute(accountName, side, type, baseSymbol, quoteSymbol, options) {
     const account = this.exchangeBuilder.buildAccount(accountName);
-    console.log(account);
+    const order = await account.createOrder(side, type, baseSymbol, quoteSymbol, options.price, options.baseQuantity);
+
+    const output = asTable.configure({
+      title: x => cyan(x),
+      dash: dim("─"),
+      print: (value, title) => {
+        if (title === "time") {
+          return format(new Date(value), "MM/DD/YYYY HH:mm:ss");
+        }
+
+        return String(value);
+      }
+    })([order]);
+    process.stdout.write(output);
+    process.stdout.write("\n");
   }
 };
