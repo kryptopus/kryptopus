@@ -1,4 +1,11 @@
 services:
+  display_open_positions:
+    class: "application/cli/trading/DisplayOpenPositions.command"
+    arguments:
+      - "@trading_position_repository"
+    tags:
+      - { name: "solfege.console.command" }
+
   start_trading_automation:
     class: "application/cli/trading/StartTradingAutomation.command"
     tags:

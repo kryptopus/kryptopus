@@ -5,6 +5,9 @@ services:
   trading_service_registry:
     class: "domain/trading/ServiceRegistry"
 
+  trading_position_repository:
+    class: "domain/trading/PositionRepository"
+
   trading_position_service:
     class: "domain/trading/service/PositionService"
     tags:

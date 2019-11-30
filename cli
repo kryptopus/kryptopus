@@ -1,8 +1,27 @@
 #!/usr/bin/env node
 
+const check = require("check-node-version");
 const solfege = require("solfegejs");
 const Kryptopus = require("./src/Bundle");
+const infos = require("./package.json");
 
-const application = solfege.factory(`${process.cwd()}/config/config.yml`, [new Kryptopus()]);
+check({ node: infos.engines.node }, (error, results) => {
+  if (error) {
+    console.error(error);
+    return;
+  }
 
-application.start(process.argv.slice(2));
+  if (!results.isSatisfied) {
+    for (const packageName of Object.keys(results.versions)) {
+      if (!results.versions[packageName].isSatisfied) {
+        const currentVersion = results.versions[packageName].version.version;
+        const wantedVersion = results.versions[packageName].wanted.range;
+        console.error(`Unsatisfied package "${packageName}" version ${wantedVersion}, current ${currentVersion}.`);
+      }
+    }
+    return;
+  }
+
+  const application = solfege.factory(`${process.cwd()}/config/config.yml`, [new Kryptopus()]);
+  application.start(process.argv.slice(2));
+});
