@@ -1,0 +1,12 @@
+services:
+  trading_position_service:
+    class: "domain/trading/service/PositionService"
+    tags:
+      - { name: "kryptopus.trading.service", id: "position" }
+
+  trading_order_service:
+    class: "domain/trading/service/OrderService"
+    tags:
+      - { name: "kryptopus.trading.service", id: "order" }
+
+

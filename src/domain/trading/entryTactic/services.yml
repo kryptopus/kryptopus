@@ -1,0 +1,12 @@
+services:
+  trading_entry_tactic_buy_market_price_factory:
+    class: "domain/trading/entryTactic/BuyAtMarketPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "entry.buyAtMarketPrice" }
+
+  trading_entry_tactic_buy_limit_price_factory:
+    class: "domain/trading/entryTactic/BuyAtLimitPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "entry.buyAtLimitPrice" }
+
+

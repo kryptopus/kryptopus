@@ -1,0 +1,27 @@
+services:
+  trading_backtest_order_registry:
+    class: "domain/trading/backtest/OrderRegistry"
+
+  trading_backtest_order_resolver:
+    class: "domain/trading/backtest/OrderResolver"
+    arguments:
+      - "@trading_backtest_order_registry"
+      - "@candlestick_resolver"
+
+  trading_backtest_order_service:
+    class: "domain/trading/backtest/service/OrderService"
+    arguments:
+      - "@candlestick_resolver"
+      - "@trading_backtest_order_registry"
+
+  trading_backtest_position_service:
+    class: "domain/trading/backtest/service/PositionService"
+    arguments:
+      - "@trading_backtest_position_repository"
+      - "@trading_backtest_order_service"
+
+  trading_backtest_position_repository:
+    class: "domain/trading/backtest/PositionRepository"
+
+  trading_backtest_position_checker:
+    class: "domain/trading/backtest/PositionChecker"

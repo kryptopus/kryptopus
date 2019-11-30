@@ -5,6 +5,10 @@ imports:
   - { resource: "domain/exchange/services.yml" }
   - { resource: "domain/technicalAnalysis/services.yml" }
   - { resource: "domain/trading/services.yml" }
+  - { resource: "domain/trading/service/services.yml" }
+  - { resource: "domain/trading/entryTactic/services.yml" }
+  - { resource: "domain/trading/exitTactic/services.yml" }
+  - { resource: "domain/trading/backtest/services.yml" }
 
 services:
   wallet_balance:

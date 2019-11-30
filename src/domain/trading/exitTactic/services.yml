@@ -1,0 +1,6 @@
+services:
+  trading_exit_tactic_sell_limit_price_factory:
+    class: "domain/trading/exitTactic/SellAtLimitPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "exit.sellAtLimitPrice" }
+

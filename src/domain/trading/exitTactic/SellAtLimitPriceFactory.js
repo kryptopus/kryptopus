@@ -1,7 +1,7 @@
 const SellAtLimitPrice = require("./SellAtLimitPrice");
 
 module.exports = class SellAtLimitPriceFactory {
-  build() {
-    return new SellAtLimitPrice();
+  build(exchangeName, baseSymbol, quoteSymbol, quoteQuantity, price) {
+    return new SellAtLimitPrice(exchangeName, baseSymbol, quoteSymbol, quoteQuantity, price);
   }
 };

@@ -30,6 +30,9 @@ services:
 
   create_trade_position:
     class: "application/cli/trading/CreatePosition.command"
+    arguments:
+      - "@exchange_builder"
+      - "@trading_service_registry"
     tags:
       - { name: "solfege.console.command" }
 
