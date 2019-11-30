@@ -1,10 +1,12 @@
 services:
   trading_strategy_registry:
-    class: "domain/trading/StrategyRegistry"
+    class: "%__dirname%/StrategyRegistry"
 
   trading_service_registry:
-    class: "domain/trading/ServiceRegistry"
+    class: "%__dirname%/ServiceRegistry"
 
   trading_position_repository:
-    class: "domain/trading/PositionRepository"
+    class: "%__dirname%/PositionRepository"
+    arguments:
+      - %__dirname%/../../../data/trading/positions
 

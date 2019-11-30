@@ -1,6 +1,8 @@
 services:
   trading_position_service:
     class: "domain/trading/service/PositionService"
+    arguments:
+      - "@trading_position_repository"
     tags:
       - { name: "kryptopus.trading.service", id: "position" }
 

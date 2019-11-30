@@ -1,6 +1,11 @@
 services:
-  trading_exit_tactic_sell_limit_price_factory:
+  trading_exit_tactic_sell_at_limit_price_factory:
     class: "domain/trading/exitTactic/SellAtLimitPriceFactory"
     tags:
       - { name: "kryptopus.trading.service", id: "exit.sellAtLimitPrice" }
+
+  trading_exit_tactic_sell_percentage_at_limit_price_factory:
+    class: "domain/trading/exitTactic/SellPercentageAtLimitPriceFactory"
+    tags:
+      - { name: "kryptopus.trading.service", id: "exit.sellPercentageAtLimitPrice" }
 
