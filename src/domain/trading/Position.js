@@ -9,8 +9,8 @@ module.exports = class Position {
     this.entered = false;
     this.exited = false;
 
-    this.entryOrders = new Map();
-    this.exitOrders = new Map();
+    this.entryOrders = [];
+    this.exitOrders = [];
   }
 
   getId() {

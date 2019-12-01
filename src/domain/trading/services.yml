@@ -9,4 +9,5 @@ services:
     class: "%__dirname%/PositionRepository"
     arguments:
       - %__dirname%/../../../data/trading/positions
+      - "@exchange_order_repository"
 

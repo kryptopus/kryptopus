@@ -1,13 +1,18 @@
 services:
   exchange_builder:
-    class: "domain/exchange/ExchangeBuilder"
+    class: "%__dirname%/ExchangeBuilder"
     arguments:
       - "%exchanges%"
     calls:
       - [ addSymbolTranslator, [ binance, "@binance_symbol_translator" ] ]
 
+  exchange_order_repository:
+    class: "%__dirname%/OrderRepository"
+    arguments:
+      - %__dirname%/../../../data/exchange/orders
+
   binance_symbol_translator:
-    class: "domain/exchange/SymbolTranslator"
+    class: "%__dirname%/SymbolTranslator"
     calls:
       - [ addTranslation, [ HOT, HOLO ] ]
 

@@ -149,7 +149,7 @@ module.exports = class Binance extends Exchange {
 
   denormalizeOrder(normalized) {
     const symbol = this.symbols.get(normalized.symbol);
-    return new Order(
+    const order = new Order(
       normalized.orderId,
       normalized.time,
       normalized.side,
@@ -160,6 +160,26 @@ module.exports = class Binance extends Exchange {
       Number(normalized.price),
       Number(normalized.origQty)
     );
+    switch (normalized.status) {
+      case Order.STATUS_PARTIALLY_FILLED:
+        order.fillPartially(Number(normalized.executedQty));
+        break;
+      case Order.STATUS_FILLED:
+        order.fill(Number(normalized.executedQty));
+        break;
+      case Order.STATUS_CANCELED:
+        order.cancel();
+        break;
+      case Order.STATUS_REJECTED:
+        order.reject();
+        break;
+      case Order.STATUS_EXPIRED:
+        order.expire();
+        break;
+      default:
+    }
+
+    return order;
   }
 
   async anonymousRequest(path, query) {

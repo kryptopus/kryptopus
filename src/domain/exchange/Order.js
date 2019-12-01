@@ -17,7 +17,7 @@ const OPEN_STATUSES = [STATUS_NEW, STATUS_PARTIALLY_FILLED];
 const CLOSED_STATUSES = [STATUS_FILLED, STATUS_CANCELED, STATUS_REJECTED, STATUS_EXPIRED];
 
 class Order {
-  constructor(id, time, side, type, exchangeName, baseSymbol, quoteSymbol, price, quantity) {
+  constructor(id, time, side, type, exchangeName, baseSymbol, quoteSymbol, price, baseQuantity) {
     assertNumber(time, new TypeError(`Unable to create Order, the provided time is not a number: ${time}`));
     assert(SIDES.includes(side), `Unable to create Order, unknown side: ${side}`);
     assert(TYPES.includes(type), `Unable to create Order, unknown type: ${type}`);
@@ -31,31 +31,82 @@ class Order {
     this.baseSymbol = baseSymbol;
     this.quoteSymbol = quoteSymbol;
     this.price = price;
-    if (side === SIDE_BUY) {
-      this.baseQuantity = quantity;
-      this.quoteQuantity = 0;
-    } else {
-      this.baseQuantity = 0;
-      this.quoteQuantity = quantity;
-    }
-    this.executed = false;
+    this.baseQuantity = baseQuantity;
+    this.receivedBaseQuantity = 0;
   }
 
-  execute(time, receivedQuantity) {
-    this.executed = true;
-    this.executedAt = time;
+  getExchangeName() {
+    return this.exchangeName;
+  }
+
+  getId() {
+    return this.id;
+  }
+
+  getTime() {
+    return this.time;
+  }
+
+  getSide() {
+    return this.side;
+  }
+
+  getType() {
+    return this.type;
+  }
+
+  getBaseSymbol() {
+    return this.baseSymbol;
+  }
+
+  getQuoteSymbol() {
+    return this.quoteSymbol;
+  }
+
+  getPrice() {
+    return this.price;
+  }
+
+  getBaseQuantity() {
+    return this.baseQuantity;
+  }
+
+  getQuoteQuantity() {
+    return this.baseQuantity * this.price;
+  }
+
+  getReceivedBaseQuantity() {
+    return this.receivedBaseQuantity;
+  }
+
+  getReceivedQuoteQuantity() {
+    return this.receivedBaseQuantity * this.price;
+  }
+
+  getStatus() {
+    return this.status;
+  }
+
+  fill(receivedQuantity) {
     this.status = STATUS_FILLED;
-    if (this.side === SIDE_BUY) {
-      this.quoteQuantity = receivedQuantity;
-    } else {
-      this.baseQuantity = receivedQuantity;
-    }
+    this.receivedBaseQuantity = receivedQuantity;
   }
 
-  close(time) {
-    this.executed = true;
-    this.executedAt = time;
+  fillPartially(receivedQuantity) {
+    this.status = STATUS_PARTIALLY_FILLED;
+    this.receivedBaseQuantity += receivedQuantity;
+  }
+
+  cancel() {
     this.status = STATUS_CANCELED;
+  }
+
+  expire() {
+    this.status = STATUS_EXPIRED;
+  }
+
+  reject() {
+    this.status = STATUS_REJECTED;
   }
 
   isBuying() {
