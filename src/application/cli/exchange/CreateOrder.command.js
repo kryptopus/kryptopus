@@ -2,8 +2,12 @@ const asTable = require("as-table");
 const { format } = require("date-fns");
 const { cyan, dim } = require("colors/safe");
 const AbstractCommand = require("@solfege/cli/AbstractCommand");
+const ExchangeBuilder = require("../../../domain/exchange/ExchangeBuilder");
 
 module.exports = class CreateOrder extends AbstractCommand {
+  /**
+   * @param {ExchangeBuilder} exchangeBuilder
+   */
   constructor(exchangeBuilder) {
     super();
 

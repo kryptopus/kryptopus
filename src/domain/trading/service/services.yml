@@ -1,13 +1,13 @@
 services:
-  trading_position_service:
-    class: "domain/trading/service/PositionService"
+  trading_position_creator:
+    class: "%__dirname%/PositionCreator"
     arguments:
       - "@trading_position_repository"
     tags:
-      - { name: "kryptopus.trading.service", id: "position" }
+      - { name: "kryptopus.trading.service", id: "positionCreator" }
 
   trading_order_service:
-    class: "domain/trading/service/OrderService"
+    class: "%__dirname%/OrderService"
     tags:
       - { name: "kryptopus.trading.service", id: "order" }
 

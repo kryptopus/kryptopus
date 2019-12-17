@@ -25,13 +25,11 @@ module.exports = class CreatePosition extends AbstractCommand {
       throw new RangeError(`Unknown exit tactic: ${exitName}`);
     }
 
-    const positionService = this.tradingServices.get("position");
-    const entryFactory = this.tradingServices.get(entryName);
-    const exitFactory = this.tradingServices.get(exitName);
+    const positionCreator = this.tradingServices.get("positionCreator");
 
-    const entryTactic = entryFactory.build(account.getName(), ...entryParameters.split(","));
-    const exitTactic = exitFactory.build(account.getName(), ...exitParameters.split(","));
-    const position = await positionService.create(entryTactic, exitTactic);
+    const entryFullParameters = [account.getName(), ...entryParameters.split(",")];
+    const exitFullParameters = [account.getName(), ...exitParameters.split(",")];
+    const position = await positionCreator.create(entryName, entryFullParameters, exitName, exitFullParameters);
     console.log(position);
   }
 };

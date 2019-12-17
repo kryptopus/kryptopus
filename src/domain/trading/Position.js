@@ -2,10 +2,19 @@ const assert = require("assert").strict;
 const Order = require("../exchange/Order");
 
 module.exports = class Position {
-  constructor(id, entryTactic, exitTactic) {
+  /**
+   * @param {string} id
+   * @param {string} entryTacticName
+   * @param {string[]} entryTacticParameters
+   * @param {string} exitTacticName
+   * @param {string[]} exitTacticParameters
+   */
+  constructor(id, entryTacticName, entryTacticParameters, exitTacticName, exitTacticParameters) {
     this.id = id;
-    this.entryTactic = entryTactic;
-    this.exitTactic = exitTactic;
+    this.entryTacticName = entryTacticName;
+    this.entryTacticParameters = entryTacticParameters;
+    this.exitTacticName = exitTacticName;
+    this.exitTacticParameters = exitTacticParameters;
     this.entered = false;
     this.exited = false;
 
@@ -17,12 +26,20 @@ module.exports = class Position {
     return this.id;
   }
 
-  executeEntryTactic(orderService) {
-    this.entryTactic.execute(this, orderService);
+  getEntryTacticName() {
+    return this.entryTacticName;
   }
 
-  executeExitTactic(orderService) {
-    this.exitTactic.execute(this, orderService);
+  getEntryTacticParameters() {
+    return this.entryTacticParameters;
+  }
+
+  getExitTacticName() {
+    return this.exitTacticName;
+  }
+
+  getExitTacticParameters() {
+    return this.exitTacticParameters;
   }
 
   isEntered() {

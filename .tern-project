@@ -1,0 +1,11 @@
+{
+  "libs": [],
+  "plugins": {
+    "node": true,
+    "node_resolve": true,
+    "modules": true,
+    "es_modules": true,
+    "complete_strings": true,
+    "doc_comment": true
+  }
+}

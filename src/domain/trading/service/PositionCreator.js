@@ -1,14 +1,14 @@
 const { v4: generateUuid } = require("uuid");
 const Position = require("../Position");
 
-module.exports = class PositionService {
+module.exports = class PositionCreator {
   constructor(repository) {
     this.repository = repository;
   }
 
-  async create(entryTactic, exitTactic) {
+  async create(entryTacticName, entryTacticParameters, exitTacticName, exitTacticParameters) {
     const id = generateUuid();
-    const position = new Position(id, entryTactic, exitTactic);
+    const position = new Position(id, entryTacticName, entryTacticParameters, exitTacticName, exitTacticParameters);
 
     await this.repository.add(position);
 

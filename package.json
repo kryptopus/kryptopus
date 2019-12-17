@@ -47,12 +47,16 @@
     "eslint-watch": "^4.0.2",
     "husky": "^1.3.1",
     "jest": "^24.9.0",
-    "lint-staged": "^8.2.1"
+    "lint-staged": "^8.2.1",
+    "tern-lint": "^0.6.0"
   },
   "eslintConfig": {
     "extends": [
       "plugin:solfegejs/recommended"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": "off"
+    }
   },
   "husky": {
     "hooks": {
