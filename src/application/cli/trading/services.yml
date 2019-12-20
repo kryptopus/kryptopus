@@ -1,35 +1,40 @@
 services:
   display_open_positions:
-    class: "application/cli/trading/DisplayOpenPositions.command"
+    class: "%__dirname%/DisplayOpenPositions.command"
     arguments:
       - "@trading_position_repository"
     tags:
       - { name: "solfege.console.command" }
 
+  start_position_checker:
+    class: "%__dirname%/StartTradingAutomation.command"
+    tags:
+      - { name: "solfege.console.command" }
+
   start_trading_automation:
-    class: "application/cli/trading/StartTradingAutomation.command"
+    class: "%__dirname%/StartTradingAutomation.command"
     tags:
       - { name: "solfege.console.command" }
 
   stop_trading_automation:
-    class: "application/cli/trading/StopTradingAutomation.command"
+    class: "%__dirname%/StopTradingAutomation.command"
     tags:
       - { name: "solfege.console.command" }
 
   display_trading_automation_status:
-    class: "application/cli/trading/DisplayTradingAutomationStatus.command"
+    class: "%__dirname%/DisplayTradingAutomationStatus.command"
     tags:
       - { name: "solfege.console.command" }
 
   trading_automation_daemon:
-    class: "application/cli/trading/Daemon.command"
+    class: "%__dirname%/Daemon.command"
     arguments:
       - "%trading.strategies%"
     tags:
       - { name: "solfege.console.command" }
 
   create_trade_position:
-    class: "application/cli/trading/CreatePosition.command"
+    class: "%__dirname%/CreatePosition.command"
     arguments:
       - "@exchange_builder"
       - "@trading_service_registry"
@@ -37,7 +42,7 @@ services:
       - { name: "solfege.console.command" }
 
   backtest_strategy_command:
-    class: "application/cli/trading/BacktestStrategy.command"
+    class: "%__dirname%/BacktestStrategy.command"
     arguments:
       - "@trading_service_registry"
       - "@trading_backtest_order_resolver"
