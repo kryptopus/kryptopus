@@ -7,27 +7,32 @@ services:
       - { name: "solfege.console.command" }
 
   start_position_checker:
-    class: "%__dirname%/StartTradingAutomation.command"
+    class: "%__dirname%/StartPositionChecker.command"
     tags:
       - { name: "solfege.console.command" }
 
-  start_trading_automation:
-    class: "%__dirname%/StartTradingAutomation.command"
+  stop_position_checker:
+    class: "%__dirname%/StopPositionChecker.command"
     tags:
       - { name: "solfege.console.command" }
 
-  stop_trading_automation:
-    class: "%__dirname%/StopTradingAutomation.command"
+  start_trading_strategies:
+    class: "%__dirname%/StartStrategies.command"
     tags:
       - { name: "solfege.console.command" }
 
-  display_trading_automation_status:
-    class: "%__dirname%/DisplayTradingAutomationStatus.command"
+  stop_trading_strategies:
+    class: "%__dirname%/StopStrategies.command"
     tags:
       - { name: "solfege.console.command" }
 
-  trading_automation_daemon:
-    class: "%__dirname%/Daemon.command"
+  display_trading_strategies_status:
+    class: "%__dirname%/DisplayStrategiesStatus.command"
+    tags:
+      - { name: "solfege.console.command" }
+
+  trading_strategies_daemon:
+    class: "%__dirname%/StrategiesDaemon.command"
     arguments:
       - "%trading.strategies%"
     tags:

@@ -4,14 +4,14 @@ const AbstractCommand = require("@solfege/cli/AbstractCommand");
 const convertIntervalToMilliseconds = require("../../../domain/util/convertIntervalToMilliseconds");
 const StrategyEnvironment = require("../../../domain/trading/StrategyEnvironment");
 
-module.exports = class Daemon extends AbstractCommand {
+module.exports = class StrategiesDaemon extends AbstractCommand {
   constructor(strategiesConfig) {
     super();
 
     this.strategiesConfig = strategiesConfig;
 
-    this.setName("trading:automation:daemon");
-    this.setDescription("Trading automation daemon");
+    this.setName("trading:strategies:daemon");
+    this.setDescription("Trading strategies daemon");
   }
 
   async execute() {
