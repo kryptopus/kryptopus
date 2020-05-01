@@ -55,7 +55,8 @@
       "plugin:solfegejs/recommended"
     ],
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "no-constant-condition": "off"
     }
   },
   "husky": {

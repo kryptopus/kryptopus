@@ -16,6 +16,13 @@ services:
     tags:
       - { name: "solfege.console.command" }
 
+  position_checker_daemon:
+    class: "%__dirname%/PositionCheckerDaemon.command"
+    arguments:
+      - "@trading_position_repository"
+    tags:
+      - { name: "solfege.console.command" }
+
   start_trading_strategies:
     class: "%__dirname%/StartStrategies.command"
     tags:
